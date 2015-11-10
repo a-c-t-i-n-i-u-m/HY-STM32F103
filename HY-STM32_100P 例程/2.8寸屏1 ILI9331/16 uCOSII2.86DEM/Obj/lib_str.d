@@ -1,0 +1,11 @@
+..\Obj\lib_str.o: ..\uC-LIB\lib_str.c
+..\Obj\lib_str.o: ..\uC-LIB\..\uC-LIB\lib_str.h
+..\Obj\lib_str.o: ..\uC-LIB\..\uC-LIB\..\uC-CPU\ARM-Cortex-M3\cpu.h
+..\Obj\lib_str.o: ..\uC-LIB\..\uC-LIB\..\uC-CPU\ARM-Cortex-M3\..\..\uC-CPU\cpu_def.h
+..\Obj\lib_str.o: ..\uC-LIB\..\uC-LIB\..\uC-LIB\lib_def.h
+..\Obj\lib_str.o: ..\uC-LIB\..\uC-LIB\..\APP\app_cfg.h
+..\Obj\lib_str.o: D:\Keil\ARM\RV31\INC\stdlib.h
+..\Obj\lib_str.o: D:\Keil\ARM\RV31\INC\ctype.h
+..\Obj\lib_str.o: D:\Keil\ARM\RV31\INC\errno.h
+..\Obj\lib_str.o: D:\Keil\ARM\RV31\INC\limits.h
+..\Obj\lib_str.o: D:\Keil\ARM\RV31\INC\stdio.h

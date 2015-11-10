@@ -1,0 +1,17 @@
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jdcolor.c
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jinclude.h
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jconfig.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\jdcolor.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\jdcolor.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\jdcolor.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\jdcolor.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\jdcolor.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jpeglib.h
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jmorecfg.h
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jpegint.h
+.\Obj\jdcolor.o: Source\uCGUI\JPEG\jerror.h

@@ -1,0 +1,17 @@
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jdapistd.c
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jinclude.h
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jconfig.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\jdapistd.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\jdapistd.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\jdapistd.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\jdapistd.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\jdapistd.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jpeglib.h
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jmorecfg.h
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jpegint.h
+.\Obj\jdapistd.o: Source\uCGUI\JPEG\jerror.h

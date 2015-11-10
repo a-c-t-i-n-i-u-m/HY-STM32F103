@@ -1,0 +1,11 @@
+.\Obj\stm32f10x_fsmc.o: FWlib\SRC\stm32f10x_fsmc.c
+.\Obj\stm32f10x_fsmc.o: .\FWlib\inc\stm32f10x_fsmc.h
+.\Obj\stm32f10x_fsmc.o: .\user\stm32f10x.h
+.\Obj\stm32f10x_fsmc.o: .\user\core_cm3.h
+.\Obj\stm32f10x_fsmc.o: D:\Keil\ARM\RV31\INC\stdint.h
+.\Obj\stm32f10x_fsmc.o: .\user\system_stm32f10x.h
+.\Obj\stm32f10x_fsmc.o: .\user\stm32f10x_conf.h
+.\Obj\stm32f10x_fsmc.o: .\FWlib\inc\stm32f10x_fsmc.h
+.\Obj\stm32f10x_fsmc.o: .\FWlib\inc\stm32f10x_gpio.h
+.\Obj\stm32f10x_fsmc.o: .\user\stm32f10x.h
+.\Obj\stm32f10x_fsmc.o: .\FWlib\inc\stm32f10x_rcc.h

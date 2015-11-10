@@ -1,0 +1,13 @@
+.\Obj\guitime.o: Source\uCGUI\Core\GUITime.c
+.\Obj\guitime.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUI.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guitime.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUIType.h
+.\Obj\guitime.o: Source\uCGUI\Core\LCD.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\guitime.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\guitime.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\guitime.o: .\Source\uCGUI\WM\WM_GUI.h

@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\obj\main.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_rtc.o" ".\obj\stm32f10x_usart.o" ".\obj\stm32f10x_bkp.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_pwr.o" --library_type=microlib --strict --scatter ".\Obj\release0.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\release0.map" -o ".\Obj\release0.axf"

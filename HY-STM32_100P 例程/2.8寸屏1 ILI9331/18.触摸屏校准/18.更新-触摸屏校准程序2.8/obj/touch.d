@@ -1,0 +1,17 @@
+.\obj\touch.o: user\touch.c
+.\obj\touch.o: .\CM3\stm32f10x.h
+.\obj\touch.o: .\CM3\core_cm3.h
+.\obj\touch.o: D:\Keil\ARM\RV31\INC\stdint.h
+.\obj\touch.o: .\CM3\system_stm32f10x.h
+.\obj\touch.o: .\FWlib\inc\stm32f10x_conf.h
+.\obj\touch.o: .\FWlib\inc\stm32f10x_gpio.h
+.\obj\touch.o: .\CM3\stm32f10x.h
+.\obj\touch.o: .\FWlib\inc\stm32f10x_rcc.h
+.\obj\touch.o: user\sys.h
+.\obj\touch.o: user\delay.h
+.\obj\touch.o: user\tftlcd.h
+.\obj\touch.o: user\touch.h
+.\obj\touch.o: user\platform_config.h
+.\obj\touch.o: .\FWlib\inc\stm32f10x_exti.h
+.\obj\touch.o: user\fsmc_sram.h
+.\obj\touch.o: .\FWlib\inc\misc.h

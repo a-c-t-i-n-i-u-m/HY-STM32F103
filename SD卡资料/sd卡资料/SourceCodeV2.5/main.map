@@ -1,0 +1,555 @@
+Archive member included because of file (symbol)
+
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_mulsi3.o)
+                              fat.o (__mulsi3)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_udivmodsi4.o)
+                              fat.o (__udivmodsi4)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                              main.o (fdevopen)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                              main.o (printf)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                              main.o (putchar)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                              main.o (puts)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strcasecmp.o)
+                              fat.o (strcasecmp)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o) (vfprintf)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o) (calloc)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o) (fputc)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o) (malloc)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o) (memset)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strlen_P)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen)
+H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
+
+Allocating common symbols
+Common symbol       size              file
+
+volume_boot_record_addr
+                    0x2               fat.o
+__brkval            0x2               H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+fat_offset          0x2               fat.o
+cluster_offset      0x2               fat.o
+cluster_size        0x1               fat.o
+__flp               0x2               H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__iob               0x6               H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+LOAD main.o
+LOAD mmc.o
+LOAD fat.o
+LOAD H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libm.a
+LOAD H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a
+LOAD H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a
+LOAD H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x1716
+ *(.vectors)
+ .vectors       0x00000000       0x54 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+                0x00000054                __ctors_start = .
+ *(.ctors)
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
+ *(.dtors)
+                0x00000054                __dtors_end = .
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000054                . = ALIGN (0x2)
+ *(.init0)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000054        0xc H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init3)
+ *(.init4)
+ .init4         0x00000060       0x16 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
+ *(.init5)
+ *(.init6)
+ *(.init7)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000086        0x4 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+ *(.text)
+ .text          0x0000008a        0x4 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+                0x0000008a                __vector_1
+                0x0000008a                __vector_12
+                0x0000008a                __bad_interrupt
+                0x0000008a                __vector_6
+                0x0000008a                __vector_3
+                0x0000008a                __vector_11
+                0x0000008a                __vector_13
+                0x0000008a                __vector_17
+                0x0000008a                __vector_19
+                0x0000008a                __vector_7
+                0x0000008a                __vector_5
+                0x0000008a                __vector_4
+                0x0000008a                __vector_9
+                0x0000008a                __vector_2
+                0x0000008a                __vector_15
+                0x0000008a                __vector_8
+                0x0000008a                __vector_14
+                0x0000008a                __vector_10
+                0x0000008a                __vector_16
+                0x0000008a                __vector_18
+                0x0000008a                __vector_20
+ .text          0x0000008e      0x1ea main.o
+                0x0000008e                IOInit
+                0x000000b4                main
+                0x00000098                uart_putchar
+ .text          0x00000278      0x3c2 mmc.o
+                0x000004ec                mmc_read_sector
+                0x000005e2                mmc_read_csd
+                0x00000278                mmc_write_byte
+                0x000002d2                mmc_init
+                0x0000058a                mmc_read_cid
+                0x00000484                mmc_read_block
+                0x0000028e                mmc_write_command
+                0x00000280                mmc_read_byte
+                0x0000038c                mmc_write_sector
+ .text          0x0000063a      0x5f6 fat.o
+                0x0000063a                fat_addr
+                0x0000079c                fat_read_dir_ent
+                0x000006d8                fat_load
+                0x00000688                fat_root_dir_addr
+                0x00000908                fat_cluster_data_store
+                0x00000ba2                fat_search_file
+                0x0000099e                fat_read_file
+                0x00000a92                fat_write_file
+ .text          0x00000c30       0x92 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                0x00000c30                fdevopen
+ .text          0x00000cc2       0x2a H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                0x00000cc2                printf
+ .text          0x00000cec        0xe H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                0x00000cec                putchar
+ .text          0x00000cfa       0x70 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                0x00000cfa                puts
+ .text          0x00000d6a       0x24 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strcasecmp.o)
+                0x00000d6a                strcasecmp
+ .text          0x00000d8e      0x5fa H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00000d8e                vfprintf
+ .text          0x00001388       0x38 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+                0x00001388                calloc
+ .text          0x000013c0       0x66 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x000013c0                fputc
+ .text          0x00001426      0x222 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00001426                malloc
+                0x00001584                free
+ .text          0x00001648        0xe H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00001648                memset
+ .text          0x00001656       0x12 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                0x00001656                strlen_P
+ .text          0x00001668       0x16 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00001668                strnlen
+ .text          0x0000167e       0x16 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x0000167e                strnlen_P
+                0x00001694                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00001694       0x3e H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_mulsi3.o)
+                0x00001694                __mulsi3
+ .text.libgcc   0x000016d2       0x44 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000016d2                __udivmodsi4
+                0x00001716                . = ALIGN (0x2)
+ *(.fini9)
+ *(.fini8)
+ *(.fini7)
+ *(.fini6)
+ *(.fini5)
+ *(.fini4)
+ *(.fini3)
+ *(.fini2)
+ *(.fini1)
+ *(.fini0)
+                0x00001716                _etext = .
+
+.data           0x00800060       0xd4 load address 0x00001716
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060       0xb0 main.o
+ .data          0x00800110       0x1e mmc.o
+ .data          0x0080012e        0x6 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x00800130                __malloc_heap_start
+                0x0080012e                __malloc_heap_end
+                0x00800132                __malloc_margin
+ *(.gnu.linkonce.d*)
+                0x00800134                . = ALIGN (0x2)
+                0x00800134                _edata = .
+                0x00800134                PROVIDE (__data_end, .)
+
+.bss            0x00800134       0x11
+                0x00800134                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(COMMON)
+ COMMON         0x00800134        0x7 fat.o
+                                  0x0 (size before relaxing)
+                0x00800134                volume_boot_record_addr
+                0x00800136                fat_offset
+                0x00800138                cluster_offset
+                0x0080013a                cluster_size
+ COMMON         0x0080013b        0x6 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                                  0x0 (size before relaxing)
+                0x0080013b                __iob
+ COMMON         0x00800141        0x4 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                  0x0 (size before relaxing)
+                0x00800141                __brkval
+                0x00800143                __flp
+                0x00800145                PROVIDE (__bss_end, .)
+                0x00001716                __data_load_start = LOADADDR (.data)
+                0x000017ea                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800145        0x0
+                0x00800145                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800145                PROVIDE (__noinit_end, .)
+                0x00800145                _end = .
+                0x00800145                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x3c
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x14 main.o
+ .debug_aranges
+                0x00000014       0x14 mmc.o
+ .debug_aranges
+                0x00000028       0x14 fat.o
+
+.debug_pubnames
+                0x00000000      0x1e9
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x37 main.o
+ .debug_pubnames
+                0x00000037       0xb8 mmc.o
+ .debug_pubnames
+                0x000000ef       0xfa fat.o
+
+.debug_info     0x00000000      0xd3a
+ *(.debug_info)
+ .debug_info    0x00000000      0x16e main.o
+ .debug_info    0x0000016e      0x54a mmc.o
+ .debug_info    0x000006b8      0x682 fat.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x3b2
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xa9 main.o
+ .debug_abbrev  0x000000a9      0x192 mmc.o
+ .debug_abbrev  0x0000023b      0x177 fat.o
+
+.debug_line     0x00000000      0x8d4
+ *(.debug_line)
+ .debug_line    0x00000000      0x1f7 main.o
+ .debug_line    0x000001f7      0x400 mmc.o
+ .debug_line    0x000005f7      0x2dd fat.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x00000000      0x422
+ *(.debug_str)
+ .debug_str     0x00000000       0xa4 main.o
+                                 0xe9 (size before relaxing)
+ .debug_str     0x000000a4       0x9b mmc.o
+                                0x149 (size before relaxing)
+ .debug_str     0x0000013f      0x2e3 fat.o
+                                0x3bd (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+
+.debug_ranges   0x00001716       0x18
+ .debug_ranges  0x00001716       0x18 fat.o
+
+Cross Reference Table
+
+Symbol                                            File
+IOInit                                            main.o
+__bad_interrupt                                   H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__brkval                                          H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__bss_end                                         H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+__data_start                                      H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_clear_bss.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                                                  fat.o
+                                                  mmc.o
+                                                  main.o
+__do_copy_data                                    H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_copy_data.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                                                  fat.o
+                                                  mmc.o
+                                                  main.o
+__flp                                             H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__heap_end                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__heap_start                                      H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__init                                            H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__iob                                             H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+__malloc_heap_end                                 H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__malloc_heap_start                               H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__malloc_margin                                   H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+__mulsi3                                          H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_mulsi3.o)
+                                                  fat.o
+__stack                                           H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+                                                  main.o
+__udivmodsi4                                      H:/WinAVR/bin/../lib/gcc/avr/3.4.3/avr5\libgcc.a(_udivmodsi4.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                                                  fat.o
+__vector_1                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_10                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_11                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_12                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_13                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_14                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_15                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_16                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_17                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_18                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_19                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_2                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_20                                       H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_3                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_4                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_5                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_6                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_7                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_8                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_9                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vector_default                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+__vectors                                         H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+calloc                                            H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+cluster_offset                                    fat.o
+cluster_size                                      fat.o
+fat_addr                                          fat.o
+fat_cluster_data_store                            fat.o
+                                                  main.o
+fat_load                                          fat.o
+fat_offset                                        fat.o
+fat_read_dir_ent                                  fat.o
+                                                  main.o
+fat_read_file                                     fat.o
+                                                  main.o
+fat_root_dir_addr                                 fat.o
+fat_search_file                                   fat.o
+                                                  main.o
+fat_write_file                                    fat.o
+fdevopen                                          H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fdevopen.o)
+                                                  main.o
+fputc                                             H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+free                                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+main                                              main.o
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5/crtm32.o
+malloc                                            H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(malloc.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+memset                                            H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(calloc.o)
+mmc_init                                          mmc.o
+                                                  main.o
+mmc_read_block                                    mmc.o
+mmc_read_byte                                     mmc.o
+mmc_read_cid                                      mmc.o
+mmc_read_csd                                      mmc.o
+                                                  main.o
+mmc_read_sector                                   mmc.o
+                                                  fat.o
+mmc_write_byte                                    mmc.o
+mmc_write_command                                 mmc.o
+mmc_write_sector                                  mmc.o
+                                                  fat.o
+printf                                            H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+                                                  main.o
+putchar                                           H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(putchar.o)
+                                                  main.o
+puts                                              H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(puts.o)
+                                                  main.o
+strcasecmp                                        H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strcasecmp.o)
+                                                  fat.o
+strlen_P                                          H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strlen_P.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+strnlen                                           H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+strnlen_P                                         H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+uart_putchar                                      main.o
+vfprintf                                          H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                                                  H:/WinAVR/bin/../lib/gcc/avr/3.4.3/../../../../avr/lib/avr5\libc.a(printf.o)
+volume_boot_record_addr                           fat.o

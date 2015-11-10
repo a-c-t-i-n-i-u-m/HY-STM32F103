@@ -1,0 +1,13 @@
+.\Obj\guitask.o: Source\uCGUI\Core\GUITask.c
+.\Obj\guitask.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUI.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guitask.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUIType.h
+.\Obj\guitask.o: Source\uCGUI\Core\LCD.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\guitask.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\guitask.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\guitask.o: .\Source\uCGUI\WM\WM_GUI.h

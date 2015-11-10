@@ -1,0 +1,860 @@
+   1               		.file	"mmc.c"
+   2               		.arch atmega32
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	mmc_write_byte
+  20               	mmc_write_byte:
+  21               	.LFB7:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 8FB9      		out 47-0x20,r24
+  27               	.L2:
+  28               	.LM3:
+  29 0002 779B      		sbis 46-0x20,7
+  30 0004 FECF      		rjmp .L2
+  31               	/* epilogue: frame size=0 */
+  32 0006 0895      		ret
+  33               	/* epilogue end (size=1) */
+  34               	/* function mmc_write_byte size 4 (3) */
+  35               	.LFE7:
+  37               	.global	mmc_read_byte
+  39               	mmc_read_byte:
+  40               	.LFB6:
+  41               	.LM4:
+  42               	/* prologue: frame size=0 */
+  43               	/* prologue end (size=0) */
+  44               	.LM5:
+  45 0008 8FEF      		ldi r24,lo8(-1)
+  46 000a 8FB9      		out 47-0x20,r24
+  47               	.L6:
+  48               	.LM6:
+  49 000c 779B      		sbis 46-0x20,7
+  50 000e FECF      		rjmp .L6
+  51               	.LM7:
+  52 0010 8FB1      		in r24,47-0x20
+  53               	.LM8:
+  54 0012 9927      		clr r25
+  55               	/* epilogue: frame size=0 */
+  56 0014 0895      		ret
+  57               	/* epilogue end (size=1) */
+  58               	/* function mmc_read_byte size 7 (6) */
+  59               	.LFE6:
+  61               	.global	mmc_write_command
+  63               	mmc_write_command:
+  64               	.LFB5:
+  65               	.LM9:
+  66               	/* prologue: frame size=0 */
+  67               	/* prologue end (size=0) */
+  68 0016 FC01      		movw r30,r24
+  69               	.LM10:
+  70 0018 2FEF      		ldi r18,lo8(-1)
+  71               	.LM11:
+  72 001a 40E0      		ldi r20,lo8(0)
+  73 001c 50E0      		ldi r21,hi8(0)
+  74               	.LM12:
+  75 001e C39A      		sbi 56-0x20,3
+  76               	.LBB2:
+  77               	.LBB3:
+  78               	.LM13:
+  79 0020 2FB9      		out 47-0x20,r18
+  80               	.L10:
+  81               	.LM14:
+  82 0022 779B      		sbis 46-0x20,7
+  83 0024 FECF      		rjmp .L10
+  84               	.LBE3:
+  85               	.LBE2:
+  86               	.LM15:
+  87 0026 C398      		cbi 56-0x20,3
+  88               	.LBB4:
+  89               	.LM16:
+  90 0028 90E0      		ldi r25,lo8(0)
+  91               	.L21:
+  92               	.LBB5:
+  93               	.LM17:
+  94 002a 8191      		ld r24,Z+
+  95               	.LBB6:
+  96               	.LM18:
+  97 002c 8FB9      		out 47-0x20,r24
+  98               	.L17:
+  99               	.LM19:
+ 100 002e 779B      		sbis 46-0x20,7
+ 101 0030 FECF      		rjmp .L17
+ 102               	.LBE6:
+ 103               	.LBE5:
+ 104               	.LM20:
+ 105 0032 9F5F      		subi r25,lo8(-(1))
+ 106 0034 9630      		cpi r25,lo8(6)
+ 107 0036 C8F3      		brlo .L21
+ 108 0038 3FEF      		ldi r19,lo8(-1)
+ 109               	.L29:
+ 110               	.LBE4:
+ 111               	.LBB7:
+ 112               	.LBB8:
+ 113               	.LM21:
+ 114 003a 3FB9      		out 47-0x20,r19
+ 115               	.L24:
+ 116               	.LM22:
+ 117 003c 779B      		sbis 46-0x20,7
+ 118 003e FECF      		rjmp .L24
+ 119               	.LM23:
+ 120 0040 8FB1      		in r24,47-0x20
+ 121               	.LBE8:
+ 122               	.LBE7:
+ 123               	.LM24:
+ 124 0042 282F      		mov r18,r24
+ 125               	.LM25:
+ 126 0044 CA01      		movw r24,r20
+ 127 0046 4F5F      		subi r20,lo8(-(1))
+ 128 0048 5F4F      		sbci r21,hi8(-(1))
+ 129 004a 855F      		subi r24,lo8(501)
+ 130 004c 9140      		sbci r25,hi8(501)
+ 131 004e 10F4      		brsh .L23
+ 132               	.LM26:
+ 133 0050 2F3F      		cpi r18,lo8(-1)
+ 134 0052 99F3      		breq .L29
+ 135               	.L23:
+ 136               	.LM27:
+ 137 0054 822F      		mov r24,r18
+ 138 0056 9927      		clr r25
+ 139               	/* epilogue: frame size=0 */
+ 140 0058 0895      		ret
+ 141               	/* epilogue end (size=1) */
+ 142               	/* function mmc_write_command size 35 (34) */
+ 143               	.LFE5:
+ 145               		.data
+ 146               	.LC0:
+ 147 0000 40        		.byte	64
+ 148 0001 00        		.byte	0
+ 149 0002 00        		.byte	0
+ 150 0003 00        		.byte	0
+ 151 0004 00        		.byte	0
+ 152 0005 95        		.byte	-107
+ 153               		.text
+ 154               	.global	mmc_init
+ 156               	mmc_init:
+ 157               	.LFB4:
+ 158               	.LM28:
+ 159               	/* prologue: frame size=6 */
+ 160 005a 1F93      		push r17
+ 161 005c CF93      		push r28
+ 162 005e DF93      		push r29
+ 163 0060 CDB7      		in r28,__SP_L__
+ 164 0062 DEB7      		in r29,__SP_H__
+ 165 0064 2697      		sbiw r28,6
+ 166 0066 0FB6      		in __tmp_reg__,__SREG__
+ 167 0068 F894      		cli
+ 168 006a DEBF      		out __SP_H__,r29
+ 169 006c 0FBE      		out __SREG__,__tmp_reg__
+ 170 006e CDBF      		out __SP_L__,r28
+ 171               	/* prologue end (size=11) */
+ 172               	.LM29:
+ 173 0070 10E0      		ldi r17,lo8(0)
+ 174               	.LM30:
+ 175 0072 BE98      		cbi 55-0x20,6
+ 176               	.LM31:
+ 177 0074 BF9A      		sbi 55-0x20,7
+ 178               	.LM32:
+ 179 0076 BD9A      		sbi 55-0x20,5
+ 180               	.LM33:
+ 181 0078 BB9A      		sbi 55-0x20,3
+ 182               	.LM34:
+ 183 007a BC9A      		sbi 55-0x20,4
+ 184               	.LM35:
+ 185 007c C39A      		sbi 56-0x20,3
+ 186               	.LBB9:
+ 187               	.LM36:
+ 188 007e 812F      		mov r24,r17
+ 189               	.L37:
+ 190               	.LM37:
+ 191               	/* #APP */
+ 192 0080 0000      		nop
+ 193               	.LM38:
+ 194               	/* #NOAPP */
+ 195 0082 8F5F      		subi r24,lo8(-(1))
+ 196 0084 883C      		cpi r24,lo8(-56)
+ 197 0086 E0F3      		brlo .L37
+ 198               	.LBE9:
+ 199               	.LM39:
+ 200 0088 83E5      		ldi r24,lo8(83)
+ 201 008a 8DB9      		out 45-0x20,r24
+ 202               	.LM40:
+ 203 008c 1EB8      		out 46-0x20,__zero_reg__
+ 204               	.LBB10:
+ 205               	.LM41:
+ 206 008e 80E0      		ldi r24,lo8(0)
+ 207 0090 9FEF      		ldi r25,lo8(-1)
+ 208               	.L45:
+ 209               	.LBB11:
+ 210               	.LBB12:
+ 211               	.LM42:
+ 212 0092 9FB9      		out 47-0x20,r25
+ 213               	.L41:
+ 214               	.LM43:
+ 215 0094 779B      		sbis 46-0x20,7
+ 216 0096 FECF      		rjmp .L41
+ 217               	.LBE12:
+ 218               	.LBE11:
+ 219               	.LM44:
+ 220 0098 8F5F      		subi r24,lo8(-(1))
+ 221 009a 8F30      		cpi r24,lo8(15)
+ 222 009c D0F3      		brlo .L45
+ 223               	.LBE10:
+ 224               	.LM45:
+ 225 009e 86E0      		ldi r24,lo8(6)
+ 226 00a0 A0E0      		ldi r26,lo8(.LC0)
+ 227 00a2 B0E0      		ldi r27,hi8(.LC0)
+ 228 00a4 FE01      		movw r30,r28
+ 229 00a6 3196      		adiw r30,1
+ 230 00a8 0D90      		ld __tmp_reg__,X+
+ 231 00aa 0192      		st Z+,__tmp_reg__
+ 232 00ac 8A95      		dec r24
+ 233 00ae E1F7      		brne .-8
+ 234               	.LM46:
+ 235 00b0 07C0      		rjmp .L46
+ 236               	.L49:
+ 237               	.LM47:
+ 238 00b2 812F      		mov r24,r17
+ 239 00b4 1F5F      		subi r17,lo8(-(1))
+ 240 00b6 893C      		cpi r24,lo8(-55)
+ 241 00b8 18F0      		brlo .L46
+ 242               	.LM48:
+ 243 00ba 81E0      		ldi r24,lo8(1)
+ 244 00bc 90E0      		ldi r25,hi8(1)
+ 245 00be 20C0      		rjmp .L33
+ 246               	.L46:
+ 247 00c0 CE01      		movw r24,r28
+ 248 00c2 0196      		adiw r24,1
+ 249 00c4 0E94 0000 		call mmc_write_command
+ 250 00c8 8130      		cpi r24,lo8(1)
+ 251 00ca 99F7      		brne .L49
+ 252 00cc 10E0      		ldi r17,lo8(0)
+ 253               	.LM49:
+ 254 00ce 81E4      		ldi r24,lo8(65)
+ 255 00d0 8983      		std Y+1,r24
+ 256               	.LM50:
+ 257 00d2 8FEF      		ldi r24,lo8(-1)
+ 258 00d4 8E83      		std Y+6,r24
+ 259               	.LM51:
+ 260 00d6 07C0      		rjmp .L50
+ 261               	.L53:
+ 262               	.LM52:
+ 263 00d8 812F      		mov r24,r17
+ 264 00da 1F5F      		subi r17,lo8(-(1))
+ 265 00dc 8536      		cpi r24,lo8(101)
+ 266 00de 18F0      		brlo .L50
+ 267               	.LM53:
+ 268 00e0 82E0      		ldi r24,lo8(2)
+ 269 00e2 90E0      		ldi r25,hi8(2)
+ 270 00e4 0DC0      		rjmp .L33
+ 271               	.L50:
+ 272 00e6 CE01      		movw r24,r28
+ 273 00e8 0196      		adiw r24,1
+ 274 00ea 0E94 0000 		call mmc_write_command
+ 275 00ee 8823      		tst r24
+ 276 00f0 99F7      		brne .L53
+ 277               	.LM54:
+ 278 00f2 8DB1      		in r24,45-0x20
+ 279 00f4 8C7F      		andi r24,lo8(-4)
+ 280 00f6 8DB9      		out 45-0x20,r24
+ 281               	.LM55:
+ 282 00f8 709A      		sbi 46-0x20,0
+ 283               	.LM56:
+ 284 00fa C39A      		sbi 56-0x20,3
+ 285               	.LM57:
+ 286 00fc 80E0      		ldi r24,lo8(0)
+ 287 00fe 90E0      		ldi r25,hi8(0)
+ 288               	.L33:
+ 289               	/* epilogue: frame size=6 */
+ 290 0100 2696      		adiw r28,6
+ 291 0102 0FB6      		in __tmp_reg__,__SREG__
+ 292 0104 F894      		cli
+ 293 0106 DEBF      		out __SP_H__,r29
+ 294 0108 0FBE      		out __SREG__,__tmp_reg__
+ 295 010a CDBF      		out __SP_L__,r28
+ 296 010c DF91      		pop r29
+ 297 010e CF91      		pop r28
+ 298 0110 1F91      		pop r17
+ 299 0112 0895      		ret
+ 300               	/* epilogue end (size=10) */
+ 301               	/* function mmc_init size 94 (73) */
+ 302               	.LFE4:
+ 304               		.data
+ 305               	.LC1:
+ 306 0006 58        		.byte	88
+ 307 0007 00        		.byte	0
+ 308 0008 00        		.byte	0
+ 309 0009 00        		.byte	0
+ 310 000a 00        		.byte	0
+ 311 000b FF        		.byte	-1
+ 312               		.text
+ 313               	.global	mmc_write_sector
+ 315               	mmc_write_sector:
+ 316               	.LFB8:
+ 317               	.LM58:
+ 318               	/* prologue: frame size=6 */
+ 319 0114 CF92      		push r12
+ 320 0116 DF92      		push r13
+ 321 0118 EF92      		push r14
+ 322 011a FF92      		push r15
+ 323 011c 0F93      		push r16
+ 324 011e 1F93      		push r17
+ 325 0120 CF93      		push r28
+ 326 0122 DF93      		push r29
+ 327 0124 CDB7      		in r28,__SP_L__
+ 328 0126 DEB7      		in r29,__SP_H__
+ 329 0128 2697      		sbiw r28,6
+ 330 012a 0FB6      		in __tmp_reg__,__SREG__
+ 331 012c F894      		cli
+ 332 012e DEBF      		out __SP_H__,r29
+ 333 0130 0FBE      		out __SREG__,__tmp_reg__
+ 334 0132 CDBF      		out __SP_L__,r28
+ 335               	/* prologue end (size=16) */
+ 336 0134 6B01      		movw r12,r22
+ 337 0136 7C01      		movw r14,r24
+ 338 0138 8A01      		movw r16,r20
+ 339               	.LM59:
+ 340 013a BE01      		movw r22,r28
+ 341 013c 6F5F      		subi r22,lo8(-(1))
+ 342 013e 7F4F      		sbci r23,hi8(-(1))
+ 343 0140 26E0      		ldi r18,lo8(6)
+ 344 0142 40E0      		ldi r20,lo8(.LC1)
+ 345 0144 50E0      		ldi r21,hi8(.LC1)
+ 346 0146 DB01      		movw r26,r22
+ 347 0148 FA01      		movw r30,r20
+ 348 014a 0190      		ld __tmp_reg__,Z+
+ 349 014c 0D92      		st X+,__tmp_reg__
+ 350 014e 2A95      		dec r18
+ 351 0150 E1F7      		brne .-8
+ 352               	.LM60:
+ 353 0152 29E0      		ldi r18,9
+ 354 0154 CC0C      	1:	lsl r12
+ 355 0156 DD1C      		rol r13
+ 356 0158 EE1C      		rol r14
+ 357 015a FF1C      		rol r15
+ 358 015c 2A95      		dec r18
+ 359 015e D1F7      		brne 1b
+ 360               	.LM61:
+ 361 0160 2F2D      		mov r18,r15
+ 362 0162 3327      		clr r19
+ 363 0164 4427      		clr r20
+ 364 0166 5527      		clr r21
+ 365 0168 2A83      		std Y+2,r18
+ 366               	.LM62:
+ 367 016a EB82      		std Y+3,r14
+ 368               	.LM63:
+ 369 016c 80E0      		ldi r24,lo8(65280)
+ 370 016e 9FEF      		ldi r25,hi8(65280)
+ 371 0170 A0E0      		ldi r26,hlo8(65280)
+ 372 0172 B0E0      		ldi r27,hhi8(65280)
+ 373 0174 C822      		and r12,r24
+ 374 0176 D922      		and r13,r25
+ 375 0178 EA22      		and r14,r26
+ 376 017a FB22      		and r15,r27
+ 377 017c BB27      		clr r27
+ 378 017e AF2D      		mov r26,r15
+ 379 0180 9E2D      		mov r25,r14
+ 380 0182 8D2D      		mov r24,r13
+ 381 0184 8C83      		std Y+4,r24
+ 382               	.LM64:
+ 383 0186 CB01      		movw r24,r22
+ 384 0188 0E94 0000 		call mmc_write_command
+ 385               	.LM65:
+ 386 018c 8823      		tst r24
+ 387 018e 11F0      		breq .L59
+ 388               	.LM66:
+ 389 0190 9927      		clr r25
+ 390 0192 2DC0      		rjmp .L58
+ 391               	.L59:
+ 392               	.LBB13:
+ 393               	.LM67:
+ 394 0194 982F      		mov r25,r24
+ 395 0196 2FEF      		ldi r18,lo8(-1)
+ 396               	.L67:
+ 397               	.LBB14:
+ 398               	.LBB15:
+ 399               	.LM68:
+ 400 0198 2FB9      		out 47-0x20,r18
+ 401               	.L63:
+ 402               	.LM69:
+ 403 019a 779B      		sbis 46-0x20,7
+ 404 019c FECF      		rjmp .L63
+ 405               	.LM70:
+ 406 019e 8FB1      		in r24,47-0x20
+ 407               	.LBE15:
+ 408               	.LBE14:
+ 409               	.LM71:
+ 410 01a0 9F5F      		subi r25,lo8(-(1))
+ 411 01a2 9436      		cpi r25,lo8(100)
+ 412 01a4 C8F3      		brlo .L67
+ 413               	.LBE13:
+ 414               	.LBB16:
+ 415               	.LBB17:
+ 416               	.LM72:
+ 417 01a6 8EEF      		ldi r24,lo8(-2)
+ 418 01a8 8FB9      		out 47-0x20,r24
+ 419               	.L68:
+ 420               	.LM73:
+ 421 01aa 779B      		sbis 46-0x20,7
+ 422 01ac FECF      		rjmp .L68
+ 423               	.LBE17:
+ 424               	.LBE16:
+ 425               	.LBB18:
+ 426               	.LM74:
+ 427 01ae 20E0      		ldi r18,lo8(0)
+ 428 01b0 30E0      		ldi r19,hi8(0)
+ 429               	.L79:
+ 430               	.LBB19:
+ 431               	.LM75:
+ 432 01b2 D801      		movw r26,r16
+ 433 01b4 8D91      		ld r24,X+
+ 434 01b6 8D01      		movw r16,r26
+ 435               	.LBB20:
+ 436               	.LM76:
+ 437 01b8 8FB9      		out 47-0x20,r24
+ 438               	.L75:
+ 439               	.LM77:
+ 440 01ba 779B      		sbis 46-0x20,7
+ 441 01bc FECF      		rjmp .L75
+ 442               	.LBE20:
+ 443               	.LBE19:
+ 444               	.LM78:
+ 445 01be 2F5F      		subi r18,lo8(-(1))
+ 446 01c0 3F4F      		sbci r19,hi8(-(1))
+ 447 01c2 B2E0      		ldi r27,hi8(512)
+ 448 01c4 2030      		cpi r18,lo8(512)
+ 449 01c6 3B07      		cpc r19,r27
+ 450 01c8 A0F3      		brlo .L79
+ 451               	.LBE18:
+ 452               	.LBB21:
+ 453               	.LBB22:
+ 454               	.LM79:
+ 455 01ca 8FEF      		ldi r24,lo8(-1)
+ 456 01cc 8FB9      		out 47-0x20,r24
+ 457               	.L80:
+ 458               	.LM80:
+ 459 01ce 779B      		sbis 46-0x20,7
+ 460 01d0 FECF      		rjmp .L80
+ 461               	.LBE22:
+ 462               	.LBE21:
+ 463               	.LBB23:
+ 464               	.LBB24:
+ 465               	.LM81:
+ 466 01d2 8FEF      		ldi r24,lo8(-1)
+ 467 01d4 8FB9      		out 47-0x20,r24
+ 468               	.L84:
+ 469               	.LM82:
+ 470 01d6 779B      		sbis 46-0x20,7
+ 471 01d8 FECF      		rjmp .L84
+ 472 01da 9FEF      		ldi r25,lo8(-1)
+ 473               	.L88:
+ 474               	.LBE24:
+ 475               	.LBE23:
+ 476               	.LBB25:
+ 477               	.LBB26:
+ 478               	.LM83:
+ 479 01dc 9FB9      		out 47-0x20,r25
+ 480               	.L90:
+ 481               	.LM84:
+ 482 01de 779B      		sbis 46-0x20,7
+ 483 01e0 FECF      		rjmp .L90
+ 484               	.LM85:
+ 485 01e2 8FB1      		in r24,47-0x20
+ 486               	.LBE26:
+ 487               	.LBE25:
+ 488               	.LM86:
+ 489 01e4 8F3F      		cpi r24,lo8(-1)
+ 490 01e6 D1F7      		brne .L88
+ 491               	.LM87:
+ 492 01e8 C39A      		sbi 56-0x20,3
+ 493               	.LM88:
+ 494 01ea 80E0      		ldi r24,lo8(0)
+ 495 01ec 90E0      		ldi r25,hi8(0)
+ 496               	.L58:
+ 497               	/* epilogue: frame size=6 */
+ 498 01ee 2696      		adiw r28,6
+ 499 01f0 0FB6      		in __tmp_reg__,__SREG__
+ 500 01f2 F894      		cli
+ 501 01f4 DEBF      		out __SP_H__,r29
+ 502 01f6 0FBE      		out __SREG__,__tmp_reg__
+ 503 01f8 CDBF      		out __SP_L__,r28
+ 504 01fa DF91      		pop r29
+ 505 01fc CF91      		pop r28
+ 506 01fe 1F91      		pop r17
+ 507 0200 0F91      		pop r16
+ 508 0202 FF90      		pop r15
+ 509 0204 EF90      		pop r14
+ 510 0206 DF90      		pop r13
+ 511 0208 CF90      		pop r12
+ 512 020a 0895      		ret
+ 513               	/* epilogue end (size=15) */
+ 514               	/* function mmc_write_sector size 124 (93) */
+ 515               	.LFE8:
+ 517               	.global	mmc_read_block
+ 519               	mmc_read_block:
+ 520               	.LFB9:
+ 521               	.LM89:
+ 522               	/* prologue: frame size=0 */
+ 523 020c 0F93      		push r16
+ 524 020e 1F93      		push r17
+ 525 0210 CF93      		push r28
+ 526 0212 DF93      		push r29
+ 527               	/* prologue end (size=4) */
+ 528 0214 8B01      		movw r16,r22
+ 529 0216 EA01      		movw r28,r20
+ 530               	.LM90:
+ 531 0218 0E94 0000 		call mmc_write_command
+ 532 021c 8823      		tst r24
+ 533 021e 29F5      		brne .L98
+ 534 0220 9FEF      		ldi r25,lo8(-1)
+ 535               	.L100:
+ 536               	.LBB27:
+ 537               	.LBB28:
+ 538               	.LM91:
+ 539 0222 9FB9      		out 47-0x20,r25
+ 540               	.L102:
+ 541               	.LM92:
+ 542 0224 779B      		sbis 46-0x20,7
+ 543 0226 FECF      		rjmp .L102
+ 544               	.LM93:
+ 545 0228 8FB1      		in r24,47-0x20
+ 546               	.LBE28:
+ 547               	.LBE27:
+ 548               	.LM94:
+ 549 022a 8E3F      		cpi r24,lo8(-2)
+ 550 022c D1F7      		brne .L100
+ 551               	.LBB29:
+ 552               	.LM95:
+ 553 022e 20E0      		ldi r18,lo8(0)
+ 554 0230 30E0      		ldi r19,hi8(0)
+ 555 0232 2C17      		cp r18,r28
+ 556 0234 3D07      		cpc r19,r29
+ 557 0236 70F4      		brsh .L123
+ 558 0238 9FEF      		ldi r25,lo8(-1)
+ 559               	.L113:
+ 560               	.LBB30:
+ 561               	.LBB31:
+ 562               	.LM96:
+ 563 023a F801      		movw r30,r16
+ 564 023c 0F5F      		subi r16,lo8(-(1))
+ 565 023e 1F4F      		sbci r17,hi8(-(1))
+ 566               	.LM97:
+ 567 0240 9FB9      		out 47-0x20,r25
+ 568               	.L109:
+ 569               	.LM98:
+ 570 0242 779B      		sbis 46-0x20,7
+ 571 0244 FECF      		rjmp .L109
+ 572               	.LM99:
+ 573 0246 8FB1      		in r24,47-0x20
+ 574               	.LBE31:
+ 575               	.LBE30:
+ 576               	.LM100:
+ 577 0248 8083      		st Z,r24
+ 578               	.LM101:
+ 579 024a 2F5F      		subi r18,lo8(-(1))
+ 580 024c 3F4F      		sbci r19,hi8(-(1))
+ 581 024e 2C17      		cp r18,r28
+ 582 0250 3D07      		cpc r19,r29
+ 583 0252 98F3      		brlo .L113
+ 584               	.L123:
+ 585               	.LBE29:
+ 586               	.LBB32:
+ 587               	.LBB33:
+ 588               	.LM102:
+ 589 0254 8FEF      		ldi r24,lo8(-1)
+ 590 0256 8FB9      		out 47-0x20,r24
+ 591               	.L114:
+ 592               	.LM103:
+ 593 0258 779B      		sbis 46-0x20,7
+ 594 025a FECF      		rjmp .L114
+ 595               	.LM104:
+ 596 025c 8FB1      		in r24,47-0x20
+ 597               	.LBE33:
+ 598               	.LBE32:
+ 599               	.LBB34:
+ 600               	.LBB35:
+ 601               	.LM105:
+ 602 025e 8FEF      		ldi r24,lo8(-1)
+ 603 0260 8FB9      		out 47-0x20,r24
+ 604               	.L118:
+ 605               	.LM106:
+ 606 0262 779B      		sbis 46-0x20,7
+ 607 0264 FECF      		rjmp .L118
+ 608               	.LM107:
+ 609 0266 8FB1      		in r24,47-0x20
+ 610               	.LBE35:
+ 611               	.LBE34:
+ 612               	.LM108:
+ 613 0268 C39A      		sbi 56-0x20,3
+ 614               	.L98:
+ 615               	/* epilogue: frame size=0 */
+ 616 026a DF91      		pop r29
+ 617 026c CF91      		pop r28
+ 618 026e 1F91      		pop r17
+ 619 0270 0F91      		pop r16
+ 620 0272 0895      		ret
+ 621               	/* epilogue end (size=5) */
+ 622               	/* function mmc_read_block size 52 (43) */
+ 623               	.LFE9:
+ 625               		.data
+ 626               	.LC2:
+ 627 000c 51        		.byte	81
+ 628 000d 00        		.byte	0
+ 629 000e 00        		.byte	0
+ 630 000f 00        		.byte	0
+ 631 0010 00        		.byte	0
+ 632 0011 FF        		.byte	-1
+ 633               		.text
+ 634               	.global	mmc_read_sector
+ 636               	mmc_read_sector:
+ 637               	.LFB10:
+ 638               	.LM109:
+ 639               	/* prologue: frame size=6 */
+ 640 0274 CF92      		push r12
+ 641 0276 DF92      		push r13
+ 642 0278 EF92      		push r14
+ 643 027a FF92      		push r15
+ 644 027c 0F93      		push r16
+ 645 027e 1F93      		push r17
+ 646 0280 CF93      		push r28
+ 647 0282 DF93      		push r29
+ 648 0284 CDB7      		in r28,__SP_L__
+ 649 0286 DEB7      		in r29,__SP_H__
+ 650 0288 2697      		sbiw r28,6
+ 651 028a 0FB6      		in __tmp_reg__,__SREG__
+ 652 028c F894      		cli
+ 653 028e DEBF      		out __SP_H__,r29
+ 654 0290 0FBE      		out __SREG__,__tmp_reg__
+ 655 0292 CDBF      		out __SP_L__,r28
+ 656               	/* prologue end (size=16) */
+ 657 0294 6B01      		movw r12,r22
+ 658 0296 7C01      		movw r14,r24
+ 659 0298 BA01      		movw r22,r20
+ 660               	.LM110:
+ 661 029a 8E01      		movw r16,r28
+ 662 029c 0F5F      		subi r16,lo8(-(1))
+ 663 029e 1F4F      		sbci r17,hi8(-(1))
+ 664 02a0 26E0      		ldi r18,lo8(6)
+ 665 02a2 40E0      		ldi r20,lo8(.LC2)
+ 666 02a4 50E0      		ldi r21,hi8(.LC2)
+ 667 02a6 D801      		movw r26,r16
+ 668 02a8 FA01      		movw r30,r20
+ 669 02aa 0190      		ld __tmp_reg__,Z+
+ 670 02ac 0D92      		st X+,__tmp_reg__
+ 671 02ae 2A95      		dec r18
+ 672 02b0 E1F7      		brne .-8
+ 673               	.LM111:
+ 674 02b2 59E0      		ldi r21,9
+ 675 02b4 CC0C      	1:	lsl r12
+ 676 02b6 DD1C      		rol r13
+ 677 02b8 EE1C      		rol r14
+ 678 02ba FF1C      		rol r15
+ 679 02bc 5A95      		dec r21
+ 680 02be D1F7      		brne 1b
+ 681               	.LM112:
+ 682 02c0 2F2D      		mov r18,r15
+ 683 02c2 3327      		clr r19
+ 684 02c4 4427      		clr r20
+ 685 02c6 5527      		clr r21
+ 686 02c8 2A83      		std Y+2,r18
+ 687               	.LM113:
+ 688 02ca EB82      		std Y+3,r14
+ 689               	.LM114:
+ 690 02cc 80E0      		ldi r24,lo8(65280)
+ 691 02ce 9FEF      		ldi r25,hi8(65280)
+ 692 02d0 A0E0      		ldi r26,hlo8(65280)
+ 693 02d2 B0E0      		ldi r27,hhi8(65280)
+ 694 02d4 C822      		and r12,r24
+ 695 02d6 D922      		and r13,r25
+ 696 02d8 EA22      		and r14,r26
+ 697 02da FB22      		and r15,r27
+ 698 02dc BB27      		clr r27
+ 699 02de AF2D      		mov r26,r15
+ 700 02e0 9E2D      		mov r25,r14
+ 701 02e2 8D2D      		mov r24,r13
+ 702 02e4 8C83      		std Y+4,r24
+ 703               	.LM115:
+ 704 02e6 40E0      		ldi r20,lo8(512)
+ 705 02e8 52E0      		ldi r21,hi8(512)
+ 706 02ea C801      		movw r24,r16
+ 707 02ec 0E94 0000 		call mmc_read_block
+ 708               	.LM116:
+ 709 02f0 80E0      		ldi r24,lo8(0)
+ 710 02f2 90E0      		ldi r25,hi8(0)
+ 711               	/* epilogue: frame size=6 */
+ 712 02f4 2696      		adiw r28,6
+ 713 02f6 0FB6      		in __tmp_reg__,__SREG__
+ 714 02f8 F894      		cli
+ 715 02fa DEBF      		out __SP_H__,r29
+ 716 02fc 0FBE      		out __SREG__,__tmp_reg__
+ 717 02fe CDBF      		out __SP_L__,r28
+ 718 0300 DF91      		pop r29
+ 719 0302 CF91      		pop r28
+ 720 0304 1F91      		pop r17
+ 721 0306 0F91      		pop r16
+ 722 0308 FF90      		pop r15
+ 723 030a EF90      		pop r14
+ 724 030c DF90      		pop r13
+ 725 030e CF90      		pop r12
+ 726 0310 0895      		ret
+ 727               	/* epilogue end (size=15) */
+ 728               	/* function mmc_read_sector size 79 (48) */
+ 729               	.LFE10:
+ 731               		.data
+ 732               	.LC3:
+ 733 0012 4A        		.byte	74
+ 734 0013 00        		.byte	0
+ 735 0014 00        		.byte	0
+ 736 0015 00        		.byte	0
+ 737 0016 00        		.byte	0
+ 738 0017 FF        		.byte	-1
+ 739               		.text
+ 740               	.global	mmc_read_cid
+ 742               	mmc_read_cid:
+ 743               	.LFB11:
+ 744               	.LM117:
+ 745               	/* prologue: frame size=6 */
+ 746 0312 0F93      		push r16
+ 747 0314 1F93      		push r17
+ 748 0316 CF93      		push r28
+ 749 0318 DF93      		push r29
+ 750 031a CDB7      		in r28,__SP_L__
+ 751 031c DEB7      		in r29,__SP_H__
+ 752 031e 2697      		sbiw r28,6
+ 753 0320 0FB6      		in __tmp_reg__,__SREG__
+ 754 0322 F894      		cli
+ 755 0324 DEBF      		out __SP_H__,r29
+ 756 0326 0FBE      		out __SREG__,__tmp_reg__
+ 757 0328 CDBF      		out __SP_L__,r28
+ 758               	/* prologue end (size=12) */
+ 759 032a 9C01      		movw r18,r24
+ 760               	.LM118:
+ 761 032c 8E01      		movw r16,r28
+ 762 032e 0F5F      		subi r16,lo8(-(1))
+ 763 0330 1F4F      		sbci r17,hi8(-(1))
+ 764 0332 86E0      		ldi r24,lo8(6)
+ 765 0334 40E0      		ldi r20,lo8(.LC3)
+ 766 0336 50E0      		ldi r21,hi8(.LC3)
+ 767 0338 D801      		movw r26,r16
+ 768 033a FA01      		movw r30,r20
+ 769 033c 0190      		ld __tmp_reg__,Z+
+ 770 033e 0D92      		st X+,__tmp_reg__
+ 771 0340 8A95      		dec r24
+ 772 0342 E1F7      		brne .-8
+ 773               	.LM119:
+ 774 0344 40E1      		ldi r20,lo8(16)
+ 775 0346 50E0      		ldi r21,hi8(16)
+ 776 0348 B901      		movw r22,r18
+ 777 034a C801      		movw r24,r16
+ 778 034c 0E94 0000 		call mmc_read_block
+ 779               	.LM120:
+ 780 0350 80E0      		ldi r24,lo8(0)
+ 781 0352 90E0      		ldi r25,hi8(0)
+ 782               	/* epilogue: frame size=6 */
+ 783 0354 2696      		adiw r28,6
+ 784 0356 0FB6      		in __tmp_reg__,__SREG__
+ 785 0358 F894      		cli
+ 786 035a DEBF      		out __SP_H__,r29
+ 787 035c 0FBE      		out __SREG__,__tmp_reg__
+ 788 035e CDBF      		out __SP_L__,r28
+ 789 0360 DF91      		pop r29
+ 790 0362 CF91      		pop r28
+ 791 0364 1F91      		pop r17
+ 792 0366 0F91      		pop r16
+ 793 0368 0895      		ret
+ 794               	/* epilogue end (size=11) */
+ 795               	/* function mmc_read_cid size 44 (21) */
+ 796               	.LFE11:
+ 798               		.data
+ 799               	.LC4:
+ 800 0018 49        		.byte	73
+ 801 0019 00        		.byte	0
+ 802 001a 00        		.byte	0
+ 803 001b 00        		.byte	0
+ 804 001c 00        		.byte	0
+ 805 001d FF        		.byte	-1
+ 806               		.text
+ 807               	.global	mmc_read_csd
+ 809               	mmc_read_csd:
+ 810               	.LFB12:
+ 811               	.LM121:
+ 812               	/* prologue: frame size=6 */
+ 813 036a 0F93      		push r16
+ 814 036c 1F93      		push r17
+ 815 036e CF93      		push r28
+ 816 0370 DF93      		push r29
+ 817 0372 CDB7      		in r28,__SP_L__
+ 818 0374 DEB7      		in r29,__SP_H__
+ 819 0376 2697      		sbiw r28,6
+ 820 0378 0FB6      		in __tmp_reg__,__SREG__
+ 821 037a F894      		cli
+ 822 037c DEBF      		out __SP_H__,r29
+ 823 037e 0FBE      		out __SREG__,__tmp_reg__
+ 824 0380 CDBF      		out __SP_L__,r28
+ 825               	/* prologue end (size=12) */
+ 826 0382 9C01      		movw r18,r24
+ 827               	.LM122:
+ 828 0384 8E01      		movw r16,r28
+ 829 0386 0F5F      		subi r16,lo8(-(1))
+ 830 0388 1F4F      		sbci r17,hi8(-(1))
+ 831 038a 86E0      		ldi r24,lo8(6)
+ 832 038c 40E0      		ldi r20,lo8(.LC4)
+ 833 038e 50E0      		ldi r21,hi8(.LC4)
+ 834 0390 D801      		movw r26,r16
+ 835 0392 FA01      		movw r30,r20
+ 836 0394 0190      		ld __tmp_reg__,Z+
+ 837 0396 0D92      		st X+,__tmp_reg__
+ 838 0398 8A95      		dec r24
+ 839 039a E1F7      		brne .-8
+ 840               	.LM123:
+ 841 039c 40E1      		ldi r20,lo8(16)
+ 842 039e 50E0      		ldi r21,hi8(16)
+ 843 03a0 B901      		movw r22,r18
+ 844 03a2 C801      		movw r24,r16
+ 845 03a4 0E94 0000 		call mmc_read_block
+ 846               	.LM124:
+ 847 03a8 80E0      		ldi r24,lo8(0)
+ 848 03aa 90E0      		ldi r25,hi8(0)
+ 849               	/* epilogue: frame size=6 */
+ 850 03ac 2696      		adiw r28,6
+ 851 03ae 0FB6      		in __tmp_reg__,__SREG__
+ 852 03b0 F894      		cli
+ 853 03b2 DEBF      		out __SP_H__,r29
+ 854 03b4 0FBE      		out __SREG__,__tmp_reg__
+ 855 03b6 CDBF      		out __SP_L__,r28
+ 856 03b8 DF91      		pop r29
+ 857 03ba CF91      		pop r28
+ 858 03bc 1F91      		pop r17
+ 859 03be 0F91      		pop r16
+ 860 03c0 0895      		ret
+ 861               	/* epilogue end (size=11) */
+ 862               	/* function mmc_read_csd size 44 (21) */
+ 863               	.LFE12:
+ 865               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 mmc.c
+                            *ABS*:0000003f __SREG__
+                            *ABS*:0000003e __SP_H__
+                            *ABS*:0000003d __SP_L__
+                            *ABS*:00000000 __tmp_reg__
+                            *ABS*:00000001 __zero_reg__
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:20     .text:00000000 mmc_write_byte
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:39     .text:00000008 mmc_read_byte
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:63     .text:00000016 mmc_write_command
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:156    .text:0000005a mmc_init
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:315    .text:00000114 mmc_write_sector
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:519    .text:0000020c mmc_read_block
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:636    .text:00000274 mmc_read_sector
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:742    .text:00000312 mmc_read_cid
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccSWaaaa.s:809    .text:0000036a mmc_read_csd
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

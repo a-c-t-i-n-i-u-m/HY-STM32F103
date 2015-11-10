@@ -1,0 +1,90 @@
+XL
+H 2 areas B global symbols
+M main.c
+S push_gset2 Ref0000
+S _MMCRdBolck1 Ref0000
+S _MMCWrBlock1 Ref0000
+S _uart1_send Ref0000
+S _uart1_init Ref0000
+S pop_gset2 Ref0000
+S _spi_init Ref0000
+S _MMCInit Ref0000
+A text size A6 flags 0
+dbfile E:\SOUCER~1\M162MMC\main.c
+dbfunc e main 0 fV
+dbsym r i 14 i
+dbline FFFFFFFF 0
+dbline 15 0
+dbline 17 0
+dbline 18 4
+dbline 19 8
+dbline 1A C
+dbline 1B 10
+dbline 1C 16
+dbline 21 1A
+dbline 22 20
+dbline 21 2E
+dbline 21 32
+dbline 23 3A
+dbline 26 42
+dbline 27 4A
+dbline 28 50
+dbline 27 62
+dbline 27 66
+dbline 2B 70
+dbline 2C 70
+dbline 2D 72
+dbline 2A 72
+dbline FFFFFFFE 74
+dbline 0 74
+dbfunc e DelayMs 76 fV
+dbsym r count 14 i
+dbsym r temp 16 i
+dbsym r time 10 i
+dbline FFFFFFFF 7A
+dbline 35 7A
+dbline 38 7A
+dbline 3A 80
+dbline 3B 80
+dbline 3B 86
+dbline 3B 86
+dbline 3B 8A
+dbline 3C 90
+dbline 3D 90
+dbline 3E 92
+dbline 3F 92
+dbline 39 92
+dbline FFFFFFFE A0
+dbline 0 A4
+S _main Def0000
+S _DelayMs Def0076
+A bss size 200 flags 20
+dbfile E:\SOUCER~1\M162MMC\main.c
+dbsym e sector 0 A[512:512]c
+S _sector Def0000
+T 00 00 8F EF 8D BF 84 E0 8E BF 0E 94 00 00 0E 94
+R 00 00 00 00 12 0C 04 00
+T 0E 00 00 00 04 E6 10 E0 30 D0 0E 94 00 00 44 27
+R 00 00 00 00 12 02 06 00 12 0C 07 00
+T 1C 00 55 27 09 C0 80 E0 90 E0 FA 01 E8 0F F9 1F
+R 00 00 00 00 20 06 01 00 00 00 40 08 01 00 00 00
+T 2A 00 88 E8 80 83 4F 5F 5F 4F 40 30 E2 E0 5E 07
+R 00 00 00 00
+T 38 00 98 F3 0F EF 10 E0 0E 94 00 00 00 27 11 27
+R 00 00 00 00 12 0A 02 00
+T 46 00 0E 94 00 00 44 27 55 27 0B C0 80 E0
+R 00 00 00 00 12 04 01 00 20 0C 01 00 00 00
+T 52 00 90 E0 FA 01 E8 0F F9 1F 00 81 11 27 0E 94
+R 00 00 00 00 40 02 01 00 00 00
+T 60 00 00 00 4F 5F 5F 4F 40 30 E2 E0 5E 07 88 F3
+R 00 00 00 00 12 02 03 00
+T 6E 00 01 C0 00 00 FE CF 08 95
+R 00 00 00 00
+T 76 00 0E 94 00 00 47 E6 5A E0 09 C0 66 27 77 27
+R 00 00 00 00 12 04 00 00
+T 84 00 02 C0 6F 5F 7F 4F 60 17 71 07 D8 F3 00 00
+R 00 00 00 00
+T 92 00 1A 01 41 50 50 40 22 20 91 F7 33 20 81 F7
+R 00 00 00 00
+T A0 00 0E 94 00 00 08 95
+R 00 00 00 00 12 04 05 00

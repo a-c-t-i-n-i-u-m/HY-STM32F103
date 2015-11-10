@@ -1,0 +1,50 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (STM32-FD-RTC), 0x0004 // Tools: 'ARM-ADS'
+GRPOPT 1,(Source),0,0,0
+GRPOPT 2,(Startup Code),0,0,0
+GRPOPT 3,(Interrupts),0,0,0
+GRPOPT 4,(Library),0,0,0
+GRPOPT 5,(Documentation),0,0,0
+
+OPTFFF 1,1,1,0,0,0,0,0,<.\user\main.c><main.c> 
+OPTFFF 2,2,2,0,0,0,0,0,<.\startup\startup_stm32f10x_hd.s><startup_stm32f10x_hd.s> 
+OPTFFF 3,3,1,0,0,0,0,0,<.\user\stm32f10x_it.c><stm32f10x_it.c> 
+OPTFFF 4,4,1,0,0,0,0,0,<.\FWlib\SRC\misc.c><misc.c> 
+OPTFFF 4,5,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_gpio.c><stm32f10x_gpio.c> 
+OPTFFF 4,6,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_rcc.c><stm32f10x_rcc.c> 
+OPTFFF 4,7,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_rtc.c><stm32f10x_rtc.c> 
+OPTFFF 4,8,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_usart.c><stm32f10x_usart.c> 
+OPTFFF 4,9,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_bkp.c><stm32f10x_bkp.c> 
+OPTFFF 4,10,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_flash.c><stm32f10x_flash.c> 
+OPTFFF 4,11,1,0,0,0,0,0,<.\FWlib\SRC\stm32f10x_pwr.c><stm32f10x_pwr.c> 
+OPTFFF 5,12,5,0,0,0,0,0,<.\readme.txt><readme.txt> 
+
+
+TARGOPT 1, (STM32-FD-RTC)
+ ADSCLK=8000000
+  OPTTT 0,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 79,66,8,<.\List\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103VE)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103VE)
+  OPTDBG 47614,7,()()()()(.\RAM.ini)()()()()(.\STM32DBG.ini) (Segger\JL2CM3.dll)()()()
+  OPTDF 0x0
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

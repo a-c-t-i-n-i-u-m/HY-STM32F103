@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\obj\fsmc_sram.o" ".\obj\lcd_dis24.o" ".\obj\touch.o" ".\obj\stm32f10x_it.o" ".\obj\spi_flash.o" ".\obj\stm32f10x_spi.o" ".\obj\misc.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_fsmc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_usart.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" --nodebug --strict --scatter ".\obj\stm32-fd-touch.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\list\stm32-fd-touch.map" -o ".\obj\stm32-fd-touch.axf"

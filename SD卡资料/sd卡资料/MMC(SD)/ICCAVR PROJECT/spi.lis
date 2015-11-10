@@ -1,0 +1,112 @@
+                        .module spi.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile E:\SOUCER~1\M162MMC\spi.c
+ 0000                   .dbfunc e spi_init _spi_init fV
+                        .even
+ 0000           _spi_init::
+ 0000                   .dbline -1
+ 0000                   .dbline 8
+ 0000           ; /* INCLUDE参数  */
+ 0000           ; #include <iom162v.h>
+ 0000           ; 
+ 0000           ; /************************************
+ 0000           ; *          SPI初始化
+ 0000           ; ************************************/
+ 0000           ; void spi_init(void)
+ 0000           ; {
+ 0000                   .dbline 9
+ 0000           ;     DDRB|=(1<<PB4);                               /* SS端设置为输出 */
+ 0000 BC9A              sbi 0x17,4
+ 0002                   .dbline 10
+ 0002           ;     DDRB|=(1<<PB5);                               /* MOSI端口设置为输出 */
+ 0002 BD9A              sbi 0x17,5
+ 0004                   .dbline 11
+ 0004           ;     DDRB&=~(1<<PB6);                              /* MISO端口设置为输入 */
+ 0004 BE98              cbi 0x17,6
+ 0006                   .dbline 12
+ 0006           ;     DDRB|=(1<<PB7);                               /* SCK端口设置为输出 */
+ 0006 BF9A              sbi 0x17,7
+ 0008                   .dbline 13
+ 0008           ;     SPCR|=(1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0); /* SPI ENABLE,MASTER MODE,Fsoc/16 */
+ 0008 8DB1              in R24,0xd
+ 000A 8365              ori R24,83
+ 000C 8DB9              out 0xd,R24
+ 000E                   .dbline 14
+ 000E           ;       PORTB|=(1<<PB4);                              /* SS=1 */
+ 000E C49A              sbi 0x18,4
+ 0010                   .dbline -2
+ 0010           L1:
+ 0010                   .dbline 0 ; func end
+ 0010 0895              ret
+ 0012                   .dbend
+ 0012                   .dbfunc e SPIHiSPD _SPIHiSPD fV
+                        .even
+ 0012           _SPIHiSPD::
+ 0012                   .dbline -1
+ 0012                   .dbline 21
+ 0012           ; }
+ 0012           ; 
+ 0012           ; /************************************
+ 0012           ; *        SPI转入高速模式
+ 0012           ; ************************************/
+ 0012           ; void SPIHiSPD(void)
+ 0012           ; {
+ 0012                   .dbline 22
+ 0012           ;     SPCR|=(0<<SPR1)|(0<<SPR0);                    /* SPI ENABLE,MASTER MODE,Fsoc/16 */
+ 0012 2DB0              in R2,0xd
+ 0014 2DB8              out 0xd,R2
+ 0016                   .dbline 23
+ 0016           ;       SPSR|=(1<<SPI2X); 
+ 0016 709A              sbi 0xe,0
+ 0018                   .dbline -2
+ 0018           L2:
+ 0018                   .dbline 0 ; func end
+ 0018 0895              ret
+ 001A                   .dbend
+ 001A                   .dbfunc e spi_send _spi_send fc
+ 001A           ;           temp -> R20
+ 001A           ;           data -> R16
+                        .even
+ 001A           _spi_send::
+ 001A 0E940000          xcall push_gset1
+ 001E                   .dbline -1
+ 001E                   .dbline 30
+ 001E           ; }
+ 001E           ; 
+ 001E           ; /************************************
+ 001E           ; *           SPI发送数据
+ 001E           ; ************************************/
+ 001E           ; unsigned char spi_send(unsigned char data)
+ 001E           ; {
+ 001E                   .dbline 32
+ 001E           ;     unsigned char temp;
+ 001E           ;       SPDR = data;
+ 001E 0FB9              out 0xf,R16
+ 0020 01C0              xjmp L5
+ 0022           L4:
+ 0022                   .dbline 34
+ 0022                   .dbline 35
+ 0022 0000              nop
+ 0024                   .dbline 36
+ 0024           L5:
+ 0024                   .dbline 33
+ 0024           ;     while(!(SPSR & (1<<SPIF)))
+ 0024 779B              sbis 0xe,7
+ 0026 FDCF              rjmp L4
+ 0028                   .dbline 37
+ 0028           ;       {
+ 0028           ;           asm("nop");
+ 0028           ;       }
+ 0028           ;       temp = SPDR;
+ 0028 4FB1              in R20,0xf
+ 002A                   .dbline 38
+ 002A           ;       return temp;
+ 002A 042F              mov R16,R20
+ 002C                   .dbline -2
+ 002C           L3:
+ 002C 0E940000          xcall pop_gset1
+ 0030                   .dbline 0 ; func end
+ 0030 0895              ret
+ 0032                   .dbsym r temp 20 c
+ 0032                   .dbsym r data 16 c
+ 0032                   .dbend

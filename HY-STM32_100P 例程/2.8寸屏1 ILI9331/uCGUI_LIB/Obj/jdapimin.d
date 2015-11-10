@@ -1,0 +1,17 @@
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jdapimin.c
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jinclude.h
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jconfig.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\jdapimin.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\jdapimin.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\jdapimin.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\jdapimin.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\jdapimin.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jpeglib.h
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jmorecfg.h
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jpegint.h
+.\Obj\jdapimin.o: Source\uCGUI\JPEG\jerror.h

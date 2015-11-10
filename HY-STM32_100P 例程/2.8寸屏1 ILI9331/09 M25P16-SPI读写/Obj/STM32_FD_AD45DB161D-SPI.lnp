@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\spi_flash.o" ".\obj\misc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_spi.o" ".\obj\stm32f10x_usart.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\system_stm32f10x.o" ".\obj\core_cm3.o" --library_type=microlib --nodebug --strict --scatter ".\Obj\STM32_FD_AD45DB161D-SPI.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\STM32_FD_AD45DB161D-SPI.map" -o ".\Obj\STM32_FD_AD45DB161D-SPI.axf"

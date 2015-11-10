@@ -1,0 +1,13 @@
+.\Obj\guiaaline.o: Source\uCGUI\AntiAlias\GUIAALine.c
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUIDebug.h
+.\Obj\guiaaline.o: .\Source\uCGUI\Core\GUI_X.h
+.\Obj\guiaaline.o: .\Source\uCGUI\WM\WM_GUI.h
+.\Obj\guiaaline.o: D:\Keil\ARM\RV31\INC\stddef.h

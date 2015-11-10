@@ -1,0 +1,12 @@
+.\Obj\lcd_4.o: Source\uCGUI\MultiLayer\LCD_4.c
+.\Obj\lcd_4.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\LCD_Private.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Config\LCDConf.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\LCD_Protected.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\lcd_4.o: .\Source\uCGUI\Core\GUIVersion.h

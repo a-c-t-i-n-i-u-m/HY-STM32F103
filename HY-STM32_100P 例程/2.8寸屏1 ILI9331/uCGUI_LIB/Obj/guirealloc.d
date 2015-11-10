@@ -1,0 +1,14 @@
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUIRealloc.c
+.\Obj\guirealloc.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\guirealloc.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUI.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guirealloc.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUIType.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\LCD.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\guirealloc.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\guirealloc.o: .\Source\uCGUI\WM\WM_GUI.h

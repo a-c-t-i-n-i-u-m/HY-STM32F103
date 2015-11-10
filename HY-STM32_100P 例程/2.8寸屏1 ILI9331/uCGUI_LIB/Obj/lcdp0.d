@@ -1,0 +1,11 @@
+.\Obj\lcdp0.o: Source\uCGUI\ConvertMono\LCDP0.c
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\LCD_Private.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Config\LCDConf.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\LCD_Protected.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\lcdp0.o: .\Source\uCGUI\Core\GUIVersion.h

@@ -1,0 +1,213 @@
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile E:\SOUCER~1\M162MMC\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;              i -> R20,R21
+                        .even
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000                   .dbline 21
+ 0000           ; /******************************************
+ 0000           ; * 程序名称: MMC(SD)卡读写程序
+ 0000           ; * 程序功能: 主函数
+ 0000           ; * 目标硬件: AVR MCU "ATMEGA162" 16.0000MHz
+ 0000           ; * 创建日期: 2007-12
+ 0000           ; * 原创作者: XuGuoHong 
+ 0000           ; *           kk20y@yahoo.com.cn
+ 0000           ; * 修改记录: 无
+ 0000           ; ******************************************/
+ 0000           ; 
+ 0000           ; /* INCLUDE参数  */
+ 0000           ; #include <iom162v.h>
+ 0000           ; 
+ 0000           ; /* 全局变量 */
+ 0000           ; unsigned char sector[512];
+ 0000           ; 
+ 0000           ; /*******************************
+ 0000           ; *          主 函 数
+ 0000           ; *******************************/
+ 0000           ; void main(void)
+ 0000           ; {
+ 0000                   .dbline 23
+ 0000           ;       unsigned int i;
+ 0000           ;     SPL = 0XFF;                               /* 堆栈初始化 */
+ 0000 8FEF              ldi R24,255
+ 0002 8DBF              out 0x3d,R24
+ 0004                   .dbline 24
+ 0004           ;     SPH = 0X04;
+ 0004 84E0              ldi R24,4
+ 0006 8EBF              out 0x3e,R24
+ 0008                   .dbline 25
+ 0008           ;     uart1_init();
+ 0008 0E940000          xcall _uart1_init
+ 000C                   .dbline 26
+ 000C           ;     spi_init();
+ 000C 0E940000          xcall _spi_init
+ 0010                   .dbline 27
+ 0010           ;       DelayMs(100);
+ 0010 04E6              ldi R16,100
+ 0012 10E0              ldi R17,0
+ 0014 30D0              xcall _DelayMs
+ 0016                   .dbline 28
+ 0016           ;       MMCInit();
+ 0016 0E940000          xcall _MMCInit
+ 001A                   .dbline 33
+ 001A           ;     //asm("sei");             /* 系统总中断开 */
+ 001A           ; 
+ 001A           ;       
+ 001A           ;       // 测试1:将数据写入第255个扇区
+ 001A           ;       for(i=0; i<512; i++)
+ 001A 4427              clr R20
+ 001C 5527              clr R21
+ 001E 09C0              xjmp L5
+ 0020           L2:
+ 0020                   .dbline 34
+ 0020 80E0              ldi R24,<_sector
+ 0022 90E0              ldi R25,>_sector
+ 0024 FA01              movw R30,R20
+ 0026 E80F              add R30,R24
+ 0028 F91F              adc R31,R25
+ 002A 88E8              ldi R24,136
+ 002C 8083              std z+0,R24
+ 002E           L3:
+ 002E                   .dbline 33
+ 002E 4F5F              subi R20,255  ; offset = 1
+ 0030 5F4F              sbci R21,255
+ 0032           L5:
+ 0032                   .dbline 33
+ 0032 4030              cpi R20,0
+ 0034 E2E0              ldi R30,2
+ 0036 5E07              cpc R21,R30
+ 0038 98F3              brlo L2
+ 003A                   .dbline 35
+ 003A           ;          sector[i]=0X88;
+ 003A           ;       MMCWrBlock1(255);
+ 003A 0FEF              ldi R16,255
+ 003C 10E0              ldi R17,0
+ 003E 0E940000          xcall _MMCWrBlock1
+ 0042                   .dbline 38
+ 0042           ;       
+ 0042           ;       // 测试2:将第1个扇区的数据读出
+ 0042           ;       MMCRdBolck1(0);
+ 0042 0027              clr R16
+ 0044 1127              clr R17
+ 0046 0E940000          xcall _MMCRdBolck1
+ 004A                   .dbline 39
+ 004A           ;     for(i=0; i<512; i++)
+ 004A 4427              clr R20
+ 004C 5527              clr R21
+ 004E 0BC0              xjmp L9
+ 0050           L6:
+ 0050                   .dbline 40
+ 0050 80E0              ldi R24,<_sector
+ 0052 90E0              ldi R25,>_sector
+ 0054 FA01              movw R30,R20
+ 0056 E80F              add R30,R24
+ 0058 F91F              adc R31,R25
+ 005A 0081              ldd R16,z+0
+ 005C 1127              clr R17
+ 005E 0E940000          xcall _uart1_send
+ 0062           L7:
+ 0062                   .dbline 39
+ 0062 4F5F              subi R20,255  ; offset = 1
+ 0064 5F4F              sbci R21,255
+ 0066           L9:
+ 0066                   .dbline 39
+ 0066 4030              cpi R20,0
+ 0068 E2E0              ldi R30,2
+ 006A 5E07              cpc R21,R30
+ 006C 88F3              brlo L6
+ 006E 01C0              xjmp L11
+ 0070           L10:
+ 0070                   .dbline 43
+ 0070                   .dbline 44
+ 0070 0000              nop
+ 0072                   .dbline 45
+ 0072           L11:
+ 0072                   .dbline 42
+ 0072 FECF              xjmp L10
+ 0074           X0:
+ 0074                   .dbline -2
+ 0074           L1:
+ 0074                   .dbline 0 ; func end
+ 0074 0895              ret
+ 0076                   .dbsym r i 20 i
+ 0076                   .dbend
+ 0076                   .dbfunc e DelayMs _DelayMs fV
+ 0076           ;          count -> R20,R21
+ 0076           ;           temp -> R22,R23
+ 0076           ;           time -> R16,R17
+                        .even
+ 0076           _DelayMs::
+ 0076 0E940000          xcall push_gset2
+ 007A                   .dbline -1
+ 007A                   .dbline 53
+ 007A           ;           uart1_send(sector[i]);
+ 007A           ;               
+ 007A           ;       while(1)
+ 007A           ;       {
+ 007A           ;          asm("nop");
+ 007A           ;       }
+ 007A           ; }
+ 007A           ; 
+ 007A           ; /******************************************
+ 007A           ; * 名称:  DelayMs
+ 007A           ; * 描述:  软件延时函数,单位ms
+ 007A           ; ******************************************/
+ 007A           ; void DelayMs(unsigned int time)
+ 007A           ; {
+ 007A                   .dbline 56
+ 007A           ;     unsigned int temp;
+ 007A           ;       unsigned int count;
+ 007A           ;       count = 2663;
+ 007A 47E6              ldi R20,2663
+ 007C 5AE0              ldi R21,10
+ 007E 09C0              xjmp L15
+ 0080           L14:
+ 0080                   .dbline 58
+ 0080           ;       while(count--)
+ 0080           ;       {
+ 0080                   .dbline 59
+ 0080 6627              clr R22
+ 0082 7727              clr R23
+ 0084 02C0              xjmp L20
+ 0086           L17:
+ 0086                   .dbline 59
+ 0086           L18:
+ 0086                   .dbline 59
+ 0086 6F5F              subi R22,255  ; offset = 1
+ 0088 7F4F              sbci R23,255
+ 008A           L20:
+ 008A                   .dbline 59
+ 008A 6017              cp R22,R16
+ 008C 7107              cpc R23,R17
+ 008E D8F3              brlo L17
+ 0090                   .dbline 60
+ 0090                   .dbline 61
+ 0090 0000              nop
+ 0092                   .dbline 62
+ 0092                   .dbline 63
+ 0092           L15:
+ 0092                   .dbline 57
+ 0092 1A01              movw R2,R20
+ 0094 4150              subi R20,1
+ 0096 5040              sbci R21,0
+ 0098 2220              tst R2
+ 009A 91F7              brne L14
+ 009C 3320              tst R3
+ 009E 81F7              brne L14
+ 00A0           X1:
+ 00A0                   .dbline -2
+ 00A0           L13:
+ 00A0 0E940000          xcall pop_gset2
+ 00A4                   .dbline 0 ; func end
+ 00A4 0895              ret
+ 00A6                   .dbsym r count 20 i
+ 00A6                   .dbsym r temp 22 i
+ 00A6                   .dbsym r time 16 i
+ 00A6                   .dbend
+                        .area bss(ram, con, rel)
+ 0000                   .dbfile E:\SOUCER~1\M162MMC\main.c
+ 0000           _sector::
+ 0000                   .blkb 512
+ 0200                   .dbsym e sector _sector A[512:512]c

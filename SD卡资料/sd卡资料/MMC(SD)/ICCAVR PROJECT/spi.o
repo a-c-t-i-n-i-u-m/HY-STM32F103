@@ -1,0 +1,52 @@
+XL
+H 1 areas 5 global symbols
+M spi.c
+S push_gset1 Ref0000
+S pop_gset1 Ref0000
+A text size 32 flags 0
+dbfile E:\SOUCER~1\M162MMC\spi.c
+dbfunc e spi_init 0 fV
+dbline FFFFFFFF 0
+dbline 8 0
+dbline 9 0
+dbline A 2
+dbline B 4
+dbline C 6
+dbline D 8
+dbline E E
+dbline FFFFFFFE 10
+dbline 0 10
+dbfunc e SPIHiSPD 12 fV
+dbline FFFFFFFF 12
+dbline 15 12
+dbline 16 12
+dbline 17 16
+dbline FFFFFFFE 18
+dbline 0 18
+dbfunc e spi_send 1A fc
+dbsym r temp 14 c
+dbsym r data 10 c
+dbline FFFFFFFF 1E
+dbline 1E 1E
+dbline 20 1E
+dbline 22 22
+dbline 23 22
+dbline 24 24
+dbline 21 24
+dbline 25 28
+dbline 26 2A
+dbline FFFFFFFE 2C
+dbline 0 30
+S _spi_send Def001A
+S _spi_init Def0000
+S _SPIHiSPD Def0012
+T 00 00 BC 9A BD 9A BE 98 BF 9A 8D B1 83 65 8D B9
+R 00 00 00 00
+T 0E 00 C4 9A 08 95
+R 00 00 00 00
+T 12 00 2D B0 2D B8 70 9A 08 95
+R 00 00 00 00
+T 1A 00 0E 94 00 00 0F B9 01 C0 00 00 77 9B FD CF
+R 00 00 00 00 12 04 00 00
+T 28 00 4F B1 04 2F 0E 94 00 00 08 95
+R 00 00 00 00 12 08 01 00

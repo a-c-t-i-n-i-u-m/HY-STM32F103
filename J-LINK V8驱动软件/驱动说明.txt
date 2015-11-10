@@ -1,0 +1,7 @@
+www.armjishu.com提醒您：
+
+最新的Jlink驱动请到http://www.segger.com/cms/jlink-software.html下载
+
+当前最新版本为Setup_JLinkARM_V412.zip
+
+www.armjishu.com提醒您：版主在Setup_JLinkARM_V408l.zip版本上做了大量测试，该版本稳定可靠，如果你在使用最新版本时存在问题可以尝试Setup_JLinkARM_V408l.zip版本下使用。

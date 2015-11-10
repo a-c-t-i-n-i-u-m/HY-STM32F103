@@ -1,0 +1,17 @@
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jquant1.c
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jinclude.h
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jconfig.h
+.\Obj\jquant1.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\jquant1.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\jquant1.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\jquant1.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\jquant1.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\jquant1.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\jquant1.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\jquant1.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\jquant1.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\jquant1.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jpeglib.h
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jmorecfg.h
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jpegint.h
+.\Obj\jquant1.o: Source\uCGUI\JPEG\jerror.h

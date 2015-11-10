@@ -1,0 +1,11 @@
+.\obj\spi_flash.o: user\SPI_Flash.c
+.\obj\spi_flash.o: .\CM3\stm32f10x.h
+.\obj\spi_flash.o: .\CM3\core_cm3.h
+.\obj\spi_flash.o: D:\Keil\ARM\RV31\INC\stdint.h
+.\obj\spi_flash.o: .\CM3\system_stm32f10x.h
+.\obj\spi_flash.o: .\FWlib\inc\stm32f10x_conf.h
+.\obj\spi_flash.o: .\FWlib\inc\stm32f10x_gpio.h
+.\obj\spi_flash.o: .\CM3\stm32f10x.h
+.\obj\spi_flash.o: .\FWlib\inc\stm32f10x_rcc.h
+.\obj\spi_flash.o: user\SPI_Flash.h
+.\obj\spi_flash.o: .\FWlib\inc\stm32f10x_spi.h

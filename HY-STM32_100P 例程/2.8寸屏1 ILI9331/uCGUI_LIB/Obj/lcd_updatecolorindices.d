@@ -1,0 +1,16 @@
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\LCD_UpdateColorIndices.c
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\LCD_Private.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\lcd_updatecolorindices.o: .\Source\uCGUI\Config\LCDConf.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\lcd_updatecolorindices.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\LCD.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUI.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUIType.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUI_Private.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\lcd_updatecolorindices.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\lcd_updatecolorindices.o: .\Source\uCGUI\WM\WM_GUI.h

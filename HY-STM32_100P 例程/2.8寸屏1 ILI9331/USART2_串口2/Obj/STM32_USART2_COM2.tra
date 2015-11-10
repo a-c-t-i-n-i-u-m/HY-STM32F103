@@ -1,0 +1,27 @@
+*** Creating Trace Output File '.\Obj\STM32_USART2_COM2.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\obj\main.o"'
+### List of Objects: adding '".\obj\stm32f10x_it.o"'
+### List of Objects: adding '".\obj\misc.o"'
+### List of Objects: adding '".\obj\stm32f10x_gpio.o"'
+### List of Objects: adding '".\obj\stm32f10x_rcc.o"'
+### List of Objects: adding '".\obj\stm32f10x_usart.o"'
+### List of Objects: adding '".\obj\startup_stm32f10x_hd.o"'
+### List of Objects: adding '".\obj\core_cm3.o"'
+### List of Objects: adding '".\obj\system_stm32f10x.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_usart.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" --library_type=microlib --strict --scatter ".\Obj\STM32_USART2_COM2.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\STM32_USART2_COM2.map" -o ".\Obj\STM32_USART2_COM2.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Obj\STM32_USART2_COM2.axf'
+### ADS-LD Command File: '.\Obj\STM32_USART2_COM2.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Obj\STM32_USART2_COM2.lnp', Handle=0x00000268
+### Writing '.lnp' file
+### ADS-LD Command file '.\Obj\STM32_USART2_COM2.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

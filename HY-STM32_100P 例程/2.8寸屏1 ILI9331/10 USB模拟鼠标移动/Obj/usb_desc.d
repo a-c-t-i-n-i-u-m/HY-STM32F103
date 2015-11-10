@@ -1,0 +1,15 @@
+.\Obj\usb_desc.o: user\usb_desc.c
+.\Obj\usb_desc.o: .\usb_library\inc\usb_lib.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_regs.h
+.\Obj\usb_desc.o: .\user\stm32f10x.h
+.\Obj\usb_desc.o: .\user\core_cm3.h
+.\Obj\usb_desc.o: d:\Keil\ARM\RV31\INC\stdint.h
+.\Obj\usb_desc.o: .\user\system_stm32f10x.h
+.\Obj\usb_desc.o: .\usb_library\inc\stm32f10x_conf.h
+.\Obj\usb_desc.o: .\user\stm32f10x.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_def.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_core.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_init.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_mem.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_int.h
+.\Obj\usb_desc.o: .\usb_library\inc\usb_desc.h

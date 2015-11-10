@@ -1,0 +1,60 @@
+XL
+H 2 areas 6 global symbols
+M usb.c
+S pop_lset Ref0000
+S push_lset Ref0000
+A text size 36 flags 0
+dbfile E:\SOUCER~1\M162MMC\usb.c
+dbfunc e uart1_init 0 fV
+dbline FFFFFFFF 0
+dbline 12 0
+dbline 15 0
+dbline 16 4
+dbline 18 8
+dbline 1A C
+dbline FFFFFFFE 12
+dbline 0 12
+dbfunc e uart1_send 14 fV
+dbsym r data 10 c
+dbline FFFFFFFF 14
+dbline 22 14
+dbline 25 14
+dbline 24 14
+dbline 26 18
+dbline FFFFFFFE 1A
+dbline 0 1A
+dbfunc e uart1_rev 1C fc
+dbline FFFFFFFF 1C
+dbline 2E 1C
+dbline 31 1C
+dbline 30 1C
+dbline 33 20
+dbline FFFFFFFE 22
+dbline 0 22
+dbfunc e uart1_intrev 24 fV
+dbline FFFFFFFF 28
+dbline 3C 28
+dbline 3D 28
+dbline 3E 2A
+dbline 3F 2E
+dbline FFFFFFFE 30
+dbline 0 34
+S _uart1_intrev Def0024
+S _uart1_send Def0014
+S _uart1_init Def0000
+S _uart1_rev Def001C
+A vector size 54 flags C
+T 00 00 22 24 2C BE 83 E3 80 B9 86 E8 8C BF 81 B1
+R 00 00 00 00
+T 0E 00 88 69 81 B9 08 95
+R 00 00 00 00
+T 14 00 15 9B FE CF 03 B9 08 95
+R 00 00 00 00
+T 1C 00 17 9B FE CF 03 B1 08 95
+R 00 00 00 00
+T 50 00 0C 94 12 00
+R 00 00 01 00 10 04 00 00
+T 24 00 0E 94 00 00 F8 94 03 B1 F3 DF 78 94 0E 94
+R 00 00 00 00 12 04 01 00
+T 32 00 00 00 18 95
+R 00 00 00 00 12 02 00 00

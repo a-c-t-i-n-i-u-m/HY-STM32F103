@@ -1,0 +1,992 @@
+__text_start:
+__start:
+    0044 EFCF      LDI	R28,0xFF
+    0045 E0D4      LDI	R29,4
+    0046 BFCD      OUT	0x3D,R28
+    0047 BFDE      OUT	0x3E,R29
+    0048 51C0      SUBI	R28,0x10
+    0049 40D0      SBCI	R29,0
+    004A EA0A      LDI	R16,0xAA
+    004B 8308      STD	Y+0,R16
+    004C 2400      CLR	R0
+    004D E0E0      LDI	R30,0
+    004E E0F1      LDI	R31,1
+    004F E013      LDI	R17,3
+    0050 30E0      CPI	R30,0
+    0051 07F1      CPC	R31,R17
+    0052 F011      BEQ	0x0055
+    0053 9201      ST	R0,Z+
+    0054 CFFB      RJMP	0x0050
+    0055 8300      STD	Z+0,R16
+    0056 E8E8      LDI	R30,0x88
+    0057 E0F0      LDI	R31,0
+    0058 E0A0      LDI	R26,0
+    0059 E0B1      LDI	R27,1
+    005A E010      LDI	R17,0
+    005B 38E8      CPI	R30,0x88
+    005C 07F1      CPC	R31,R17
+    005D F021      BEQ	0x0062
+    005E 95C8      LPM
+    005F 9631      ADIW	R30,1
+    0060 920D      ST	R0,X+
+    0061 CFF9      RJMP	0x005B
+    0062 D001      RCALL	_main
+_exit:
+    0063 CFFF      RJMP	_exit
+FILE: E:\SOUCER~1\M162MMC\main.c
+(0001) /******************************************
+(0002) * 程序名称: MMC(SD)卡读写程序
+(0003) * 程序功能: 主函数
+(0004) * 目标硬件: AVR MCU "ATMEGA162" 16.0000MHz
+(0005) * 创建日期: 2007-12
+(0006) * 原创作者: XuGuoHong 
+(0007) *           kk20y@yahoo.com.cn
+(0008) * 修改记录: 无
+(0009) ******************************************/
+(0010) 
+(0011) /* INCLUDE参数  */
+(0012) #include <iom162v.h>
+(0013) 
+(0014) /* 全局变量 */
+(0015) unsigned char sector[512];
+(0016) 
+(0017) /*******************************
+(0018) *          主 函 数
+(0019) *******************************/
+(0020) void main(void)
+(0021) {
+(0022) 	unsigned int i;
+(0023)     SPL = 0XFF;    				/* 堆栈初始化 */
+_main:
+  i                    --> R20
+    0064 EF8F      LDI	R24,0xFF
+    0065 BF8D      OUT	0x3D,R24
+(0024)     SPH = 0X04;
+    0066 E084      LDI	R24,4
+    0067 BF8E      OUT	0x3E,R24
+(0025)     uart1_init();
+    0068 D160      RCALL	_uart1_init
+(0026)     spi_init();
+    0069 D178      RCALL	_spi_init
+(0027) 	DelayMs(100);
+    006A E604      LDI	R16,0x64
+    006B E010      LDI	R17,0
+    006C D026      RCALL	_DelayMs
+(0028) 	MMCInit();
+    006D D06A      RCALL	_MMCInit
+(0029)     //asm("sei");             /* 系统总中断开 */
+(0030) 
+(0031) 	
+(0032) 	// 测试1:将数据写入第255个扇区
+(0033) 	for(i=0; i<512; i++)
+    006E 2744      CLR	R20
+    006F 2755      CLR	R21
+    0070 C006      RJMP	0x0077
+(0034) 	   sector[i]=0X88;
+    0071 940E02A5  CALL	0x2A5
+    0073 E888      LDI	R24,0x88
+    0074 8380      STD	Z+0,R24
+    0075 5F4F      SUBI	R20,0xFF
+    0076 4F5F      SBCI	R21,0xFF
+    0077 3040      CPI	R20,0
+    0078 E0E2      LDI	R30,2
+    0079 075E      CPC	R21,R30
+    007A F3B0      BCS	0x0071
+(0035) 	MMCWrBlock1(255);
+    007B EF0F      LDI	R16,0xFF
+    007C E010      LDI	R17,0
+    007D D0F1      RCALL	_MMCWrBlock1
+(0036) 	
+(0037) 	// 测试2:将第1个扇区的数据读出
+(0038) 	MMCRdBolck1(0);
+    007E 2700      CLR	R16
+    007F 2711      CLR	R17
+    0080 D0A1      RCALL	_MMCRdBolck1
+(0039)     for(i=0; i<512; i++)
+    0081 2744      CLR	R20
+    0082 2755      CLR	R21
+    0083 C007      RJMP	0x008B
+(0040) 	    uart1_send(sector[i]);
+    0084 940E02A5  CALL	0x2A5
+    0086 8100      LDD	R16,Z+0
+    0087 2711      CLR	R17
+    0088 D14A      RCALL	_uart1_send
+    0089 5F4F      SUBI	R20,0xFF
+    008A 4F5F      SBCI	R21,0xFF
+    008B 3040      CPI	R20,0
+    008C E0E2      LDI	R30,2
+    008D 075E      CPC	R21,R30
+    008E F3A8      BCS	0x0084
+    008F C001      RJMP	0x0091
+(0041) 		
+(0042) 	while(1)
+(0043) 	{
+(0044) 	   asm("nop");
+    0090 0000      NOP
+    0091 CFFE      RJMP	0x0090
+    0092 9508      RET
+_DelayMs:
+  count                --> R20
+  temp                 --> R22
+  time                 --> R16
+    0093 D172      RCALL	push_gset2
+(0045) 	}
+(0046) }
+(0047) 
+(0048) /******************************************
+(0049) * 名称:  DelayMs
+(0050) * 描述:  软件延时函数,单位ms
+(0051) ******************************************/
+(0052) void DelayMs(unsigned int time)
+(0053) {
+(0054)     unsigned int temp;
+(0055) 	unsigned int count;
+(0056) 	count = 2663;
+    0094 E647      LDI	R20,0x67
+    0095 E05A      LDI	R21,0xA
+    0096 C009      RJMP	0x00A0
+(0057) 	while(count--)
+(0058) 	{
+(0059) 	   for (temp=0; temp<time; temp++);
+    0097 2766      CLR	R22
+    0098 2777      CLR	R23
+    0099 C002      RJMP	0x009C
+    009A 5F6F      SUBI	R22,0xFF
+    009B 4F7F      SBCI	R23,0xFF
+    009C 1760      CP	R22,R16
+    009D 0771      CPC	R23,R17
+    009E F3D8      BCS	0x009A
+(0060) 	   {
+(0061)            asm("nop");	
+    009F 0000      NOP
+    00A0 011A      MOVW	R2,R20
+    00A1 5041      SUBI	R20,1
+    00A2 4050      SBCI	R21,0
+    00A3 2022      TST	R2
+    00A4 F791      BNE	0x0097
+    00A5 2033      TST	R3
+    00A6 F781      BNE	0x0097
+    00A7 D154      RCALL	pop_gset2
+    00A8 9508      RET
+FILE: E:\SOUCER~1\M162MMC\mmc.c
+(0001) /******************************************
+(0002) * 程序名称: MMC(SD)卡读写程序
+(0003) * 程序功能: MMC(SD)卡接口操作
+(0004) * 目标硬件: AVR MCU "ATMEGA162" 16.0000MHz
+(0005) * 创建日期: 2007-12
+(0006) * 原创作者: XuGuoHong 
+(0007) *           kk20y@yahoo.com.cn
+(0008) * 修改记录: 无
+(0009) ******************************************/
+(0010) 
+(0011) /* INCLUDE参数  */
+(0012) #include <iom162v.h>
+(0013) 
+(0014) /* 全局变量 */
+(0015) extern unsigned char sector[512];
+(0016) 
+(0017) /************************************
+(0018) *         MMC卡片选-1选中/0不选中
+(0019) ************************************/
+(0020) void MMCCS(unsigned char cs)
+(0021) {
+(0022)    if(cs==0)
+_MMCCS:
+  cs                   --> R16
+    00A9 2300      TST	R16
+    00AA F411      BNE	0x00AD
+(0023)        PORTB|=(1<<PB4);           /* SS=1 */
+    00AB 9AC4      SBI	0x18,4
+    00AC C001      RJMP	0x00AE
+(0024)    else
+(0025)        PORTB&=~(1<<PB4);          /* SS=0 */
+    00AD 98C4      CBI	0x18,4
+    00AE 9508      RET
+_MMCWrCmd:
+  k                    --> R20
+  i                    --> R22
+  temp                 --> R10
+  cmd                  --> R12
+    00AF D152      RCALL	push_gset4
+    00B0 0168      MOVW	R12,R16
+(0026) }
+(0027) 
+(0028) /*******************************
+(0029) *        MMC命令发送
+(0030) *******************************/
+(0031) unsigned char MMCWrCmd(unsigned char *cmd)
+(0032) {
+(0033)     unsigned char i=0,k=0;
+    00B1 2766      CLR	R22
+    00B2 2744      CLR	R20
+(0034) 	unsigned char temp=0XFF;
+    00B3 EF8F      LDI	R24,0xFF
+    00B4 2EA8      MOV	R10,R24
+(0035)     MMCCS(0);		   			/* 片选无效 */
+    00B5 2700      CLR	R16
+    00B6 DFF2      RCALL	_MMCCS
+(0036) 	spi_send(0XFF);				/* 发送8个时钟 */
+    00B7 EF0F      LDI	R16,0xFF
+    00B8 E010      LDI	R17,0
+    00B9 D135      RCALL	_spi_send
+(0037) 	MMCCS(1);		   			/* 片选有效 */
+    00BA E001      LDI	R16,1
+    00BB DFED      RCALL	_MMCCS
+(0038) 	asm("nop");
+    00BC 0000      NOP
+(0039) 	for(i=0; i<6; i++)
+    00BD C006      RJMP	0x00C4
+(0040) 	{
+(0041) 	    spi_send(*(cmd++));		/* 发送命令 */   
+    00BE 01F6      MOVW	R30,R12
+    00BF 9101      LD	R16,Z+
+    00C0 016F      MOVW	R12,R30
+    00C1 2711      CLR	R17
+    00C2 D12C      RCALL	_spi_send
+    00C3 9563      INC	R22
+    00C4 3066      CPI	R22,6
+    00C5 F3C0      BCS	0x00BE
+    00C6 C00B      RJMP	0x00D2
+(0042) 	}
+(0043) 	while(temp==0XFF)
+(0044) 	{
+(0045) 	    temp = spi_send(0XFF);  /* 等待回复 */
+    00C7 EF0F      LDI	R16,0xFF
+    00C8 E010      LDI	R17,0
+    00C9 D125      RCALL	_spi_send
+    00CA 2EA0      MOV	R10,R16
+(0046) 		if(k++>200)             /* 超时返回 */
+    00CB 2E24      MOV	R2,R20
+    00CC 2433      CLR	R3
+    00CD 5F4F      SUBI	R20,0xFF
+    00CE EC88      LDI	R24,0xC8
+    00CF 1582      CP	R24,R2
+    00D0 F408      BCC	0x00D2
+(0047) 		{
+(0048) 		    return temp;
+    00D1 C004      RJMP	0x00D6
+    00D2 2D8A      MOV	R24,R10
+    00D3 3F8F      CPI	R24,0xFF
+    00D4 F391      BEQ	0x00C7
+(0049) 		}
+(0050) 	}
+(0051)     return temp;
+    00D5 2F08      MOV	R16,R24
+    00D6 D127      RCALL	pop_gset4
+    00D7 9508      RET
+_MMCInit:
+  temp                 --> R22
+  timeout              --> R20
+  cmd                  --> Y+0
+  i                    --> R20
+    00D8 D12D      RCALL	push_gset2
+    00D9 9726      SBIW	R28,6
+(0052) }
+(0053) 
+(0054) 
+(0055) /*******************************
+(0056) *        MMC初始化
+(0057) *******************************/
+(0058) unsigned char MMCInit(void)
+(0059) {
+(0060)     unsigned int timeout;
+(0061) 	unsigned char i=0,temp=0;
+    00DA 2744      CLR	R20
+    00DB 2766      CLR	R22
+(0062)     unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0x95};  
+    00DC E780      LDI	R24,0x70
+    00DD 940E027C  CALL	<created procedures>
+    00DF D183      RCALL	asgncblk
+(0063) 	DelayMs(500);
+    00E0 EF04      LDI	R16,0xF4
+    00E1 E011      LDI	R17,1
+    00E2 DFB0      RCALL	_DelayMs
+(0064) 	/* 发送一定数量的时钟脉冲 */
+(0065)     for(i=0;i<0x10;i++) 
+    00E3 C004      RJMP	0x00E8
+(0066)     {
+(0067)         spi_send(0XFF);
+    00E4 EF0F      LDI	R16,0xFF
+    00E5 E010      LDI	R17,0
+    00E6 D108      RCALL	_spi_send
+    00E7 9543      INC	R20
+    00E8 3140      CPI	R20,0x10
+    00E9 F3D0      BCS	0x00E4
+(0068)     }
+(0069) 	/* 发送CMD0 */
+(0070) 	if(MMCWrCmd(cmd)!=0X01)
+    00EA 018E      MOVW	R16,R28
+    00EB DFC3      RCALL	_MMCWrCmd
+    00EC 3001      CPI	R16,1
+    00ED F011      BEQ	0x00F0
+(0071) 	   return 0;
+    00EE 2700      CLR	R16
+    00EF C015      RJMP	0x0105
+(0072) 	/* 发送CMD1 */
+(0073) 	cmd[0]=0X41;
+    00F0 E481      LDI	R24,0x41
+    00F1 8388      STD	Y+0,R24
+(0074) 	cmd[5]=0XFF;
+    00F2 EF8F      LDI	R24,0xFF
+    00F3 838D      STD	Y+5,R24
+    00F4 C00A      RJMP	0x00FF
+(0075) 	while(MMCWrCmd(cmd)!=0X00)
+(0076) 	{
+(0077) 	    if(timeout++>0XFFFE)     /* 等待初始化完成 */
+    00F5 011A      MOVW	R2,R20
+    00F6 5F4F      SUBI	R20,0xFF
+    00F7 4F5F      SBCI	R21,0xFF
+    00F8 EF8E      LDI	R24,0xFE
+    00F9 EF9F      LDI	R25,0xFF
+    00FA 1582      CP	R24,R2
+    00FB 0593      CPC	R25,R3
+    00FC F410      BCC	0x00FF
+(0078) 		    return 0;            /* 容量大的MMC卡需要用比较长时间 */
+    00FD 2700      CLR	R16
+    00FE C006      RJMP	0x0105
+    00FF 018E      MOVW	R16,R28
+    0100 DFAE      RCALL	_MMCWrCmd
+    0101 2300      TST	R16
+    0102 F791      BNE	0x00F5
+(0079) 	}
+(0080) 	SPIHiSPD();	   				 /*  提高MCU SPI速度 */
+    0103 D0E7      RCALL	_SPIHiSPD
+(0081)     return 1;
+    0104 E001      LDI	R16,1
+    0105 9626      ADIW	R28,6
+    0106 D0F5      RCALL	pop_gset2
+    0107 9508      RET
+_MMCCID:
+  cmd                  --> Y+0
+  i                    --> R20
+    0108 D0FF      RCALL	push_gset1
+    0109 9726      SBIW	R28,6
+(0082) }
+(0083) 
+(0084) /*******************************
+(0085) *        读取MMC-CID寄存器
+(0086) *******************************/
+(0087) unsigned char MMCCID(void)
+(0088) {
+(0089)      unsigned char i;
+(0090)      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+    010A E786      LDI	R24,0x76
+    010B 940E027C  CALL	<created procedures>
+    010D D155      RCALL	asgncblk
+(0091) 	 cmd[0]=0X40+10;
+    010E E48A      LDI	R24,0x4A
+    010F 8388      STD	Y+0,R24
+(0092) 	 if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD9 */
+    0110 018E      MOVW	R16,R28
+    0111 DF9D      RCALL	_MMCWrCmd
+    0112 2300      TST	R16
+    0113 F011      BEQ	0x0116
+(0093) 	   return 0;                 /* 读取失败 */
+    0114 2700      CLR	R16
+    0115 C009      RJMP	0x011F
+(0094) 	 for(i=0;i<16;i++)
+    0116 2744      CLR	R20
+    0117 C004      RJMP	0x011C
+(0095) 	    //uart1_send(spi_send(0XFF));
+(0096) 		spi_send(0XFF);
+    0118 EF0F      LDI	R16,0xFF
+    0119 E010      LDI	R17,0
+    011A D0D4      RCALL	_spi_send
+    011B 9543      INC	R20
+    011C 3140      CPI	R20,0x10
+    011D F3D0      BCS	0x0118
+(0097) 	 return 1;
+    011E E001      LDI	R16,1
+    011F 9626      ADIW	R28,6
+    0120 D0EA      RCALL	pop_gset1
+    0121 9508      RET
+_MMCRdBolck1:
+  temp                 --> Y+1
+  cmd                  --> Y+0
+  i                    --> R20
+  address              --> Y+8
+    0122 D0D6      RCALL	push_arg4
+    0123 D0E4      RCALL	push_gset1
+    0124 9726      SBIW	R28,6
+(0098) }
+(0099) 
+(0100) /*******************************
+(0101) *        读取ONE BLOCK数据
+(0102) *         address-扇区地址
+(0103) *******************************/
+(0104) unsigned char MMCRdBolck1(unsigned long address)
+(0105) {
+(0106)      unsigned int i;
+(0107) 	 unsigned char temp;
+(0108)      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+    0125 E78C      LDI	R24,0x7C
+    0126 940E027C  CALL	<created procedures>
+    0128 D13A      RCALL	asgncblk
+(0109)      cmd[0]=0X40+17;			 /* READ SINGLE BLOCK */
+    0129 E581      LDI	R24,0x51
+    012A 8388      STD	Y+0,R24
+(0110) 	 address=address<<9;         /* address*512,取512的整数倍 */
+    012B E089      LDI	R24,0x9
+    012C 940E0285  CALL	0x285
+    012E D11C      RCALL	lsl32
+    012F 01FE      MOVW	R30,R28
+    0130 8700      STD	Z+8,R16
+    0131 8711      STD	Z+9,R17
+    0132 8722      STD	Z+10,R18
+    0133 8733      STD	Z+11,R19
+(0111) 	 cmd[1]=(address>>24);
+    0134 E188      LDI	R24,0x18
+    0135 940E0285  CALL	0x285
+    0137 D11F      RCALL	lsr32
+    0138 8309      STD	Y+1,R16
+    0139 940E029F  CALL	0x29F
+(0112) 	 cmd[2]=(address>>16);
+    013B 0112      MOVW	R2,R4
+    013C 2444      CLR	R4
+    013D 2455      CLR	R5
+    013E 822A      STD	Y+2,R2
+(0113) 	 cmd[3]=(address>>8);
+    013F E088      LDI	R24,0x8
+    0140 940E0285  CALL	0x285
+    0142 D114      RCALL	lsr32
+    0143 830B      STD	Y+3,R16
+    0144 940E029F  CALL	0x29F
+(0114) 	 cmd[4]=(address>>0);
+    0146 822C      STD	Y+4,R2
+(0115) 	 if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD17 */
+    0147 018E      MOVW	R16,R28
+    0148 DF66      RCALL	_MMCWrCmd
+    0149 2300      TST	R16
+    014A F019      BEQ	0x014E
+(0116) 	     return 0;               /* 读取失败 */
+    014B 2700      CLR	R16
+    014C C01E      RJMP	0x016B
+(0117)      while(spi_send(0XFF)!=0XFE)
+(0118) 	 {
+(0119) 	     asm("nop");			 /* 等待数据接受开始，受到0XFE表示开始 */
+    014D 0000      NOP
+    014E EF0F      LDI	R16,0xFF
+    014F E010      LDI	R17,0
+    0150 D09E      RCALL	_spi_send
+    0151 3F0E      CPI	R16,0xFE
+    0152 E0E0      LDI	R30,0
+    0153 071E      CPC	R17,R30
+    0154 F7C1      BNE	0x014D
+(0120) 	 }
+(0121) 	 for(i=0;i<512;i++)          /* 读取数据 */
+    0155 2744      CLR	R20
+    0156 2755      CLR	R21
+    0157 C008      RJMP	0x0160
+(0122) 	 {
+(0123) 	     sector[i]=spi_send(0XFF);
+    0158 EF0F      LDI	R16,0xFF
+    0159 E010      LDI	R17,0
+    015A D094      RCALL	_spi_send
+    015B 940E02A5  CALL	0x2A5
+    015D 8300      STD	Z+0,R16
+    015E 5F4F      SUBI	R20,0xFF
+    015F 4F5F      SBCI	R21,0xFF
+    0160 3040      CPI	R20,0
+    0161 E0E2      LDI	R30,2
+    0162 075E      CPC	R21,R30
+    0163 F3A0      BCS	0x0158
+(0124) 	 }
+(0125) 	 spi_send(0XFF);			 /* 取走CRC字节 */
+    0164 EF0F      LDI	R16,0xFF
+    0165 E010      LDI	R17,0
+    0166 D088      RCALL	_spi_send
+(0126) 	 spi_send(0XFF);
+    0167 EF0F      LDI	R16,0xFF
+    0168 E010      LDI	R17,0
+    0169 D085      RCALL	_spi_send
+(0127) 	 return 1; 
+    016A E001      LDI	R16,1
+    016B 9626      ADIW	R28,6
+    016C D09E      RCALL	pop_gset1
+    016D 9624      ADIW	R28,4
+    016E 9508      RET
+_MMCWrBlock1:
+  temp                 --> R22
+  cmd                  --> Y+0
+  i                    --> R20
+  buffer               --> Y+14
+  address              --> Y+10
+    016F D089      RCALL	push_arg4
+    0170 D095      RCALL	push_gset2
+    0171 9726      SBIW	R28,6
+(0128) }
+(0129) 	
+(0130) /*******************************
+(0131) *        写ONE BLOCK数据
+(0132) *        address-扇区地址
+(0133) *******************************/
+(0134) unsigned char MMCWrBlock1(unsigned long address,unsigned char *buffer)
+(0135) {
+(0136)      unsigned int i;
+(0137) 	 unsigned char temp;
+(0138)      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+    0172 E882      LDI	R24,0x82
+    0173 940E027C  CALL	<created procedures>
+    0175 D0ED      RCALL	asgncblk
+(0139) 	 cmd[0]=0x40+24;              /* WRITE SINGLE BLOCK */
+    0176 E588      LDI	R24,0x58
+    0177 8388      STD	Y+0,R24
+(0140) 	 address=address<<9;          /* address*512,取512的整数倍 */
+    0178 E089      LDI	R24,0x9
+    0179 940E028F  CALL	0x28F
+    017B D0CF      RCALL	lsl32
+    017C 01FE      MOVW	R30,R28
+    017D 8702      STD	Z+10,R16
+    017E 8713      STD	Z+11,R17
+    017F 8724      STD	Z+12,R18
+    0180 8735      STD	Z+13,R19
+(0141) 	 cmd[1]=(address>>24);
+    0181 E188      LDI	R24,0x18
+    0182 940E028F  CALL	0x28F
+    0184 D0D2      RCALL	lsr32
+    0185 8309      STD	Y+1,R16
+    0186 940E0299  CALL	0x299
+(0142) 	 cmd[2]=(address>>16);
+    0188 0112      MOVW	R2,R4
+    0189 2444      CLR	R4
+    018A 2455      CLR	R5
+    018B 822A      STD	Y+2,R2
+(0143) 	 cmd[3]=(address>>8);
+    018C E088      LDI	R24,0x8
+    018D 940E028F  CALL	0x28F
+    018F D0C7      RCALL	lsr32
+    0190 830B      STD	Y+3,R16
+    0191 940E0299  CALL	0x299
+(0144) 	 cmd[4]=(address>>0);
+    0193 822C      STD	Y+4,R2
+(0145) 	 if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD24 */
+    0194 018E      MOVW	R16,R28
+    0195 DF19      RCALL	_MMCWrCmd
+    0196 2300      TST	R16
+    0197 F011      BEQ	0x019A
+(0146) 	     return 0;               /* 写入失败 */
+    0198 2700      CLR	R16
+    0199 C02B      RJMP	0x01C5
+(0147) 	 spi_send(0XFF);             /* 发送填冲字节 */
+    019A EF0F      LDI	R16,0xFF
+    019B E010      LDI	R17,0
+    019C D052      RCALL	_spi_send
+(0148) 	 spi_send(0XFE);             /* 发送数据开始标志0XFE */
+    019D EF0E      LDI	R16,0xFE
+    019E E010      LDI	R17,0
+    019F D04F      RCALL	_spi_send
+(0149) 	 for(i=0;i<512;i++)          /* 写入数据 */
+    01A0 2744      CLR	R20
+    01A1 2755      CLR	R21
+    01A2 C007      RJMP	0x01AA
+(0150) 	 {
+(0151) 	     spi_send(sector[i]);
+    01A3 940E02A5  CALL	0x2A5
+    01A5 8100      LDD	R16,Z+0
+    01A6 2711      CLR	R17
+    01A7 D047      RCALL	_spi_send
+    01A8 5F4F      SUBI	R20,0xFF
+    01A9 4F5F      SBCI	R21,0xFF
+    01AA 3040      CPI	R20,0
+    01AB E0E2      LDI	R30,2
+    01AC 075E      CPC	R21,R30
+    01AD F3A8      BCS	0x01A3
+(0152) 	 }
+(0153) 	 spi_send(0XFF);			 /* 写入CRC字节 */
+    01AE EF0F      LDI	R16,0xFF
+    01AF E010      LDI	R17,0
+    01B0 D03E      RCALL	_spi_send
+(0154) 	 spi_send(0XFF);
+    01B1 EF0F      LDI	R16,0xFF
+    01B2 E010      LDI	R17,0
+    01B3 D03B      RCALL	_spi_send
+(0155) 	 temp=spi_send(0XFF);		 /* 读取XXX0 0101字节 */
+    01B4 EF0F      LDI	R16,0xFF
+    01B5 E010      LDI	R17,0
+    01B6 D038      RCALL	_spi_send
+    01B7 2F60      MOV	R22,R16
+(0156) 	 temp=temp&0X1F;
+    01B8 716F      ANDI	R22,0x1F
+(0157) 	 if(temp!=0X05)
+    01B9 3065      CPI	R22,5
+    01BA F019      BEQ	0x01BE
+(0158) 	     return 0; 				 /* 写入失败 */
+    01BB 2700      CLR	R16
+    01BC C008      RJMP	0x01C5
+(0159) 	 while(spi_send(0XFF)==0X00)
+(0160) 	 {
+(0161) 	     asm("nop");			 /* BUSY等待 */
+    01BD 0000      NOP
+    01BE EF0F      LDI	R16,0xFF
+    01BF E010      LDI	R17,0
+    01C0 D02E      RCALL	_spi_send
+    01C1 3000      CPI	R16,0
+    01C2 0701      CPC	R16,R17
+    01C3 F3C9      BEQ	0x01BD
+(0162) 	 }
+(0163) 	 return 1;
+    01C4 E001      LDI	R16,1
+    01C5 9626      ADIW	R28,6
+    01C6 D035      RCALL	pop_gset2
+    01C7 9624      ADIW	R28,4
+    01C8 9508      RET
+FILE: E:\SOUCER~1\M162MMC\usb.c
+(0001) #include<iom162v.h>
+(0002) 
+(0003) // 函 数 原 形 说 明
+(0004) void uart1_init(void);
+(0005) void uart1_send(unsigned char);
+(0006) unsigned char uart1_rev(void);
+(0007) 
+(0008) //串口通信初始化设置
+(0009) //1. 波特率设定
+(0010) //2. 帧结构设定 
+(0011) //3. 接收和发送允许控制
+(0012) 
+(0013) //******************************************
+(0014) //*名称: uart1_init
+(0015) //*功能: 串口1初始化
+(0016) //******************************************
+(0017) void uart1_init(void)
+(0018) {
+(0019)  // Fosc频率为16.0000Mhz
+(0020)   // 波特率设定为19200bps +/-0.2%
+(0021)     UBRR1H=0x00;                                 
+_uart1_init:
+    01C9 2422      CLR	R2
+    01CA BE2C      OUT	0x3C,R2
+(0022)     UBRR1L=0x33;   
+    01CB E383      LDI	R24,0x33
+    01CC B980      OUT	0x00,R24
+(0023)  // 8位数据+无奇偶校验+1位STOP                                                             
+(0024)     UCSR1C=(1<<URSEL1)|(1<<UCSZ11)|(1<<UCSZ10);
+    01CD E886      LDI	R24,0x86
+    01CE BF8C      OUT	0x3C,R24
+(0025)  // 允许收发,接收完成后中断
+(0026)     UCSR1B|=(1<<RXCIE1)|(1<<TXEN1)|(1<<RXEN1);
+    01CF B181      IN	R24,0x01
+    01D0 6988      ORI	R24,0x98
+    01D1 B981      OUT	0x01,R24
+    01D2 9508      RET
+(0027) }
+(0028) 
+(0029) //******************************************
+(0030) //*名称: uart1_send()
+(0031) //*功能: 串口1发送数据
+(0032) //******************************************
+(0033) void uart1_send(unsigned char data)
+(0034) {
+(0035)  // 检测是否可以发送,UDRE=1寄存器为空
+(0036)     while ( !( UCSR1A & (1<<UDRE1)) )
+_uart1_send:
+  data                 --> R16
+    01D3 9B15      SBIS	0x02,5
+    01D4 CFFE      RJMP	_uart1_send
+(0037)            ;
+(0038)     UDR1=data;
+    01D5 B903      OUT	0x03,R16
+    01D6 9508      RET
+(0039) }
+(0040) 
+(0041) //******************************************
+(0042) //*名称: uart1_rev()
+(0043) //*功能: 串口0接收数据
+(0044) //******************************************
+(0045) unsigned char uart1_rev(void)
+(0046) {
+(0047)  // 检测是否接收完成
+(0048)     while ( !(UCSR1A & (1<<RXC1)) )
+_uart1_rev:
+    01D7 9B17      SBIS	0x02,7
+    01D8 CFFE      RJMP	_uart1_rev
+(0049)           ;
+(0050)  // 返回接收数据
+(0051)     return UDR1;                      
+    01D9 B103      IN	R16,0x03
+    01DA 9508      RET
+_uart1_intrev:
+    01DB D043      RCALL	push_lset
+(0052) }
+(0053) 
+(0054) //******************************************
+(0055) //*名称: uart1_intrev()
+(0056) //*功能: 串口1中断方式接收数据
+(0057) //******************************************
+(0058) #pragma interrupt_handler uart1_intrev:iv_USART1_RXC
+(0059) void uart1_intrev(void)
+(0060) {
+(0061)     asm("cli");
+    01DC 94F8      BCLR	7
+(0062) 	uart1_send(UDR1);
+    01DD B103      IN	R16,0x03
+    01DE DFF4      RCALL	_uart1_send
+(0063) 	asm("sei");
+    01DF 9478      BSET	7
+    01E0 D053      RCALL	pop_lset
+    01E1 9518      RETI
+FILE: E:\SOUCER~1\M162MMC\spi.c
+(0001) /* INCLUDE参数  */
+(0002) #include <iom162v.h>
+(0003) 
+(0004) /************************************
+(0005) *          SPI初始化
+(0006) ************************************/
+(0007) void spi_init(void)
+(0008) {
+(0009)     DDRB|=(1<<PB4);                               /* SS端设置为输出 */
+_spi_init:
+    01E2 9ABC      SBI	0x17,4
+(0010)     DDRB|=(1<<PB5);                               /* MOSI端口设置为输出 */
+    01E3 9ABD      SBI	0x17,5
+(0011)     DDRB&=~(1<<PB6);                              /* MISO端口设置为输入 */
+    01E4 98BE      CBI	0x17,6
+(0012)     DDRB|=(1<<PB7);                               /* SCK端口设置为输出 */
+    01E5 9ABF      SBI	0x17,7
+(0013)     SPCR|=(1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0); /* SPI ENABLE,MASTER MODE,Fsoc/16 */
+    01E6 B18D      IN	R24,0x0D
+    01E7 6583      ORI	R24,0x53
+    01E8 B98D      OUT	0x0D,R24
+(0014) 	PORTB|=(1<<PB4);                              /* SS=1 */
+    01E9 9AC4      SBI	0x18,4
+    01EA 9508      RET
+(0015) }
+(0016) 
+(0017) /************************************
+(0018) *        SPI转入高速模式
+(0019) ************************************/
+(0020) void SPIHiSPD(void)
+(0021) {
+(0022)     SPCR|=(0<<SPR1)|(0<<SPR0);                    /* SPI ENABLE,MASTER MODE,Fsoc/16 */
+_SPIHiSPD:
+    01EB B02D      IN	R2,0x0D
+    01EC B82D      OUT	0x0D,R2
+(0023) 	SPSR|=(1<<SPI2X); 
+    01ED 9A70      SBI	0x0E,0
+    01EE 9508      RET
+_spi_send:
+  temp                 --> R20
+  data                 --> R16
+    01EF D018      RCALL	push_gset1
+(0024) }
+(0025) 
+(0026) /************************************
+(0027) *           SPI发送数据
+(0028) ************************************/
+(0029) unsigned char spi_send(unsigned char data)
+(0030) {
+(0031)     unsigned char temp;
+(0032) 	SPDR = data;
+    01F0 B90F      OUT	0x0F,R16
+    01F1 C001      RJMP	0x01F3
+(0033)     while(!(SPSR & (1<<SPIF)))
+(0034) 	{
+(0035) 	    asm("nop");
+    01F2 0000      NOP
+    01F3 9B77      SBIS	0x0E,7
+    01F4 CFFD      RJMP	0x01F2
+(0036) 	}
+(0037) 	temp = SPDR;
+    01F5 B14F      IN	R20,0x0F
+(0038) 	return temp;
+FILE: <library>
+    01F6 2F04      MOV	R16,R20
+    01F7 D013      RCALL	pop_gset1
+    01F8 9508      RET
+push_arg4:
+    01F9 940E02AB  CALL	0x2AB
+push_arg2:
+    01FB 9508      RET
+pop_gset2:
+    01FC E0E2      LDI	R30,2
+    01FD C00E      RJMP	pop
+pop_gset4:
+    01FE E0E8      LDI	R30,0x8
+    01FF C00C      RJMP	pop
+push_gset5:
+    0200 92FA      ST	R15,-Y
+    0201 92EA      ST	R14,-Y
+push_gset4:
+    0202 92DA      ST	R13,-Y
+    0203 92CA      ST	R12,-Y
+push_gset3:
+    0204 92BA      ST	R11,-Y
+    0205 92AA      ST	R10,-Y
+push_gset2:
+    0206 937A      ST	R23,-Y
+    0207 936A      ST	R22,-Y
+push_gset1:
+    0208 935A      ST	R21,-Y
+    0209 934A      ST	R20,-Y
+    020A 9508      RET
+pop_gset1:
+    020B E0E1      LDI	R30,1
+pop:
+    020C 9149      LD	R20,Y+
+    020D 9159      LD	R21,Y+
+    020E FDE0      SBRC	R30,0
+    020F 9508      RET
+    0210 9169      LD	R22,Y+
+    0211 9179      LD	R23,Y+
+    0212 FDE1      SBRC	R30,1
+    0213 9508      RET
+    0214 90A9      LD	R10,Y+
+    0215 90B9      LD	R11,Y+
+    0216 FDE2      SBRC	R30,2
+    0217 9508      RET
+    0218 90C9      LD	R12,Y+
+    0219 90D9      LD	R13,Y+
+    021A FDE3      SBRC	R30,3
+    021B 9508      RET
+    021C 90E9      LD	R14,Y+
+    021D 90F9      LD	R15,Y+
+    021E 9508      RET
+push_lset:
+    021F 93FA      ST	R31,-Y
+    0220 93EA      ST	R30,-Y
+    0221 93BA      ST	R27,-Y
+    0222 93AA      ST	R26,-Y
+    0223 939A      ST	R25,-Y
+    0224 938A      ST	R24,-Y
+    0225 940E02AB  CALL	0x2AB
+    0227 929A      ST	R9,-Y
+    0228 928A      ST	R8,-Y
+    0229 927A      ST	R7,-Y
+    022A 926A      ST	R6,-Y
+    022B 925A      ST	R5,-Y
+    022C 924A      ST	R4,-Y
+    022D 923A      ST	R3,-Y
+    022E 922A      ST	R2,-Y
+    022F 921A      ST	R1,-Y
+    0230 920A      ST	R0,-Y
+    0231 B60F      IN	R0,0x3F
+    0232 920A      ST	R0,-Y
+    0233 9508      RET
+pop_lset:
+    0234 9009      LD	R0,Y+
+    0235 BE0F      OUT	0x3F,R0
+    0236 9009      LD	R0,Y+
+    0237 9019      LD	R1,Y+
+    0238 9029      LD	R2,Y+
+    0239 9039      LD	R3,Y+
+    023A 9049      LD	R4,Y+
+    023B 9059      LD	R5,Y+
+    023C 9069      LD	R6,Y+
+    023D 9079      LD	R7,Y+
+    023E 9089      LD	R8,Y+
+    023F 9099      LD	R9,Y+
+    0240 9109      LD	R16,Y+
+    0241 9119      LD	R17,Y+
+    0242 9129      LD	R18,Y+
+    0243 9139      LD	R19,Y+
+    0244 9189      LD	R24,Y+
+    0245 9199      LD	R25,Y+
+    0246 91A9      LD	R26,Y+
+    0247 91B9      LD	R27,Y+
+    0248 91E9      LD	R30,Y+
+    0249 91F9      LD	R31,Y+
+    024A 9508      RET
+lsl32:
+    024B 920F      PUSH	R0
+    024C 9009      LD	R0,Y+
+    024D 2000      TST	R0
+    024E F031      BEQ	0x0255
+    024F 0F00      LSL	R16
+    0250 1F11      ROL	R17
+    0251 1F22      ROL	R18
+    0252 1F33      ROL	R19
+    0253 940A      DEC	R0
+    0254 CFF8      RJMP	0x024D
+    0255 900F      POP	R0
+    0256 9508      RET
+lsr32:
+    0257 920F      PUSH	R0
+    0258 9009      LD	R0,Y+
+    0259 2000      TST	R0
+    025A F031      BEQ	0x0261
+    025B 9536      LSR	R19
+    025C 9527      ROR	R18
+    025D 9517      ROR	R17
+    025E 9507      ROR	R16
+    025F 940A      DEC	R0
+    0260 CFF8      RJMP	0x0259
+    0261 900F      POP	R0
+    0262 9508      RET
+asgncblk:
+    0263 93AA      ST	R26,-Y
+    0264 93BA      ST	R27,-Y
+    0265 93EA      ST	R30,-Y
+    0266 93FA      ST	R31,-Y
+    0267 920A      ST	R0,-Y
+    0268 81AF      LDD	R26,Y+7
+    0269 85B8      LDD	R27,Y+8
+    026A 81ED      LDD	R30,Y+5
+    026B 81FE      LDD	R31,Y+6
+    026C 3000      CPI	R16,0
+    026D 0701      CPC	R16,R17
+    026E F031      BEQ	0x0275
+    026F 95C8      LPM
+    0270 920D      ST	R0,X+
+    0271 9631      ADIW	R30,1
+    0272 5001      SUBI	R16,1
+    0273 4010      SBCI	R17,0
+    0274 CFF7      RJMP	0x026C
+    0275 9009      LD	R0,Y+
+    0276 91F9      LD	R31,Y+
+    0277 91E9      LD	R30,Y+
+    0278 91B9      LD	R27,Y+
+    0279 91A9      LD	R26,Y+
+    027A 9624      ADIW	R28,4
+    027B 9508      RET
+<created procedures>:
+    027C E090      LDI	R25,0
+    027D 01FE      MOVW	R30,R28
+    027E E006      LDI	R16,6
+    027F E010      LDI	R17,0
+    0280 93FA      ST	R31,-Y
+    0281 93EA      ST	R30,-Y
+    0282 939A      ST	R25,-Y
+    0283 938A      ST	R24,-Y
+    0284 9508      RET
+    0285 E090      LDI	R25,0
+    0286 01FE      MOVW	R30,R28
+    0287 8420      LDD	R2,Z+8
+    0288 8431      LDD	R3,Z+9
+    0289 8442      LDD	R4,Z+10
+    028A 8453      LDD	R5,Z+11
+    028B 938A      ST	R24,-Y
+    028C 0181      MOVW	R16,R2
+    028D 0192      MOVW	R18,R4
+    028E 9508      RET
+    028F E090      LDI	R25,0
+    0290 01FE      MOVW	R30,R28
+    0291 8422      LDD	R2,Z+10
+    0292 8433      LDD	R3,Z+11
+    0293 8444      LDD	R4,Z+12
+    0294 8455      LDD	R5,Z+13
+    0295 938A      ST	R24,-Y
+    0296 0181      MOVW	R16,R2
+    0297 0192      MOVW	R18,R4
+    0298 9508      RET
+    0299 01FE      MOVW	R30,R28
+    029A 8422      LDD	R2,Z+10
+    029B 8433      LDD	R3,Z+11
+    029C 8444      LDD	R4,Z+12
+    029D 8455      LDD	R5,Z+13
+    029E 9508      RET
+    029F 01FE      MOVW	R30,R28
+    02A0 8420      LDD	R2,Z+8
+    02A1 8431      LDD	R3,Z+9
+    02A2 8442      LDD	R4,Z+10
+    02A3 8453      LDD	R5,Z+11
+    02A4 9508      RET
+    02A5 E080      LDI	R24,0
+    02A6 E091      LDI	R25,1
+    02A7 01FA      MOVW	R30,R20
+    02A8 0FE8      ADD	R30,R24
+    02A9 1FF9      ADC	R31,R25
+    02AA 9508      RET
+    02AB 933A      ST	R19,-Y
+    02AC 932A      ST	R18,-Y
+    02AD 931A      ST	R17,-Y
+    02AE 930A      ST	R16,-Y
+    02AF 9508      RET

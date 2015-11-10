@@ -1,0 +1,795 @@
+                        .module mmc.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile E:\SOUCER~1\M162MMC\mmc.c
+ 0000                   .dbfunc e MMCCS _MMCCS fV
+ 0000           ;             cs -> R16
+                        .even
+ 0000           _MMCCS::
+ 0000                   .dbline -1
+ 0000                   .dbline 21
+ 0000           ; /******************************************
+ 0000           ; * 程序名称: MMC(SD)卡读写程序
+ 0000           ; * 程序功能: MMC(SD)卡接口操作
+ 0000           ; * 目标硬件: AVR MCU "ATMEGA162" 16.0000MHz
+ 0000           ; * 创建日期: 2007-12
+ 0000           ; * 原创作者: XuGuoHong 
+ 0000           ; *           kk20y@yahoo.com.cn
+ 0000           ; * 修改记录: 无
+ 0000           ; ******************************************/
+ 0000           ; 
+ 0000           ; /* INCLUDE参数  */
+ 0000           ; #include <iom162v.h>
+ 0000           ; 
+ 0000           ; /* 全局变量 */
+ 0000           ; extern unsigned char sector[512];
+ 0000           ; 
+ 0000           ; /************************************
+ 0000           ; *         MMC卡片选-1选中/0不选中
+ 0000           ; ************************************/
+ 0000           ; void MMCCS(unsigned char cs)
+ 0000           ; {
+ 0000                   .dbline 22
+ 0000           ;    if(cs==0)
+ 0000 0023              tst R16
+ 0002 11F4              brne L2
+ 0004                   .dbline 23
+ 0004           ;        PORTB|=(1<<PB4);           /* SS=1 */
+ 0004 C49A              sbi 0x18,4
+ 0006 01C0              xjmp L3
+ 0008           L2:
+ 0008                   .dbline 25
+ 0008 C498              cbi 0x18,4
+ 000A           L3:
+ 000A                   .dbline -2
+ 000A           L1:
+ 000A                   .dbline 0 ; func end
+ 000A 0895              ret
+ 000C                   .dbsym r cs 16 c
+ 000C                   .dbend
+ 000C                   .dbfunc e MMCWrCmd _MMCWrCmd fc
+ 000C           ;              k -> R20
+ 000C           ;              i -> R22
+ 000C           ;           temp -> R10
+ 000C           ;            cmd -> R12,R13
+                        .even
+ 000C           _MMCWrCmd::
+ 000C 0E940000          xcall push_gset4
+ 0010 6801              movw R12,R16
+ 0012                   .dbline -1
+ 0012                   .dbline 32
+ 0012           ;    else
+ 0012           ;        PORTB&=~(1<<PB4);          /* SS=0 */
+ 0012           ; }
+ 0012           ; 
+ 0012           ; /*******************************
+ 0012           ; *        MMC命令发送
+ 0012           ; *******************************/
+ 0012           ; unsigned char MMCWrCmd(unsigned char *cmd)
+ 0012           ; {
+ 0012                   .dbline 33
+ 0012           ;     unsigned char i=0,k=0;
+ 0012 6627              clr R22
+ 0014                   .dbline 33
+ 0014 4427              clr R20
+ 0016                   .dbline 34
+ 0016           ;       unsigned char temp=0XFF;
+ 0016 8FEF              ldi R24,255
+ 0018 A82E              mov R10,R24
+ 001A                   .dbline 35
+ 001A           ;     MMCCS(0);                                 /* 片选无效 */
+ 001A 0027              clr R16
+ 001C F1DF              xcall _MMCCS
+ 001E                   .dbline 36
+ 001E           ;       spi_send(0XFF);                         /* 发送8个时钟 */
+ 001E 0FEF              ldi R16,255
+ 0020 10E0              ldi R17,0
+ 0022 0E940000          xcall _spi_send
+ 0026                   .dbline 37
+ 0026           ;       MMCCS(1);                                       /* 片选有效 */
+ 0026 01E0              ldi R16,1
+ 0028 EBDF              xcall _MMCCS
+ 002A                   .dbline 38
+ 002A           ;       asm("nop");
+ 002A 0000              nop
+ 002C                   .dbline 39
+ 002C           ;       for(i=0; i<6; i++)
+ 002C 07C0              xjmp L8
+ 002E           L5:
+ 002E                   .dbline 40
+ 002E                   .dbline 41
+ 002E F601              movw R30,R12
+ 0030 0191              ld R16,Z+
+ 0032 6F01              movw R12,R30
+ 0034 1127              clr R17
+ 0036 0E940000          xcall _spi_send
+ 003A                   .dbline 42
+ 003A           L6:
+ 003A                   .dbline 39
+ 003A 6395              inc R22
+ 003C           L8:
+ 003C                   .dbline 39
+ 003C 6630              cpi R22,6
+ 003E B8F3              brlo L5
+ 0040 0CC0              xjmp L10
+ 0042           L9:
+ 0042                   .dbline 44
+ 0042           ;       {
+ 0042           ;           spi_send(*(cmd++));         /* 发送命令 */   
+ 0042           ;       }
+ 0042           ;       while(temp==0XFF)
+ 0042           ;       {
+ 0042                   .dbline 45
+ 0042           ;           temp = spi_send(0XFF);  /* 等待回复 */
+ 0042 0FEF              ldi R16,255
+ 0044 10E0              ldi R17,0
+ 0046 0E940000          xcall _spi_send
+ 004A A02E              mov R10,R16
+ 004C                   .dbline 46
+ 004C           ;               if(k++>200)             /* 超时返回 */
+ 004C 242E              mov R2,R20
+ 004E 3324              clr R3
+ 0050 4F5F              subi R20,255    ; addi 1
+ 0052 88EC              ldi R24,200
+ 0054 8215              cp R24,R2
+ 0056 08F4              brsh L12
+ 0058                   .dbline 47
+ 0058           ;               {
+ 0058                   .dbline 48
+ 0058           ;                   return temp;
+ 0058 04C0              xjmp L4
+ 005A           L12:
+ 005A                   .dbline 50
+ 005A           L10:
+ 005A                   .dbline 43
+ 005A 8A2D              mov R24,R10
+ 005C 8F3F              cpi R24,255
+ 005E 89F3              breq L9
+ 0060                   .dbline 51
+ 0060           ;               }
+ 0060           ;       }
+ 0060           ;     return temp;
+ 0060 082F              mov R16,R24
+ 0062                   .dbline -2
+ 0062           L4:
+ 0062 0E940000          xcall pop_gset4
+ 0066                   .dbline 0 ; func end
+ 0066 0895              ret
+ 0068                   .dbsym r k 20 c
+ 0068                   .dbsym r i 22 c
+ 0068                   .dbsym r temp 10 c
+ 0068                   .dbsym r cmd 12 pc
+ 0068                   .dbend
+                        .area lit(rom, con, rel)
+ 0000           L15:
+ 0000 4000              .byte 64,0
+ 0002 0000              .byte 0,0
+ 0004 0095              .byte 0,149
+                        .area text(rom, con, rel)
+ 0068                   .dbfile E:\SOUCER~1\M162MMC\mmc.c
+ 0068                   .dbfunc e MMCInit _MMCInit fc
+ 0068           ;           temp -> R22
+ 0068           ;        timeout -> R20,R21
+ 0068           ;            cmd -> y+0
+ 0068           ;              i -> R20
+                        .even
+ 0068           _MMCInit::
+ 0068 0E940000          xcall push_gset2
+ 006C 2697              sbiw R28,6
+ 006E                   .dbline -1
+ 006E                   .dbline 59
+ 006E           ; }
+ 006E           ; 
+ 006E           ; 
+ 006E           ; /*******************************
+ 006E           ; *        MMC初始化
+ 006E           ; *******************************/
+ 006E           ; unsigned char MMCInit(void)
+ 006E           ; {
+ 006E                   .dbline 61
+ 006E           ;     unsigned int timeout;
+ 006E           ;       unsigned char i=0,temp=0;
+ 006E 4427              clr R20
+ 0070                   .dbline 61
+ 0070 6627              clr R22
+ 0072                   .dbline 62
+ 0072           ;     unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0x95};  
+ 0072 80E0              ldi R24,<L15
+ 0074 90E0              ldi R25,>L15
+ 0076 FE01              movw R30,R28
+ 0078 06E0              ldi R16,6
+ 007A 10E0              ldi R17,0
+ 007C FA93              st -y,R31
+ 007E EA93              st -y,R30
+ 0080 9A93              st -y,R25
+ 0082 8A93              st -y,R24
+ 0084 0E940000          xcall asgncblk
+ 0088                   .dbline 63
+ 0088           ;       DelayMs(500);
+ 0088 04EF              ldi R16,500
+ 008A 11E0              ldi R17,1
+ 008C 0E940000          xcall _DelayMs
+ 0090                   .dbline 65
+ 0090           ;       /* 发送一定数量的时钟脉冲 */
+ 0090           ;     for(i=0;i<0x10;i++) 
+ 0090 05C0              xjmp L19
+ 0092           L16:
+ 0092                   .dbline 66
+ 0092                   .dbline 67
+ 0092 0FEF              ldi R16,255
+ 0094 10E0              ldi R17,0
+ 0096 0E940000          xcall _spi_send
+ 009A                   .dbline 68
+ 009A           L17:
+ 009A                   .dbline 65
+ 009A 4395              inc R20
+ 009C           L19:
+ 009C                   .dbline 65
+ 009C 4031              cpi R20,16
+ 009E C8F3              brlo L16
+ 00A0                   .dbline 70
+ 00A0           ;     {
+ 00A0           ;         spi_send(0XFF);
+ 00A0           ;     }
+ 00A0           ;       /* 发送CMD0 */
+ 00A0           ;       if(MMCWrCmd(cmd)!=0X01)
+ 00A0 8E01              movw R16,R28
+ 00A2 B4DF              xcall _MMCWrCmd
+ 00A4 0130              cpi R16,1
+ 00A6 11F0              breq L20
+ 00A8                   .dbline 71
+ 00A8           ;          return 0;
+ 00A8 0027              clr R16
+ 00AA 16C0              xjmp L14
+ 00AC           L20:
+ 00AC                   .dbline 73
+ 00AC           ;       /* 发送CMD1 */
+ 00AC           ;       cmd[0]=0X41;
+ 00AC 81E4              ldi R24,65
+ 00AE 8883              std y+0,R24
+ 00B0                   .dbline 74
+ 00B0           ;       cmd[5]=0XFF;
+ 00B0 8FEF              ldi R24,255
+ 00B2 8D83              std y+5,R24
+ 00B4 0AC0              xjmp L24
+ 00B6           L23:
+ 00B6                   .dbline 76
+ 00B6           ;       while(MMCWrCmd(cmd)!=0X00)
+ 00B6           ;       {
+ 00B6                   .dbline 77
+ 00B6           ;           if(timeout++>0XFFFE)     /* 等待初始化完成 */
+ 00B6 1A01              movw R2,R20
+ 00B8 4F5F              subi R20,255  ; offset = 1
+ 00BA 5F4F              sbci R21,255
+ 00BC 8EEF              ldi R24,65534
+ 00BE 9FEF              ldi R25,255
+ 00C0 8215              cp R24,R2
+ 00C2 9305              cpc R25,R3
+ 00C4 10F4              brsh L26
+ 00C6                   .dbline 78
+ 00C6           ;                   return 0;            /* 容量大的MMC卡需要用比较长时间 */
+ 00C6 0027              clr R16
+ 00C8 07C0              xjmp L14
+ 00CA           L26:
+ 00CA                   .dbline 79
+ 00CA           L24:
+ 00CA                   .dbline 75
+ 00CA 8E01              movw R16,R28
+ 00CC 9FDF              xcall _MMCWrCmd
+ 00CE 0023              tst R16
+ 00D0 91F7              brne L23
+ 00D2                   .dbline 80
+ 00D2           ;       }
+ 00D2           ;       SPIHiSPD();                                      /*  提高MCU SPI速度 */
+ 00D2 0E940000          xcall _SPIHiSPD
+ 00D6                   .dbline 81
+ 00D6           ;     return 1;
+ 00D6 01E0              ldi R16,1
+ 00D8                   .dbline -2
+ 00D8           L14:
+ 00D8 2696              adiw R28,6
+ 00DA 0E940000          xcall pop_gset2
+ 00DE                   .dbline 0 ; func end
+ 00DE 0895              ret
+ 00E0                   .dbsym r temp 22 c
+ 00E0                   .dbsym r timeout 20 i
+ 00E0                   .dbsym l cmd 0 A[6:6]c
+ 00E0                   .dbsym r i 20 c
+ 00E0                   .dbend
+                        .area lit(rom, con, rel)
+ 0006           L29:
+ 0006 4000              .byte 64,0
+ 0008 0000              .byte 0,0
+ 000A 00FF              .byte 0,255
+                        .area text(rom, con, rel)
+ 00E0                   .dbfile E:\SOUCER~1\M162MMC\mmc.c
+ 00E0                   .dbfunc e MMCCID _MMCCID fc
+ 00E0           ;            cmd -> y+0
+ 00E0           ;              i -> R20
+                        .even
+ 00E0           _MMCCID::
+ 00E0 0E940000          xcall push_gset1
+ 00E4 2697              sbiw R28,6
+ 00E6                   .dbline -1
+ 00E6                   .dbline 88
+ 00E6           ; }
+ 00E6           ; 
+ 00E6           ; /*******************************
+ 00E6           ; *        读取MMC-CID寄存器
+ 00E6           ; *******************************/
+ 00E6           ; unsigned char MMCCID(void)
+ 00E6           ; {
+ 00E6                   .dbline 90
+ 00E6           ;      unsigned char i;
+ 00E6           ;      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+ 00E6 80E0              ldi R24,<L29
+ 00E8 90E0              ldi R25,>L29
+ 00EA FE01              movw R30,R28
+ 00EC 06E0              ldi R16,6
+ 00EE 10E0              ldi R17,0
+ 00F0 FA93              st -y,R31
+ 00F2 EA93              st -y,R30
+ 00F4 9A93              st -y,R25
+ 00F6 8A93              st -y,R24
+ 00F8 0E940000          xcall asgncblk
+ 00FC                   .dbline 91
+ 00FC           ;        cmd[0]=0X40+10;
+ 00FC 8AE4              ldi R24,74
+ 00FE 8883              std y+0,R24
+ 0100                   .dbline 92
+ 0100           ;        if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD9 */
+ 0100 8E01              movw R16,R28
+ 0102 84DF              xcall _MMCWrCmd
+ 0104 0023              tst R16
+ 0106 11F0              breq L30
+ 0108                   .dbline 93
+ 0108           ;          return 0;                 /* 读取失败 */
+ 0108 0027              clr R16
+ 010A 0AC0              xjmp L28
+ 010C           L30:
+ 010C                   .dbline 94
+ 010C           ;        for(i=0;i<16;i++)
+ 010C 4427              clr R20
+ 010E 05C0              xjmp L35
+ 0110           L32:
+ 0110                   .dbline 96
+ 0110 0FEF              ldi R16,255
+ 0112 10E0              ldi R17,0
+ 0114 0E940000          xcall _spi_send
+ 0118           L33:
+ 0118                   .dbline 94
+ 0118 4395              inc R20
+ 011A           L35:
+ 011A                   .dbline 94
+ 011A 4031              cpi R20,16
+ 011C C8F3              brlo L32
+ 011E                   .dbline 97
+ 011E           ;           //uart1_send(spi_send(0XFF));
+ 011E           ;               spi_send(0XFF);
+ 011E           ;        return 1;
+ 011E 01E0              ldi R16,1
+ 0120                   .dbline -2
+ 0120           L28:
+ 0120 2696              adiw R28,6
+ 0122 0E940000          xcall pop_gset1
+ 0126                   .dbline 0 ; func end
+ 0126 0895              ret
+ 0128                   .dbsym l cmd 0 A[6:6]c
+ 0128                   .dbsym r i 20 c
+ 0128                   .dbend
+                        .area lit(rom, con, rel)
+ 000C           L37:
+ 000C 4000              .byte 64,0
+ 000E 0000              .byte 0,0
+ 0010 00FF              .byte 0,255
+                        .area text(rom, con, rel)
+ 0128                   .dbfile E:\SOUCER~1\M162MMC\mmc.c
+ 0128                   .dbfunc e MMCRdBolck1 _MMCRdBolck1 fc
+ 0128           ;           temp -> <dead>
+ 0128           ;            cmd -> y+0
+ 0128           ;              i -> R20,R21
+ 0128           ;        address -> y+8
+                        .even
+ 0128           _MMCRdBolck1::
+ 0128 0E940000          xcall push_arg4
+ 012C 0E940000          xcall push_gset1
+ 0130 2697              sbiw R28,6
+ 0132                   .dbline -1
+ 0132                   .dbline 105
+ 0132           ; }
+ 0132           ; 
+ 0132           ; /*******************************
+ 0132           ; *        读取ONE BLOCK数据
+ 0132           ; *         address-扇区地址
+ 0132           ; *******************************/
+ 0132           ; unsigned char MMCRdBolck1(unsigned long address)
+ 0132           ; {
+ 0132                   .dbline 108
+ 0132           ;      unsigned int i;
+ 0132           ;        unsigned char temp;
+ 0132           ;      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+ 0132 80E0              ldi R24,<L37
+ 0134 90E0              ldi R25,>L37
+ 0136 FE01              movw R30,R28
+ 0138 06E0              ldi R16,6
+ 013A 10E0              ldi R17,0
+ 013C FA93              st -y,R31
+ 013E EA93              st -y,R30
+ 0140 9A93              st -y,R25
+ 0142 8A93              st -y,R24
+ 0144 0E940000          xcall asgncblk
+ 0148                   .dbline 109
+ 0148           ;      cmd[0]=0X40+17;                   /* READ SINGLE BLOCK */
+ 0148 81E5              ldi R24,81
+ 014A 8883              std y+0,R24
+ 014C                   .dbline 110
+ 014C           ;        address=address<<9;         /* address*512,取512的整数倍 */
+ 014C 89E0              ldi R24,9
+ 014E 90E0              ldi R25,0
+ 0150 FE01              movw R30,R28
+ 0152 2084              ldd R2,z+8
+ 0154 3184              ldd R3,z+9
+ 0156 4284              ldd R4,z+10
+ 0158 5384              ldd R5,z+11
+ 015A 8A93              st -y,R24
+ 015C 8101              movw R16,R2
+ 015E 9201              movw R18,R4
+ 0160 0E940000          xcall lsl32
+ 0164 FE01              movw R30,R28
+ 0166 0087              std z+8,R16
+ 0168 1187              std z+9,R17
+ 016A 2287              std z+10,R18
+ 016C 3387              std z+11,R19
+ 016E                   .dbline 111
+ 016E           ;        cmd[1]=(address>>24);
+ 016E 88E1              ldi R24,24
+ 0170 90E0              ldi R25,0
+ 0172 FE01              movw R30,R28
+ 0174 2084              ldd R2,z+8
+ 0176 3184              ldd R3,z+9
+ 0178 4284              ldd R4,z+10
+ 017A 5384              ldd R5,z+11
+ 017C 8A93              st -y,R24
+ 017E 8101              movw R16,R2
+ 0180 9201              movw R18,R4
+ 0182 0E940000          xcall lsr32
+ 0186 0983              std y+1,R16
+ 0188                   .dbline 112
+ 0188           ;        cmd[2]=(address>>16);
+ 0188 FE01              movw R30,R28
+ 018A 2084              ldd R2,z+8
+ 018C 3184              ldd R3,z+9
+ 018E 4284              ldd R4,z+10
+ 0190 5384              ldd R5,z+11
+ 0192 1201              movw R2,R4
+ 0194 4424              clr R4
+ 0196 5524              clr R5
+ 0198 2A82              std y+2,R2
+ 019A                   .dbline 113
+ 019A           ;        cmd[3]=(address>>8);
+ 019A 88E0              ldi R24,8
+ 019C 90E0              ldi R25,0
+ 019E FE01              movw R30,R28
+ 01A0 2084              ldd R2,z+8
+ 01A2 3184              ldd R3,z+9
+ 01A4 4284              ldd R4,z+10
+ 01A6 5384              ldd R5,z+11
+ 01A8 8A93              st -y,R24
+ 01AA 8101              movw R16,R2
+ 01AC 9201              movw R18,R4
+ 01AE 0E940000          xcall lsr32
+ 01B2 0B83              std y+3,R16
+ 01B4                   .dbline 114
+ 01B4           ;        cmd[4]=(address>>0);
+ 01B4 FE01              movw R30,R28
+ 01B6 2084              ldd R2,z+8
+ 01B8 3184              ldd R3,z+9
+ 01BA 4284              ldd R4,z+10
+ 01BC 5384              ldd R5,z+11
+ 01BE 2C82              std y+4,R2
+ 01C0                   .dbline 115
+ 01C0           ;        if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD17 */
+ 01C0 8E01              movw R16,R28
+ 01C2 24DF              xcall _MMCWrCmd
+ 01C4 0023              tst R16
+ 01C6 19F0              breq L45
+ 01C8                   .dbline 116
+ 01C8           ;            return 0;               /* 读取失败 */
+ 01C8 0027              clr R16
+ 01CA 25C0              xjmp L36
+ 01CC           L44:
+ 01CC                   .dbline 118
+ 01CC                   .dbline 119
+ 01CC 0000              nop
+ 01CE                   .dbline 120
+ 01CE           L45:
+ 01CE                   .dbline 117
+ 01CE           ;      while(spi_send(0XFF)!=0XFE)
+ 01CE 0FEF              ldi R16,255
+ 01D0 10E0              ldi R17,0
+ 01D2 0E940000          xcall _spi_send
+ 01D6 0E3F              cpi R16,254
+ 01D8 E0E0              ldi R30,0
+ 01DA 1E07              cpc R17,R30
+ 01DC B9F7              brne L44
+ 01DE                   .dbline 121
+ 01DE           ;        {
+ 01DE           ;            asm("nop");                         /* 等待数据接受开始，受到0XFE表示开始 */
+ 01DE           ;        }
+ 01DE           ;        for(i=0;i<512;i++)          /* 读取数据 */
+ 01DE 4427              clr R20
+ 01E0 5527              clr R21
+ 01E2 0CC0              xjmp L50
+ 01E4           L47:
+ 01E4                   .dbline 122
+ 01E4                   .dbline 123
+ 01E4 0FEF              ldi R16,255
+ 01E6 10E0              ldi R17,0
+ 01E8 0E940000          xcall _spi_send
+ 01EC 80E0              ldi R24,<_sector
+ 01EE 90E0              ldi R25,>_sector
+ 01F0 FA01              movw R30,R20
+ 01F2 E80F              add R30,R24
+ 01F4 F91F              adc R31,R25
+ 01F6 0083              std z+0,R16
+ 01F8                   .dbline 124
+ 01F8           L48:
+ 01F8                   .dbline 121
+ 01F8 4F5F              subi R20,255  ; offset = 1
+ 01FA 5F4F              sbci R21,255
+ 01FC           L50:
+ 01FC                   .dbline 121
+ 01FC 4030              cpi R20,0
+ 01FE E2E0              ldi R30,2
+ 0200 5E07              cpc R21,R30
+ 0202 80F3              brlo L47
+ 0204                   .dbline 125
+ 0204           ;        {
+ 0204           ;            sector[i]=spi_send(0XFF);
+ 0204           ;        }
+ 0204           ;        spi_send(0XFF);                         /* 取走CRC字节 */
+ 0204 0FEF              ldi R16,255
+ 0206 10E0              ldi R17,0
+ 0208 0E940000          xcall _spi_send
+ 020C                   .dbline 126
+ 020C           ;        spi_send(0XFF);
+ 020C 0FEF              ldi R16,255
+ 020E 10E0              ldi R17,0
+ 0210 0E940000          xcall _spi_send
+ 0214                   .dbline 127
+ 0214           ;        return 1; 
+ 0214 01E0              ldi R16,1
+ 0216                   .dbline -2
+ 0216           L36:
+ 0216 2696              adiw R28,6
+ 0218 0E940000          xcall pop_gset1
+ 021C 2496              adiw R28,4
+ 021E                   .dbline 0 ; func end
+ 021E 0895              ret
+ 0220                   .dbsym l temp 1 c
+ 0220                   .dbsym l cmd 0 A[6:6]c
+ 0220                   .dbsym r i 20 i
+ 0220                   .dbsym l address 8 l
+ 0220                   .dbend
+                        .area lit(rom, con, rel)
+ 0012           L52:
+ 0012 4000              .byte 64,0
+ 0014 0000              .byte 0,0
+ 0016 00FF              .byte 0,255
+                        .area text(rom, con, rel)
+ 0220                   .dbfile E:\SOUCER~1\M162MMC\mmc.c
+ 0220                   .dbfunc e MMCWrBlock1 _MMCWrBlock1 fc
+ 0220           ;           temp -> R22
+ 0220           ;            cmd -> y+0
+ 0220           ;              i -> R20,R21
+ 0220           ;         buffer -> y+14
+ 0220           ;        address -> y+10
+                        .even
+ 0220           _MMCWrBlock1::
+ 0220 0E940000          xcall push_arg4
+ 0224 0E940000          xcall push_gset2
+ 0228 2697              sbiw R28,6
+ 022A                   .dbline -1
+ 022A                   .dbline 135
+ 022A           ; }
+ 022A           ;       
+ 022A           ; /*******************************
+ 022A           ; *        写ONE BLOCK数据
+ 022A           ; *        address-扇区地址
+ 022A           ; *******************************/
+ 022A           ; unsigned char MMCWrBlock1(unsigned long address,unsigned char *buffer)
+ 022A           ; {
+ 022A                   .dbline 138
+ 022A           ;      unsigned int i;
+ 022A           ;        unsigned char temp;
+ 022A           ;      unsigned char cmd[]={0x40,0x00,0x00,0x00,0x00,0xff};  
+ 022A 80E0              ldi R24,<L52
+ 022C 90E0              ldi R25,>L52
+ 022E FE01              movw R30,R28
+ 0230 06E0              ldi R16,6
+ 0232 10E0              ldi R17,0
+ 0234 FA93              st -y,R31
+ 0236 EA93              st -y,R30
+ 0238 9A93              st -y,R25
+ 023A 8A93              st -y,R24
+ 023C 0E940000          xcall asgncblk
+ 0240                   .dbline 139
+ 0240           ;        cmd[0]=0x40+24;              /* WRITE SINGLE BLOCK */
+ 0240 88E5              ldi R24,88
+ 0242 8883              std y+0,R24
+ 0244                   .dbline 140
+ 0244           ;        address=address<<9;          /* address*512,取512的整数倍 */
+ 0244 89E0              ldi R24,9
+ 0246 90E0              ldi R25,0
+ 0248 FE01              movw R30,R28
+ 024A 2284              ldd R2,z+10
+ 024C 3384              ldd R3,z+11
+ 024E 4484              ldd R4,z+12
+ 0250 5584              ldd R5,z+13
+ 0252 8A93              st -y,R24
+ 0254 8101              movw R16,R2
+ 0256 9201              movw R18,R4
+ 0258 0E940000          xcall lsl32
+ 025C FE01              movw R30,R28
+ 025E 0287              std z+10,R16
+ 0260 1387              std z+11,R17
+ 0262 2487              std z+12,R18
+ 0264 3587              std z+13,R19
+ 0266                   .dbline 141
+ 0266           ;        cmd[1]=(address>>24);
+ 0266 88E1              ldi R24,24
+ 0268 90E0              ldi R25,0
+ 026A FE01              movw R30,R28
+ 026C 2284              ldd R2,z+10
+ 026E 3384              ldd R3,z+11
+ 0270 4484              ldd R4,z+12
+ 0272 5584              ldd R5,z+13
+ 0274 8A93              st -y,R24
+ 0276 8101              movw R16,R2
+ 0278 9201              movw R18,R4
+ 027A 0E940000          xcall lsr32
+ 027E 0983              std y+1,R16
+ 0280                   .dbline 142
+ 0280           ;        cmd[2]=(address>>16);
+ 0280 FE01              movw R30,R28
+ 0282 2284              ldd R2,z+10
+ 0284 3384              ldd R3,z+11
+ 0286 4484              ldd R4,z+12
+ 0288 5584              ldd R5,z+13
+ 028A 1201              movw R2,R4
+ 028C 4424              clr R4
+ 028E 5524              clr R5
+ 0290 2A82              std y+2,R2
+ 0292                   .dbline 143
+ 0292           ;        cmd[3]=(address>>8);
+ 0292 88E0              ldi R24,8
+ 0294 90E0              ldi R25,0
+ 0296 FE01              movw R30,R28
+ 0298 2284              ldd R2,z+10
+ 029A 3384              ldd R3,z+11
+ 029C 4484              ldd R4,z+12
+ 029E 5584              ldd R5,z+13
+ 02A0 8A93              st -y,R24
+ 02A2 8101              movw R16,R2
+ 02A4 9201              movw R18,R4
+ 02A6 0E940000          xcall lsr32
+ 02AA 0B83              std y+3,R16
+ 02AC                   .dbline 144
+ 02AC           ;        cmd[4]=(address>>0);
+ 02AC FE01              movw R30,R28
+ 02AE 2284              ldd R2,z+10
+ 02B0 3384              ldd R3,z+11
+ 02B2 4484              ldd R4,z+12
+ 02B4 5584              ldd R5,z+13
+ 02B6 2C82              std y+4,R2
+ 02B8                   .dbline 145
+ 02B8           ;        if(MMCWrCmd(cmd)!=0X00)     /* 发送CMD24 */
+ 02B8 8E01              movw R16,R28
+ 02BA A8DE              xcall _MMCWrCmd
+ 02BC 0023              tst R16
+ 02BE 11F0              breq L57
+ 02C0                   .dbline 146
+ 02C0           ;            return 0;               /* 写入失败 */
+ 02C0 0027              clr R16
+ 02C2 35C0              xjmp L51
+ 02C4           L57:
+ 02C4                   .dbline 147
+ 02C4           ;        spi_send(0XFF);             /* 发送填冲字节 */
+ 02C4 0FEF              ldi R16,255
+ 02C6 10E0              ldi R17,0
+ 02C8 0E940000          xcall _spi_send
+ 02CC                   .dbline 148
+ 02CC           ;        spi_send(0XFE);             /* 发送数据开始标志0XFE */
+ 02CC 0EEF              ldi R16,254
+ 02CE 10E0              ldi R17,0
+ 02D0 0E940000          xcall _spi_send
+ 02D4                   .dbline 149
+ 02D4           ;        for(i=0;i<512;i++)          /* 写入数据 */
+ 02D4 4427              clr R20
+ 02D6 5527              clr R21
+ 02D8 0BC0              xjmp L62
+ 02DA           L59:
+ 02DA                   .dbline 150
+ 02DA                   .dbline 151
+ 02DA 80E0              ldi R24,<_sector
+ 02DC 90E0              ldi R25,>_sector
+ 02DE FA01              movw R30,R20
+ 02E0 E80F              add R30,R24
+ 02E2 F91F              adc R31,R25
+ 02E4 0081              ldd R16,z+0
+ 02E6 1127              clr R17
+ 02E8 0E940000          xcall _spi_send
+ 02EC                   .dbline 152
+ 02EC           L60:
+ 02EC                   .dbline 149
+ 02EC 4F5F              subi R20,255  ; offset = 1
+ 02EE 5F4F              sbci R21,255
+ 02F0           L62:
+ 02F0                   .dbline 149
+ 02F0 4030              cpi R20,0
+ 02F2 E2E0              ldi R30,2
+ 02F4 5E07              cpc R21,R30
+ 02F6 88F3              brlo L59
+ 02F8                   .dbline 153
+ 02F8           ;        {
+ 02F8           ;            spi_send(sector[i]);
+ 02F8           ;        }
+ 02F8           ;        spi_send(0XFF);                         /* 写入CRC字节 */
+ 02F8 0FEF              ldi R16,255
+ 02FA 10E0              ldi R17,0
+ 02FC 0E940000          xcall _spi_send
+ 0300                   .dbline 154
+ 0300           ;        spi_send(0XFF);
+ 0300 0FEF              ldi R16,255
+ 0302 10E0              ldi R17,0
+ 0304 0E940000          xcall _spi_send
+ 0308                   .dbline 155
+ 0308           ;        temp=spi_send(0XFF);            /* 读取XXX0 0101字节 */
+ 0308 0FEF              ldi R16,255
+ 030A 10E0              ldi R17,0
+ 030C 0E940000          xcall _spi_send
+ 0310 602F              mov R22,R16
+ 0312                   .dbline 156
+ 0312           ;        temp=temp&0X1F;
+ 0312 6F71              andi R22,31
+ 0314                   .dbline 157
+ 0314           ;        if(temp!=0X05)
+ 0314 6530              cpi R22,5
+ 0316 19F0              breq L66
+ 0318                   .dbline 158
+ 0318           ;            return 0;                           /* 写入失败 */
+ 0318 0027              clr R16
+ 031A 09C0              xjmp L51
+ 031C           L65:
+ 031C                   .dbline 160
+ 031C                   .dbline 161
+ 031C 0000              nop
+ 031E                   .dbline 162
+ 031E           L66:
+ 031E                   .dbline 159
+ 031E           ;        while(spi_send(0XFF)==0X00)
+ 031E 0FEF              ldi R16,255
+ 0320 10E0              ldi R17,0
+ 0322 0E940000          xcall _spi_send
+ 0326 0030              cpi R16,0
+ 0328 0107              cpc R16,R17
+ 032A C1F3              breq L65
+ 032C           X0:
+ 032C                   .dbline 163
+ 032C           ;        {
+ 032C           ;            asm("nop");                         /* BUSY等待 */
+ 032C           ;        }
+ 032C           ;        return 1;
+ 032C 01E0              ldi R16,1
+ 032E                   .dbline -2
+ 032E           L51:
+ 032E 2696              adiw R28,6
+ 0330 0E940000          xcall pop_gset2
+ 0334 2496              adiw R28,4
+ 0336                   .dbline 0 ; func end
+ 0336 0895              ret
+ 0338                   .dbsym r temp 22 c
+ 0338                   .dbsym l cmd 0 A[6:6]c
+ 0338                   .dbsym r i 20 i
+ 0338                   .dbsym l buffer 14 pc
+ 0338                   .dbsym l address 10 l
+ 0338                   .dbend

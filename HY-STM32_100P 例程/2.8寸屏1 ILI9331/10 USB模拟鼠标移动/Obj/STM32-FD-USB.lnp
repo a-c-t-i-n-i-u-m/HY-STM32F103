@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\obj\startup_stm32f10x_hd.o" ".\obj\hw_config.o" ".\obj\main.o" ".\obj\usb_desc.o" ".\obj\usb_istr.o" ".\obj\usb_prop.o" ".\obj\usb_pwr.o" ".\obj\stm32f10x_it.o" ".\obj\misc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_usart.o" ".\obj\stm32f10x_exti.o" ".\obj\usb_core.o" ".\obj\usb_init.o" ".\obj\usb_int.o" ".\obj\usb_mem.o" ".\obj\usb_regs.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" --library_type=microlib --strict --scatter ".\Obj\STM32-FD-USB.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\STM32-FD-USB.map" -o ".\Obj\STM32-FD-USB.axf"

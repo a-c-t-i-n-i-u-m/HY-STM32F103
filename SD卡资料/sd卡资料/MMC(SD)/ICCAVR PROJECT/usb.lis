@@ -1,0 +1,151 @@
+                        .module usb.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile E:\SOUCER~1\M162MMC\usb.c
+ 0000                   .dbfunc e uart1_init _uart1_init fV
+                        .even
+ 0000           _uart1_init::
+ 0000                   .dbline -1
+ 0000                   .dbline 18
+ 0000           ; #include<iom162v.h>
+ 0000           ; 
+ 0000           ; // 函 数 原 形 说 明
+ 0000           ; void uart1_init(void);
+ 0000           ; void uart1_send(unsigned char);
+ 0000           ; unsigned char uart1_rev(void);
+ 0000           ; 
+ 0000           ; //串口通信初始化设置
+ 0000           ; //1. 波特率设定
+ 0000           ; //2. 帧结构设定 
+ 0000           ; //3. 接收和发送允许控制
+ 0000           ; 
+ 0000           ; //******************************************
+ 0000           ; //*名称: uart1_init
+ 0000           ; //*功能: 串口1初始化
+ 0000           ; //******************************************
+ 0000           ; void uart1_init(void)
+ 0000           ; {
+ 0000                   .dbline 21
+ 0000           ;  // Fosc频率为16.0000Mhz
+ 0000           ;   // 波特率设定为19200bps +/-0.2%
+ 0000           ;     UBRR1H=0x00;                                 
+ 0000 2224              clr R2
+ 0002 2CBE              out 0x3c,R2
+ 0004                   .dbline 22
+ 0004           ;     UBRR1L=0x33;   
+ 0004 83E3              ldi R24,51
+ 0006 80B9              out 0x0,R24
+ 0008                   .dbline 24
+ 0008           ;  // 8位数据+无奇偶校验+1位STOP                                                             
+ 0008           ;     UCSR1C=(1<<URSEL1)|(1<<UCSZ11)|(1<<UCSZ10);
+ 0008 86E8              ldi R24,134
+ 000A 8CBF              out 0x3c,R24
+ 000C                   .dbline 26
+ 000C           ;  // 允许收发,接收完成后中断
+ 000C           ;     UCSR1B|=(1<<RXCIE1)|(1<<TXEN1)|(1<<RXEN1);
+ 000C 81B1              in R24,0x1
+ 000E 8869              ori R24,152
+ 0010 81B9              out 0x1,R24
+ 0012                   .dbline -2
+ 0012           L1:
+ 0012                   .dbline 0 ; func end
+ 0012 0895              ret
+ 0014                   .dbend
+ 0014                   .dbfunc e uart1_send _uart1_send fV
+ 0014           ;           data -> R16
+                        .even
+ 0014           _uart1_send::
+ 0014                   .dbline -1
+ 0014                   .dbline 34
+ 0014           ; }
+ 0014           ; 
+ 0014           ; //******************************************
+ 0014           ; //*名称: uart1_send()
+ 0014           ; //*功能: 串口1发送数据
+ 0014           ; //******************************************
+ 0014           ; void uart1_send(unsigned char data)
+ 0014           ; {
+ 0014           L3:
+ 0014                   .dbline 37
+ 0014           L4:
+ 0014                   .dbline 36
+ 0014           ;  // 检测是否可以发送,UDRE=1寄存器为空
+ 0014           ;     while ( !( UCSR1A & (1<<UDRE1)) )
+ 0014 159B              sbis 0x2,5
+ 0016 FECF              rjmp L3
+ 0018                   .dbline 38
+ 0018           ;            ;
+ 0018           ;     UDR1=data;
+ 0018 03B9              out 0x3,R16
+ 001A                   .dbline -2
+ 001A           L2:
+ 001A                   .dbline 0 ; func end
+ 001A 0895              ret
+ 001C                   .dbsym r data 16 c
+ 001C                   .dbend
+ 001C                   .dbfunc e uart1_rev _uart1_rev fc
+                        .even
+ 001C           _uart1_rev::
+ 001C                   .dbline -1
+ 001C                   .dbline 46
+ 001C           ; }
+ 001C           ; 
+ 001C           ; //******************************************
+ 001C           ; //*名称: uart1_rev()
+ 001C           ; //*功能: 串口0接收数据
+ 001C           ; //******************************************
+ 001C           ; unsigned char uart1_rev(void)
+ 001C           ; {
+ 001C           L7:
+ 001C                   .dbline 49
+ 001C           L8:
+ 001C                   .dbline 48
+ 001C           ;  // 检测是否接收完成
+ 001C           ;     while ( !(UCSR1A & (1<<RXC1)) )
+ 001C 179B              sbis 0x2,7
+ 001E FECF              rjmp L7
+ 0020                   .dbline 51
+ 0020           ;           ;
+ 0020           ;  // 返回接收数据
+ 0020           ;     return UDR1;                      
+ 0020 03B1              in R16,0x3
+ 0022                   .dbline -2
+ 0022           L6:
+ 0022                   .dbline 0 ; func end
+ 0022 0895              ret
+ 0024                   .dbend
+                        .area vector(rom, abs)
+                        .org 80
+ 0050 0C941200          jmp _uart1_intrev
+                        .area text(rom, con, rel)
+ 0024                   .dbfile E:\SOUCER~1\M162MMC\usb.c
+ 0024                   .dbfunc e uart1_intrev _uart1_intrev fV
+                        .even
+ 0024           _uart1_intrev::
+ 0024 0E940000          xcall push_lset
+ 0028                   .dbline -1
+ 0028                   .dbline 60
+ 0028           ; }
+ 0028           ; 
+ 0028           ; //******************************************
+ 0028           ; //*名称: uart1_intrev()
+ 0028           ; //*功能: 串口1中断方式接收数据
+ 0028           ; //******************************************
+ 0028           ; #pragma interrupt_handler uart1_intrev:iv_USART1_RXC
+ 0028           ; void uart1_intrev(void)
+ 0028           ; {
+ 0028                   .dbline 61
+ 0028           ;     asm("cli");
+ 0028 F894              cli
+ 002A                   .dbline 62
+ 002A           ;       uart1_send(UDR1);
+ 002A 03B1              in R16,0x3
+ 002C F3DF              xcall _uart1_send
+ 002E                   .dbline 63
+ 002E           ;       asm("sei");
+ 002E 7894              sei
+ 0030                   .dbline -2
+ 0030           L10:
+ 0030 0E940000          xcall pop_lset
+ 0034                   .dbline 0 ; func end
+ 0034 1895              reti
+ 0036                   .dbend

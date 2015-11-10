@@ -1,0 +1,16 @@
+.\Obj\guiaaarc.o: Source\uCGUI\AntiAlias\GUIAAArc.c
+.\Obj\guiaaarc.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\guiaaarc.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\guiaaarc.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\guiaaarc.o: D:\Keil\ARM\RV31\INC\math.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUIDebug.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\Core\GUI_X.h
+.\Obj\guiaaarc.o: .\Source\uCGUI\WM\WM_GUI.h

@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\产品\产品配套光盘\HY-STM32_100P\HY-STM32_100P例程\2.8寸屏 ILI9331\11.更新触摸屏\11.更新-触摸屏2.8\STm32-FD-Touch.uvproj
+Project File Date:  02/09/2012
+
+<h2>Output:</h2>
+Build target 'STM32-FD-TOUCH'
+compiling fsmc_sram.c...
+compiling lcd_dis24.c...
+compiling touch.c...
+user\touch.c(75): warning:  #223-D: function "SPI1_Init" declared implicitly
+user\touch.c:           SPI1_Init();
+user\touch.c:           ^
+user\touch.c(120): warning:  #223-D: function "TFT_CLEAR" declared implicitly
+user\touch.c:           TFT_CLEAR(0,0,240,320);     //清屏      
+user\touch.c:           ^
+user\touch.c(152): warning:  #223-D: function "TFT_ShowString" declared implicitly
+user\touch.c:           TFT_ShowString(80,70,"STM32 TOUCH TEST");
+user\touch.c:           ^
+user\touch.c(167): warning:  #223-D: function "TFT_ShowString" declared implicitly
+user\touch.c:           TFT_ShowString(210,2,"CLR");    
+user\touch.c:           ^
+user\touch.c(390): warning:  #223-D: function "SPI_SendByte" declared implicitly
+user\touch.c:           SPI_SendByte(CMD_RDY); 
+user\touch.c:           ^
+user\touch.c(392): warning:  #223-D: function "SPI_ReadByte" declared implicitly
+user\touch.c:           a=SPI_ReadByte(0);
+user\touch.c:             ^
+user\touch.c(420): warning:  #223-D: function "TFT_DrawLine" declared implicitly
+user\touch.c:   TFT_DrawLine(x-11,y,x+12,y+1);
+user\touch.c:   ^
+user\touch.c(435): warning:  #223-D: function "TFT_CLEAR" declared implicitly
+user\touch.c:                   TFT_CLEAR(0,20,240,320);//清屏 
+user\touch.c:                   ^
+user\touch.c(440): warning:  #223-D: function "TFT_DrawPoint" declared implicitly
+user\touch.c:                   TFT_DrawPoint(x,y);//中心点 
+user\touch.c:                   ^
+user\touch.c(450): warning:  #174-D: expression has no effect
+user\touch.c:                   else if(x>20,x<=40) POINT_COLOR=BLUE;
+user\touch.c:                           ^
+user\touch.c(451): warning:  #174-D: expression has no effect
+user\touch.c:                   else if(x>40,x<=60) POINT_COLOR=GREEN;
+user\touch.c:                           ^
+user\touch.c(452): warning:  #174-D: expression has no effect
+user\touch.c:                   else if(x>60,x<=80) POINT_COLOR=GRED;
+user\touch.c:                           ^
+user\touch.c(453): warning:  #174-D: expression has no effect
+user\touch.c:                   else if(x>80,x<=100) POINT_COLOR=BRED;  
+user\touch.c:                           ^
+user\touch.c(454): warning:  #174-D: expression has no effect
+user\touch.c:                   else if(x>100,x<=120) POINT_COLOR=BLACK;
+user\touch.c:                           ^
+user\touch.c(457): warning:  #223-D: function "TFT_DrawPoint" declared implicitly
+user\touch.c:                   TFT_DrawPoint(x,y);//中心点 
+user\touch.c:                   ^
+user\touch.c(471): warning:  #223-D: function "TFT_DrawPoint" declared implicitly
+user\touch.c:              TFT_DrawPoint(x+b,y+a);
+user\touch.c:              ^
+user\touch.c: user\touch.c: 16 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling SPI_Flash.c...
+user\SPI_Flash.c(142): warning:  #940-D: missing return statement at end of non-void function "M25P16_RamTo_buf"
+user\SPI_Flash.c:   }
+user\SPI_Flash.c:   ^
+user\SPI_Flash.c(200): warning:  #940-D: missing return statement at end of non-void function "M25P80_buf_ToRam"
+user\SPI_Flash.c:   }
+user\SPI_Flash.c:   ^
+user\SPI_Flash.c: user\SPI_Flash.c: 2 warnings, 0 errors
+compiling stm32f10x_spi.c...
+compiling misc.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+assembling startup_stm32f10x_hd.s...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=17262 RO-data=1478 RW-data=156 ZI-data=652  
+FromELF: creating hex file...
+".\obj\stm32-fd-touch.axf" - 0 Error(s), 18 Warning(s).

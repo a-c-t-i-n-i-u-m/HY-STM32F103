@@ -1,0 +1,11 @@
+.\Obj\lcd_dis24.o: user\lcd_dis24.c
+.\Obj\lcd_dis24.o: user\fsmc_sram.h
+.\Obj\lcd_dis24.o: user\stm32f10x.h
+.\Obj\lcd_dis24.o: user\core_cm3.h
+.\Obj\lcd_dis24.o: D:\Keil\ARM\RV31\INC\stdint.h
+.\Obj\lcd_dis24.o: user\system_stm32f10x.h
+.\Obj\lcd_dis24.o: user\stm32f10x_conf.h
+.\Obj\lcd_dis24.o: .\FWlib\inc\stm32f10x_fsmc.h
+.\Obj\lcd_dis24.o: .\user\stm32f10x.h
+.\Obj\lcd_dis24.o: .\FWlib\inc\stm32f10x_gpio.h
+.\Obj\lcd_dis24.o: .\FWlib\inc\stm32f10x_rcc.h

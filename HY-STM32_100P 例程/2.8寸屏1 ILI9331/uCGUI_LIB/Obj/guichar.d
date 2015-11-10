@@ -1,0 +1,14 @@
+.\Obj\guichar.o: Source\uCGUI\Core\GUIChar.c
+.\Obj\guichar.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\guichar.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUI.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guichar.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUIType.h
+.\Obj\guichar.o: Source\uCGUI\Core\LCD.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\guichar.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\guichar.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\guichar.o: .\Source\uCGUI\WM\WM_GUI.h

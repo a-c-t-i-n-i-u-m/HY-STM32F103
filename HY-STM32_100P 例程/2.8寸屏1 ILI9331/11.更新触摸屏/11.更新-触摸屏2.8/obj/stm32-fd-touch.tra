@@ -1,0 +1,33 @@
+*** Creating Trace Output File '.\obj\stm32-fd-touch.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\obj\fsmc_sram.o"'
+### List of Objects: adding '".\obj\lcd_dis24.o"'
+### List of Objects: adding '".\obj\touch.o"'
+### List of Objects: adding '".\obj\stm32f10x_it.o"'
+### List of Objects: adding '".\obj\spi_flash.o"'
+### List of Objects: adding '".\obj\stm32f10x_spi.o"'
+### List of Objects: adding '".\obj\misc.o"'
+### List of Objects: adding '".\obj\stm32f10x_exti.o"'
+### List of Objects: adding '".\obj\stm32f10x_fsmc.o"'
+### List of Objects: adding '".\obj\stm32f10x_gpio.o"'
+### List of Objects: adding '".\obj\stm32f10x_rcc.o"'
+### List of Objects: adding '".\obj\stm32f10x_usart.o"'
+### List of Objects: adding '".\obj\startup_stm32f10x_hd.o"'
+### List of Objects: adding '".\obj\core_cm3.o"'
+### List of Objects: adding '".\obj\system_stm32f10x.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\obj\fsmc_sram.o" ".\obj\lcd_dis24.o" ".\obj\touch.o" ".\obj\stm32f10x_it.o" ".\obj\spi_flash.o" ".\obj\stm32f10x_spi.o" ".\obj\misc.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_fsmc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_usart.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" --nodebug --strict --scatter ".\obj\stm32-fd-touch.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\list\stm32-fd-touch.map" -o ".\obj\stm32-fd-touch.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\obj\stm32-fd-touch.axf'
+### ADS-LD Command File: '.\obj\stm32-fd-touch.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\obj\stm32-fd-touch.lnp', Handle=0x00000298
+### Writing '.lnp' file
+### ADS-LD Command file '.\obj\stm32-fd-touch.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

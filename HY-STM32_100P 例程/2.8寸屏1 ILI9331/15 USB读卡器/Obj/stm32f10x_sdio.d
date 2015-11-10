@@ -1,0 +1,13 @@
+.\Obj\stm32f10x_sdio.o: FWlib\SRC\stm32f10x_sdio.c
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\stm32f10x_sdio.h
+.\Obj\stm32f10x_sdio.o: .\user\stm32f10x.h
+.\Obj\stm32f10x_sdio.o: .\user\core_cm3.h
+.\Obj\stm32f10x_sdio.o: d:\Keil\ARM\RV31\INC\stdint.h
+.\Obj\stm32f10x_sdio.o: .\user\system_stm32f10x.h
+.\Obj\stm32f10x_sdio.o: .\usb_library\inc\stm32f10x_conf.h
+.\Obj\stm32f10x_sdio.o: .\user\stm32f10x.h
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\stm32f10x_dma.h
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\stm32f10x_gpio.h
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\stm32f10x_rcc.h
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\stm32f10x_sdio.h
+.\Obj\stm32f10x_sdio.o: .\FWlib\inc\misc.h

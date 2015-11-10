@@ -1,0 +1,14 @@
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUI__SetText.c
+.\Obj\gui__settext.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\gui__settext.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUI.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\gui__settext.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUIType.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\LCD.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\gui__settext.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\gui__settext.o: .\Source\uCGUI\WM\WM_GUI.h

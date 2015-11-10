@@ -1,0 +1,396 @@
+   1               		.file	"main.c"
+   2               		.arch atmega32
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	IOInit
+  20               	IOInit:
+  21               	.LFB4:
+  22               	.LM1:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25               	.LM2:
+  26 0000 88E0      		ldi r24,lo8(8)
+  27 0002 8AB9      		out 42-0x20,r24
+  28               	.LM3:
+  29 0004 87E4      		ldi r24,lo8(71)
+  30 0006 89B9      		out 41-0x20,r24
+  31               	/* epilogue: frame size=0 */
+  32 0008 0895      		ret
+  33               	/* epilogue end (size=1) */
+  34               	/* function IOInit size 5 (4) */
+  35               	.LFE4:
+  37               	.global	uart_putchar
+  39               	uart_putchar:
+  40               	.LFB5:
+  41               	.LM4:
+  42               	/* prologue: frame size=0 */
+  43 000a CF93      		push r28
+  44               	/* prologue end (size=1) */
+  45 000c C82F      		mov r28,r24
+  46               	.LM5:
+  47 000e 8A30      		cpi r24,lo8(10)
+  48 0010 19F4      		brne .L5
+  49               	.LM6:
+  50 0012 8DE0      		ldi r24,lo8(13)
+  51 0014 0E94 0000 		call uart_putchar
+  52               	.L5:
+  53               	.LM7:
+  54 0018 5D9B      		sbis 43-0x20,5
+  55 001a FECF      		rjmp .L5
+  56               	.LM8:
+  57 001c CCB9      		out 44-0x20,r28
+  58               	.LM9:
+  59 001e 80E0      		ldi r24,lo8(0)
+  60 0020 90E0      		ldi r25,hi8(0)
+  61               	/* epilogue: frame size=0 */
+  62 0022 CF91      		pop r28
+  63 0024 0895      		ret
+  64               	/* epilogue end (size=2) */
+  65               	/* function uart_putchar size 14 (11) */
+  66               	.LFE5:
+  68               		.data
+  69               	.LC0:
+  70 0000 5379 7374 		.string	"System OK\n"
+  70      656D 204F 
+  70      4B0A 00
+  71               	.LC1:
+  72 000b 2A2A 204B 		.string	"** Keine MMC/SD Karte gefunden!! **"
+  72      6569 6E65 
+  72      204D 4D43 
+  72      2F53 4420 
+  72      4B61 7274 
+  73               	.LC2:
+  74 002f 4B61 7274 		.string	"Karte gefunden!!"
+  74      6520 6765 
+  74      6675 6E64 
+  74      656E 2121 
+  74      00
+  75               	.LC3:
+  76 0040 2578 2000 		.string	"%x "
+  77               	.LC4:
+  78 0044 0A44 6972 		.string	"\nDirectory\n"
+  78      6563 746F 
+  78      7279 0A00 
+  79               	.LC5:
+  80 0050 436C 7573 		.string	"Cluster = %4x DirA = %2x Size= %8d FileName = "
+  80      7465 7220 
+  80      3D20 2534 
+  80      7820 4469 
+  80      7241 203D 
+  81               	.LC6:
+  82 007f 0A44 6972 		.string	"\nDirectory Ende\n"
+  82      6563 746F 
+  82      7279 2045 
+  82      6E64 650A 
+  82      00
+  83               	.LC7:
+  84 0090 6D6D 632E 		.string	"mmc.txt"
+  84      7478 7400 
+  85               	.LC8:
+  86 0098 0A46 696C 		.string	"\nFile Found!!\n"
+  86      6520 466F 
+  86      756E 6421 
+  86      210A 00
+  87               	.LC9:
+  88 00a7 4645 5254 		.string	"FERTIG!!"
+  88      4947 2121 
+  88      00
+  89               		.text
+  90               	.global	main
+  92               	main:
+  93               	.LFB6:
+  94               	.LM10:
+  95               	/* prologue: frame size=519 */
+  96 0026 C0E0      		ldi r28,lo8(__stack - 519)
+  97 0028 D0E0      		ldi r29,hi8(__stack - 519)
+  98 002a DEBF      		out __SP_H__,r29
+  99 002c CDBF      		out __SP_L__,r28
+ 100               	/* prologue end (size=4) */
+ 101               	.LM11:
+ 102 002e 0E94 0000 		call IOInit
+ 103               	.LM12:
+ 104 0032 40E0      		ldi r20,lo8(0)
+ 105 0034 50E0      		ldi r21,hi8(0)
+ 106 0036 BA01      		movw r22,r20
+ 107 0038 80E0      		ldi r24,lo8(pm(uart_putchar))
+ 108 003a 90E0      		ldi r25,hi8(pm(uart_putchar))
+ 109 003c 0E94 0000 		call fdevopen
+ 110               	.LM13:
+ 111 0040 80E0      		ldi r24,lo8(.LC0)
+ 112 0042 90E0      		ldi r25,hi8(.LC0)
+ 113 0044 02C0      		rjmp .L38
+ 114               	.L11:
+ 115               	.LM14:
+ 116 0046 80E0      		ldi r24,lo8(.LC1)
+ 117 0048 90E0      		ldi r25,hi8(.LC1)
+ 118               	.L38:
+ 119 004a 0E94 0000 		call puts
+ 120 004e 0E94 0000 		call mmc_init
+ 121 0052 8823      		tst r24
+ 122 0054 C1F7      		brne .L11
+ 123               	.LM15:
+ 124 0056 80E0      		ldi r24,lo8(.LC2)
+ 125 0058 90E0      		ldi r25,hi8(.LC2)
+ 126 005a 0E94 0000 		call puts
+ 127               	.LM16:
+ 128 005e 0E94 0000 		call fat_cluster_data_store
+ 129               	.LM17:
+ 130 0062 CE01      		movw r24,r28
+ 131 0064 0196      		adiw r24,1
+ 132 0066 0E94 0000 		call mmc_read_csd
+ 133               	.LM18:
+ 134 006a 00E0      		ldi r16,lo8(0)
+ 135 006c 10E0      		ldi r17,hi8(0)
+ 136               	.L15:
+ 137               	.LM19:
+ 138 006e 3E01      		movw r6,r28
+ 139 0070 0894      		sec
+ 140 0072 611C      		adc r6,__zero_reg__
+ 141 0074 711C      		adc r7,__zero_reg__
+ 142 0076 F801      		movw r30,r16
+ 143 0078 E60D      		add r30,r6
+ 144 007a F71D      		adc r31,r7
+ 145 007c 8081      		ld r24,Z
+ 146 007e 9927      		clr r25
+ 147 0080 9F93      		push r25
+ 148 0082 8F93      		push r24
+ 149 0084 80E0      		ldi r24,lo8(.LC3)
+ 150 0086 90E0      		ldi r25,hi8(.LC3)
+ 151 0088 9F93      		push r25
+ 152 008a 8F93      		push r24
+ 153 008c 0E94 0000 		call printf
+ 154               	.LM20:
+ 155 0090 0F90      		pop __tmp_reg__
+ 156 0092 0F90      		pop __tmp_reg__
+ 157 0094 0F90      		pop __tmp_reg__
+ 158 0096 0F90      		pop __tmp_reg__
+ 159 0098 0F5F      		subi r16,lo8(-(1))
+ 160 009a 1F4F      		sbci r17,hi8(-(1))
+ 161 009c 0031      		cpi r16,16
+ 162 009e 1105      		cpc r17,__zero_reg__
+ 163 00a0 30F3      		brlo .L15
+ 164               	.LM21:
+ 165 00a2 51E0      		ldi r21,lo8(513)
+ 166 00a4 852E      		mov r8,r21
+ 167 00a6 52E0      		ldi r21,hi8(513)
+ 168 00a8 952E      		mov r9,r21
+ 169 00aa 8C0E      		add r8,r28
+ 170 00ac 9D1E      		adc r9,r29
+ 171 00ae F401      		movw r30,r8
+ 172 00b0 1082      		st Z,__zero_reg__
+ 173               	.LM22:
+ 174 00b2 42E0      		ldi r20,lo8(514)
+ 175 00b4 A42E      		mov r10,r20
+ 176 00b6 B42E      		mov r11,r20
+ 177 00b8 AC0E      		add r10,r28
+ 178 00ba BD1E      		adc r11,r29
+ 179 00bc F501      		movw r30,r10
+ 180 00be 1082      		st Z,__zero_reg__
+ 181 00c0 1182      		std Z+1,__zero_reg__
+ 182 00c2 1282      		std Z+2,__zero_reg__
+ 183 00c4 1382      		std Z+3,__zero_reg__
+ 184               	.LM23:
+ 185 00c6 80E0      		ldi r24,lo8(.LC4)
+ 186 00c8 90E0      		ldi r25,hi8(.LC4)
+ 187 00ca 0E94 0000 		call puts
+ 188               	.LBB2:
+ 189               	.LM24:
+ 190 00ce 31E0      		ldi r19,lo8(1)
+ 191 00d0 D32E      		mov r13,r19
+ 192               	.L20:
+ 193               	.LM25:
+ 194 00d2 8E01      		movw r16,r28
+ 195 00d4 0F5F      		subi r16,lo8(-(1))
+ 196 00d6 1F4F      		sbci r17,hi8(-(1))
+ 197 00d8 9E01      		movw r18,r28
+ 198 00da 2F5F      		subi r18,lo8(-(513))
+ 199 00dc 3D4F      		sbci r19,hi8(-(513))
+ 200 00de AE01      		movw r20,r28
+ 201 00e0 4E5F      		subi r20,lo8(-(514))
+ 202 00e2 5D4F      		sbci r21,hi8(-(514))
+ 203 00e4 6D2D      		mov r22,r13
+ 204 00e6 80E0      		ldi r24,lo8(0)
+ 205 00e8 90E0      		ldi r25,hi8(0)
+ 206 00ea 0E94 0000 		call fat_read_dir_ent
+ 207 00ee 26E0      		ldi r18,lo8(518)
+ 208 00f0 E22E      		mov r14,r18
+ 209 00f2 22E0      		ldi r18,hi8(518)
+ 210 00f4 F22E      		mov r15,r18
+ 211 00f6 EC0E      		add r14,r28
+ 212 00f8 FD1E      		adc r15,r29
+ 213 00fa F701      		movw r30,r14
+ 214 00fc 8083      		st Z,r24
+ 215 00fe 9183      		std Z+1,r25
+ 216               	.LM26:
+ 217 0100 8F5F      		subi r24,lo8(-1)
+ 218 0102 9F4F      		sbci r25,hi8(-1)
+ 219 0104 51F1      		breq .L17
+ 220               	.LM27:
+ 221 0106 F501      		movw r30,r10
+ 222 0108 0081      		ld r16,Z
+ 223 010a 1181      		ldd r17,Z+1
+ 224               	.LM28:
+ 225 010c 1F93      		push r17
+ 226 010e 0F93      		push r16
+ 227 0110 F401      		movw r30,r8
+ 228 0112 8081      		ld r24,Z
+ 229 0114 9927      		clr r25
+ 230 0116 9F93      		push r25
+ 231 0118 8F93      		push r24
+ 232 011a F701      		movw r30,r14
+ 233 011c 8081      		ld r24,Z
+ 234 011e 9181      		ldd r25,Z+1
+ 235 0120 9F93      		push r25
+ 236 0122 8F93      		push r24
+ 237 0124 80E0      		ldi r24,lo8(.LC5)
+ 238 0126 90E0      		ldi r25,hi8(.LC5)
+ 239 0128 9F93      		push r25
+ 240 012a 8F93      		push r24
+ 241 012c 0E94 0000 		call printf
+ 242               	.LM29:
+ 243 0130 7F92      		push r7
+ 244 0132 6F92      		push r6
+ 245 0134 0E94 0000 		call printf
+ 246               	.LM30:
+ 247 0138 8AE0      		ldi r24,lo8(10)
+ 248 013a 90E0      		ldi r25,hi8(10)
+ 249 013c 0E94 0000 		call putchar
+ 250               	.LM31:
+ 251 0140 8DB7      		in r24,__SP_L__
+ 252 0142 9EB7      		in r25,__SP_H__
+ 253 0144 0A96      		adiw r24,10
+ 254 0146 0FB6      		in __tmp_reg__,__SREG__
+ 255 0148 F894      		cli
+ 256 014a 9EBF      		out __SP_H__,r25
+ 257 014c 0FBE      		out __SREG__,__tmp_reg__
+ 258 014e 8DBF      		out __SP_L__,r24
+ 259 0150 D394      		inc r13
+ 260 0152 9FEE      		ldi r25,lo8(-17)
+ 261 0154 9D15      		cp r25,r13
+ 262 0156 08F0      		brlo .+2
+ 263 0158 BCCF      		rjmp .L20
+ 264               	.L17:
+ 265               	.LBE2:
+ 266               	.LM32:
+ 267 015a 80E0      		ldi r24,lo8(.LC6)
+ 268 015c 90E0      		ldi r25,hi8(.LC6)
+ 269 015e 0E94 0000 		call puts
+ 270               	.LM33:
+ 271 0162 6701      		movw r12,r14
+ 272 0164 F701      		movw r30,r14
+ 273 0166 1082      		st Z,__zero_reg__
+ 274 0168 1182      		std Z+1,__zero_reg__
+ 275               	.LM34:
+ 276 016a 8E01      		movw r16,r28
+ 277 016c 0F5F      		subi r16,lo8(-(1))
+ 278 016e 1F4F      		sbci r17,hi8(-(1))
+ 279 0170 9E01      		movw r18,r28
+ 280 0172 2F5F      		subi r18,lo8(-(513))
+ 281 0174 3D4F      		sbci r19,hi8(-(513))
+ 282 0176 AE01      		movw r20,r28
+ 283 0178 4E5F      		subi r20,lo8(-(514))
+ 284 017a 5D4F      		sbci r21,hi8(-(514))
+ 285 017c B701      		movw r22,r14
+ 286 017e 80E0      		ldi r24,lo8(.LC7)
+ 287 0180 90E0      		ldi r25,hi8(.LC7)
+ 288 0182 0E94 0000 		call fat_search_file
+ 289 0186 8130      		cpi r24,lo8(1)
+ 290 0188 59F5      		brne .L21
+ 291               	.LM35:
+ 292 018a 80E0      		ldi r24,lo8(.LC8)
+ 293 018c 90E0      		ldi r25,hi8(.LC8)
+ 294 018e 0E94 0000 		call puts
+ 295               	.LBB3:
+ 296               	.LM36:
+ 297 0192 EE24      		clr r14
+ 298 0194 FF24      		clr r15
+ 299               	.L29:
+ 300               	.LM37:
+ 301 0196 C701      		movw r24,r14
+ 302 0198 AA27      		clr r26
+ 303 019a 97FD      		sbrc r25,7
+ 304 019c A095      		com r26
+ 305 019e BA2F      		mov r27,r26
+ 306 01a0 9C01      		movw r18,r24
+ 307 01a2 AD01      		movw r20,r26
+ 308 01a4 BE01      		movw r22,r28
+ 309 01a6 6F5F      		subi r22,lo8(-(1))
+ 310 01a8 7F4F      		sbci r23,hi8(-(1))
+ 311 01aa F601      		movw r30,r12
+ 312 01ac 8081      		ld r24,Z
+ 313 01ae 9181      		ldd r25,Z+1
+ 314 01b0 0E94 0000 		call fat_read_file
+ 315               	.LBB4:
+ 316               	.LM38:
+ 317 01b4 00E0      		ldi r16,lo8(0)
+ 318 01b6 10E0      		ldi r17,hi8(0)
+ 319               	.L28:
+ 320               	.LM39:
+ 321 01b8 FE01      		movw r30,r28
+ 322 01ba E00F      		add r30,r16
+ 323 01bc F11F      		adc r31,r17
+ 324 01be 8181      		ldd r24,Z+1
+ 325 01c0 9927      		clr r25
+ 326 01c2 0E94 0000 		call putchar
+ 327               	.LM40:
+ 328 01c6 0F5F      		subi r16,lo8(-(1))
+ 329 01c8 1F4F      		sbci r17,hi8(-(1))
+ 330 01ca F2E0      		ldi r31,hi8(512)
+ 331 01cc 0030      		cpi r16,lo8(512)
+ 332 01ce 1F07      		cpc r17,r31
+ 333 01d0 9CF3      		brlt .L28
+ 334               	.LBE4:
+ 335               	.LM41:
+ 336 01d2 0894      		sec
+ 337 01d4 E11C      		adc r14,__zero_reg__
+ 338 01d6 F11C      		adc r15,__zero_reg__
+ 339 01d8 24E3      		ldi r18,lo8(52)
+ 340 01da E216      		cp r14,r18
+ 341 01dc F104      		cpc r15,__zero_reg__
+ 342 01de DCF2      		brlt .L29
+ 343               	.L21:
+ 344               	.LBE3:
+ 345               	.LM42:
+ 346 01e0 80E0      		ldi r24,lo8(.LC9)
+ 347 01e2 90E0      		ldi r25,hi8(.LC9)
+ 348 01e4 0E94 0000 		call puts
+ 349               	.L30:
+ 350               	.LM43:
+ 351 01e8 FFCF      		rjmp .L30
+ 352               	/* epilogue: frame size=519 */
+ 353               	/* epilogue: noreturn */
+ 354               	/* epilogue end (size=0) */
+ 355               	/* function main size 227 (223) */
+ 356               	.LFE6:
+ 358               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+                            *ABS*:0000003f __SREG__
+                            *ABS*:0000003e __SP_H__
+                            *ABS*:0000003d __SP_L__
+                            *ABS*:00000000 __tmp_reg__
+                            *ABS*:00000001 __zero_reg__
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccqkaaaa.s:20     .text:00000000 IOInit
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccqkaaaa.s:39     .text:0000000a uart_putchar
+H:\DOKUME~1\ulrich\LOKALE~1\Temp/ccqkaaaa.s:92     .text:00000026 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__stack
+fdevopen
+puts
+mmc_init
+fat_cluster_data_store
+mmc_read_csd
+printf
+fat_read_dir_ent
+putchar
+fat_search_file
+fat_read_file

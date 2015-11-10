@@ -1,0 +1,17 @@
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jdtrans.c
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jinclude.h
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jconfig.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\jdtrans.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\jdtrans.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\jdtrans.o: D:\Keil\ARM\RV31\INC\stdlib.h
+.\Obj\jdtrans.o: D:\Keil\ARM\RV31\INC\stdio.h
+.\Obj\jdtrans.o: D:\Keil\ARM\RV31\INC\string.h
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jpeglib.h
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jmorecfg.h
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jpegint.h
+.\Obj\jdtrans.o: Source\uCGUI\JPEG\jerror.h

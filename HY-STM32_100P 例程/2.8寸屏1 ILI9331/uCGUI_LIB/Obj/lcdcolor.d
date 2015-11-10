@@ -1,0 +1,17 @@
+.\Obj\lcdcolor.o: Source\uCGUI\Core\LCDColor.c
+.\Obj\lcdcolor.o: D:\Keil\ARM\RV31\INC\stddef.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUI_Private.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUI_Protected.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUI.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\lcdcolor.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUIType.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\LCD.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUIVersion.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\LCD_Protected.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUIDebug.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\GUI_X.h
+.\Obj\lcdcolor.o: .\Source\uCGUI\WM\WM_GUI.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\LCD_Private.h
+.\Obj\lcdcolor.o: Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\lcdcolor.o: .\Source\uCGUI\Config\LCDConf.h

@@ -1,0 +1,662 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\产品\产品配套光盘\HY-STM32_100P\HY-STM32_100P例程\2.8寸屏1 ILI9331\2.8寸 ucOS II V2.86 uCGUI 3.9 DEMO  ILI9331\APP\STM32-FD-ucgui.uvproj
+Project File Date:  02/08/2012
+
+<h2>Output:</h2>
+Build target 'Flash'
+assembling cortexm3_macro.s...
+assembling stm32f10x_startup.s...
+compiling app.c...
+..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\GUIDEMO.h:        ^
+app.c(169): warning:  #177-D: variable "os_err" was declared but never referenced
+app.c:      CPU_INT08U os_err;
+app.c:                 ^
+app.c: app.c: 2 warnings, 0 errors
+compiling stm32f10x_it.c...
+..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO.h: stm32f10x_it.c: 1 warning, 0 errors
+compiling bsp.c...
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h:        ^
+..\BSP\bsp.c(274): warning:  #223-D: function "FSMC_LCD_Init" declared implicitly
+..\BSP\bsp.c:     FSMC_LCD_Init();
+..\BSP\bsp.c:     ^
+..\BSP\bsp.c: ..\BSP\bsp.c: 2 warnings, 0 errors
+compiling misc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_can.c...
+compiling stm32f10x_crc.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_dbgmcu.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_i2c.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_sdio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_wwdg.c...
+compiling core_cm3.c...
+compiling os_cpu_c.c...
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Ports\os_cpu_c.c: 1 warning, 0 errors
+compiling os_dbg.c...
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Ports\os_dbg.c: 1 warning, 0 errors
+assembling os_cpu_a.asm...
+assembling cpu_a.asm...
+compiling os_core.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_core.c: 1 warning, 0 errors
+compiling os_flag.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_flag.c: 1 warning, 0 errors
+compiling os_mbox.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mbox.c: 1 warning, 0 errors
+compiling os_mem.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mem.c: 1 warning, 0 errors
+compiling os_mutex.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mutex.c: 1 warning, 0 errors
+compiling os_q.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_q.c: 1 warning, 0 errors
+compiling os_sem.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_sem.c: 1 warning, 0 errors
+compiling os_task.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_task.c: 1 warning, 0 errors
+compiling os_time.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_time.c: 1 warning, 0 errors
+compiling os_tmr.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_tmr.c: 1 warning, 0 errors
+compiling Com.c...
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\usart\Com.c: 1 warning, 0 errors
+compiling SPI_Flash.c...
+..\usart\SPI_Flash.c(142): warning:  #940-D: missing return statement at end of non-void function "M25P16_RamTo_buf"
+..\usart\SPI_Flash.c:   }
+..\usart\SPI_Flash.c:   ^
+..\usart\SPI_Flash.c(200): warning:  #940-D: missing return statement at end of non-void function "M25P80_buf_ToRam"
+..\usart\SPI_Flash.c:   }
+..\usart\SPI_Flash.c:   ^
+..\usart\SPI_Flash.c: ..\usart\SPI_Flash.c: 2 warnings, 0 errors
+compiling GUI_X_Touch.c...
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(55): warning:  #223-D: function "TPReadX" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadX();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(99): warning:  #223-D: function "TPReadY" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadY();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(169): warning:  #223-D: function "TPReadY" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadY();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(213): warning:  #223-D: function "TPReadX" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadX();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c: ..\uCOS-IIGUI_X\GUI_X_Touch.c: 5 warnings, 0 errors
+compiling GUI_X_uCOS.c...
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-IIGUI_X\GUI_X_uCOS.c: 1 warning, 0 errors
+compiling ili9320_api.c...
+compiling lcd_dis24.c...
+compiling pic.c...
+compiling fsmc_sram.c...
+compiling ili9320_ucgui.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\TFT\ili9320_ucgui.c: 1 warning, 0 errors
+compiling ili9320.c...
+..\TFT\ili9320.c(99): warning:  #223-D: function "M25P80_buf_ToRam_TP" declared implicitly
+..\TFT\ili9320.c:      M25P80_buf_ToRam_TP();
+..\TFT\ili9320.c:      ^
+..\TFT\ili9320.c(100): warning:  #223-D: function "LCD_Init1" declared implicitly
+..\TFT\ili9320.c:      LCD_Init1();
+..\TFT\ili9320.c:      ^
+..\TFT\ili9320.c(181): warning:  #177-D: variable "temp" was declared but never referenced
+..\TFT\ili9320.c:   { u16 temp;
+..\TFT\ili9320.c:         ^
+..\TFT\ili9320.c(454): warning:  #1-D: last line of file ends without a newline
+..\TFT\ili9320.c:   }
+..\TFT\ili9320.c:    ^
+..\TFT\ili9320.c: ..\TFT\ili9320.c: 4 warnings, 0 errors
+compiling MicriumLogoWRed.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\MicriumLogoWRed.c: 1 warning, 0 errors
+compiling GUIDEMO.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO.c: 1 warning, 0 errors
+compiling GUIDEMO_Automotive.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_Automotive.c(349): warning: C3017W: tDiff2 may be used before being set
+..\uCGUIDemo\GUIDEMO_Automotive.c:   int Cnt, i, tDiff, tDiff1, tDiff2, t0, t1;
+..\uCGUIDemo\GUIDEMO_Automotive.c:                              ^
+..\uCGUIDemo\GUIDEMO_Automotive.c(349): warning: C3017W: tDiff1 may be used before being set
+..\uCGUIDemo\GUIDEMO_Automotive.c:   int Cnt, i, tDiff, tDiff1, tDiff2, t0, t1;
+..\uCGUIDemo\GUIDEMO_Automotive.c:                      ^
+..\uCGUIDemo\GUIDEMO_Automotive.c: ..\uCGUIDemo\GUIDEMO_Automotive.c: 3 warnings, 0 errors
+compiling GUIDEMO_Bitmap4bpp.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Bitmap4bpp.c: 1 warning, 0 errors
+compiling GUIDEMO_Bitmap.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Bitmap.c: 1 warning, 0 errors
+compiling GUIDEMO_Circle.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Circle.c: 1 warning, 0 errors
+compiling GUIDEMO_ColorBar.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ColorBar.c: 1 warning, 0 errors
+compiling GUIDEMO_ColorList.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ColorList.c: 1 warning, 0 errors
+compiling GUIDEMO_Cursor.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Cursor.c: 1 warning, 0 errors
+compiling GUIDEMO_Dialog.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Dialog.c: 1 warning, 0 errors
+compiling GUIDEMO_Font.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Font.c: 1 warning, 0 errors
+compiling GUIDEMO_FrameWin.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_FrameWin.c: 1 warning, 0 errors
+compiling GUIDEMO_Graph.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Graph.c: 1 warning, 0 errors
+compiling GUIDEMO_HardwareInfo.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_HardwareInfo.c: 1 warning, 0 errors
+compiling GUIDEMO_Intro.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_Intro.c(72): warning:  #223-D: function "GUI_Line" declared implicitly
+..\uCGUIDemo\GUIDEMO_Intro.c:     GUI_Line(0, y+45, 320-1, y+45, GUI_WHITE);
+..\uCGUIDemo\GUIDEMO_Intro.c:     ^
+..\uCGUIDemo\GUIDEMO_Intro.c: ..\uCGUIDemo\GUIDEMO_Intro.c: 2 warnings, 0 errors
+compiling GUIDEMO_LUT.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_LUT.c(34): warning:  #177-D: function "_ModifyLUT" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_LUT.c:   static void _ModifyLUT(int RFaktor, int GFaktor, int BFaktor) {
+..\uCGUIDemo\GUIDEMO_LUT.c:               ^
+..\uCGUIDemo\GUIDEMO_LUT.c: ..\uCGUIDemo\GUIDEMO_LUT.c: 2 warnings, 0 errors
+compiling GUIDEMO_MemDevB.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_MemDevB.c: 1 warning, 0 errors
+compiling GUIDEMO_WM.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_WM.c(59): warning:  #177-D: variable "_hMEdit" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_WM.c:   static MULTIEDIT_HANDLE _hMEdit;
+..\uCGUIDemo\GUIDEMO_WM.c:                           ^
+..\uCGUIDemo\GUIDEMO_WM.c(480): warning:  #177-D: function "_DemoClipping" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_WM.c:   static void _DemoClipping(void) {
+..\uCGUIDemo\GUIDEMO_WM.c:               ^
+..\uCGUIDemo\GUIDEMO_WM.c: ..\uCGUIDemo\GUIDEMO_WM.c: 3 warnings, 0 errors
+compiling GUIDEMO_Messagebox.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Messagebox.c: 1 warning, 0 errors
+compiling GUIDEMO_Navi.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Navi.c: 1 warning, 0 errors
+compiling GUIDEMO_Polygon.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Polygon.c: 1 warning, 0 errors
+compiling GUIDEMO_ProgBar.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ProgBar.c: 1 warning, 0 errors
+compiling GUIDEMO_Speed.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Speed.c: 1 warning, 0 errors
+compiling GUIDEMO_Touch.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Touch.c: 1 warning, 0 errors
+compiling MicriumLogo.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\MicriumLogo.c: 1 warning, 0 errors
+compiling hwhb_32.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\font\hwhb_32.c: 1 warning, 0 errors
+compiling STCaiYun_35.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\font\STCaiYun_35.c: 1 warning, 0 errors
+linking...
+Program Size: Code=81766 RO-data=175138 RW-data=888 ZI-data=16144  
+FromELF: creating hex file...
+"..\ObjFlash\STM32-FD-ucgui.axf" - 0 Error(s), 64 Warning(s).
+Build target 'Flash'
+assembling cortexm3_macro.s...
+assembling stm32f10x_startup.s...
+compiling app.c...
+..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\GUIDEMO.h:        ^
+app.c(169): warning:  #177-D: variable "os_err" was declared but never referenced
+app.c:      CPU_INT08U os_err;
+app.c:                 ^
+app.c: app.c: 2 warnings, 0 errors
+compiling stm32f10x_it.c...
+..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO.h: stm32f10x_it.c: 1 warning, 0 errors
+compiling bsp.c...
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\BSP\..\App\..\uCGUIDemo\GUIDEMO.h:        ^
+..\BSP\bsp.c(274): warning:  #223-D: function "FSMC_LCD_Init" declared implicitly
+..\BSP\bsp.c:     FSMC_LCD_Init();
+..\BSP\bsp.c:     ^
+..\BSP\bsp.c(321): warning:  #177-D: variable "GPIO_InitStructure" was declared but never referenced
+..\BSP\bsp.c:     GPIO_InitTypeDef GPIO_InitStructure;
+..\BSP\bsp.c:                      ^
+..\BSP\bsp.c: ..\BSP\bsp.c: 3 warnings, 0 errors
+compiling misc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_can.c...
+compiling stm32f10x_crc.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_dbgmcu.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_i2c.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_sdio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_wwdg.c...
+compiling core_cm3.c...
+compiling os_cpu_c.c...
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Ports\os_cpu_c.c: 1 warning, 0 errors
+compiling os_dbg.c...
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Ports\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Ports\os_dbg.c: 1 warning, 0 errors
+assembling os_cpu_a.asm...
+assembling cpu_a.asm...
+compiling os_core.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_core.c: 1 warning, 0 errors
+compiling os_flag.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_flag.c: 1 warning, 0 errors
+compiling os_mbox.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mbox.c: 1 warning, 0 errors
+compiling os_mem.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mem.c: 1 warning, 0 errors
+compiling os_mutex.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_mutex.c: 1 warning, 0 errors
+compiling os_q.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_q.c: 1 warning, 0 errors
+compiling os_sem.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_sem.c: 1 warning, 0 errors
+compiling os_task.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_task.c: 1 warning, 0 errors
+compiling os_time.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_time.c: 1 warning, 0 errors
+compiling os_tmr.c...
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-II\Source\..\..\uCOS-II\Source\..\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-II\Source\os_tmr.c: 1 warning, 0 errors
+compiling Com.c...
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\usart\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\usart\Com.c: 1 warning, 0 errors
+compiling SPI_Flash.c...
+..\usart\SPI_Flash.c(142): warning:  #940-D: missing return statement at end of non-void function "M25P16_RamTo_buf"
+..\usart\SPI_Flash.c:   }
+..\usart\SPI_Flash.c:   ^
+..\usart\SPI_Flash.c(200): warning:  #940-D: missing return statement at end of non-void function "M25P80_buf_ToRam"
+..\usart\SPI_Flash.c:   }
+..\usart\SPI_Flash.c:   ^
+..\usart\SPI_Flash.c: ..\usart\SPI_Flash.c: 2 warnings, 0 errors
+compiling GUI_X_Touch.c...
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(55): warning:  #223-D: function "TPReadX" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadX();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(99): warning:  #223-D: function "TPReadY" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadY();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(169): warning:  #223-D: function "TPReadY" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadY();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c(213): warning:  #223-D: function "TPReadX" declared implicitly
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                  databuffer[count]=TPReadX();
+..\uCOS-IIGUI_X\GUI_X_Touch.c:                                    ^
+..\uCOS-IIGUI_X\GUI_X_Touch.c: ..\uCOS-IIGUI_X\GUI_X_Touch.c: 5 warnings, 0 errors
+compiling GUI_X_uCOS.c...
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCOS-IIGUI_X\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCOS-IIGUI_X\GUI_X_uCOS.c: 1 warning, 0 errors
+compiling ili9320_api.c...
+compiling lcd_dis24.c...
+compiling pic.c...
+compiling fsmc_sram.c...
+compiling ili9320_ucgui.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\TFT\ili9320_ucgui.c: 1 warning, 0 errors
+compiling ili9320.c...
+..\TFT\ili9320.c(99): warning:  #223-D: function "M25P80_buf_ToRam_TP" declared implicitly
+..\TFT\ili9320.c:      M25P80_buf_ToRam_TP();
+..\TFT\ili9320.c:      ^
+..\TFT\ili9320.c(100): warning:  #223-D: function "LCD_Init1" declared implicitly
+..\TFT\ili9320.c:      LCD_Init1();
+..\TFT\ili9320.c:      ^
+..\TFT\ili9320.c(181): warning:  #177-D: variable "temp" was declared but never referenced
+..\TFT\ili9320.c:   { u16 temp;
+..\TFT\ili9320.c:         ^
+..\TFT\ili9320.c(454): warning:  #1-D: last line of file ends without a newline
+..\TFT\ili9320.c:   }
+..\TFT\ili9320.c:    ^
+..\TFT\ili9320.c: ..\TFT\ili9320.c: 4 warnings, 0 errors
+compiling MicriumLogoWRed.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\MicriumLogoWRed.c: 1 warning, 0 errors
+compiling GUIDEMO.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO.c: 1 warning, 0 errors
+compiling GUIDEMO_Automotive.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_Automotive.c(349): warning: C3017W: tDiff2 may be used before being set
+..\uCGUIDemo\GUIDEMO_Automotive.c:   int Cnt, i, tDiff, tDiff1, tDiff2, t0, t1;
+..\uCGUIDemo\GUIDEMO_Automotive.c:                              ^
+..\uCGUIDemo\GUIDEMO_Automotive.c(349): warning: C3017W: tDiff1 may be used before being set
+..\uCGUIDemo\GUIDEMO_Automotive.c:   int Cnt, i, tDiff, tDiff1, tDiff2, t0, t1;
+..\uCGUIDemo\GUIDEMO_Automotive.c:                      ^
+..\uCGUIDemo\GUIDEMO_Automotive.c: ..\uCGUIDemo\GUIDEMO_Automotive.c: 3 warnings, 0 errors
+compiling GUIDEMO_Bitmap4bpp.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Bitmap4bpp.c: 1 warning, 0 errors
+compiling GUIDEMO_Bitmap.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Bitmap.c: 1 warning, 0 errors
+compiling GUIDEMO_Circle.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Circle.c: 1 warning, 0 errors
+compiling GUIDEMO_ColorBar.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ColorBar.c: 1 warning, 0 errors
+compiling GUIDEMO_ColorList.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ColorList.c: 1 warning, 0 errors
+compiling GUIDEMO_Cursor.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Cursor.c: 1 warning, 0 errors
+compiling GUIDEMO_Dialog.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Dialog.c: 1 warning, 0 errors
+compiling GUIDEMO_Font.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Font.c: 1 warning, 0 errors
+compiling GUIDEMO_FrameWin.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_FrameWin.c: 1 warning, 0 errors
+compiling GUIDEMO_Graph.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Graph.c: 1 warning, 0 errors
+compiling GUIDEMO_HardwareInfo.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_HardwareInfo.c: 1 warning, 0 errors
+compiling GUIDEMO_Intro.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_Intro.c(72): warning:  #223-D: function "GUI_Line" declared implicitly
+..\uCGUIDemo\GUIDEMO_Intro.c:     GUI_Line(0, y+45, 320-1, y+45, GUI_WHITE);
+..\uCGUIDemo\GUIDEMO_Intro.c:     ^
+..\uCGUIDemo\GUIDEMO_Intro.c: ..\uCGUIDemo\GUIDEMO_Intro.c: 2 warnings, 0 errors
+compiling GUIDEMO_LUT.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_LUT.c(34): warning:  #177-D: function "_ModifyLUT" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_LUT.c:   static void _ModifyLUT(int RFaktor, int GFaktor, int BFaktor) {
+..\uCGUIDemo\GUIDEMO_LUT.c:               ^
+..\uCGUIDemo\GUIDEMO_LUT.c: ..\uCGUIDemo\GUIDEMO_LUT.c: 2 warnings, 0 errors
+compiling GUIDEMO_MemDevB.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_MemDevB.c: 1 warning, 0 errors
+compiling GUIDEMO_WM.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\GUIDEMO_WM.c(59): warning:  #177-D: variable "_hMEdit" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_WM.c:   static MULTIEDIT_HANDLE _hMEdit;
+..\uCGUIDemo\GUIDEMO_WM.c:                           ^
+..\uCGUIDemo\GUIDEMO_WM.c(480): warning:  #177-D: function "_DemoClipping" was declared but never referenced
+..\uCGUIDemo\GUIDEMO_WM.c:   static void _DemoClipping(void) {
+..\uCGUIDemo\GUIDEMO_WM.c:               ^
+..\uCGUIDemo\GUIDEMO_WM.c: ..\uCGUIDemo\GUIDEMO_WM.c: 3 warnings, 0 errors
+compiling GUIDEMO_Messagebox.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Messagebox.c: 1 warning, 0 errors
+compiling GUIDEMO_Navi.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Navi.c: 1 warning, 0 errors
+compiling GUIDEMO_Polygon.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Polygon.c: 1 warning, 0 errors
+compiling GUIDEMO_ProgBar.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_ProgBar.c: 1 warning, 0 errors
+compiling GUIDEMO_Speed.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Speed.c: 1 warning, 0 errors
+compiling GUIDEMO_Touch.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\GUIDEMO_Touch.c: 1 warning, 0 errors
+compiling MicriumLogo.c...
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\uCGUIDemo\..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\uCGUIDemo\MicriumLogo.c: 1 warning, 0 errors
+compiling hwhb_32.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\font\hwhb_32.c: 1 warning, 0 errors
+compiling STCaiYun_35.c...
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h(79): warning:  #1295-D: Deprecated declaration MainTask - give arg types
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:   void MainTask();
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h:        ^
+..\GUIinc\..\APP\..\uCGUIDemo\GUIDEMO.h: ..\font\STCaiYun_35.c: 1 warning, 0 errors
+linking...
+Program Size: Code=81730 RO-data=175134 RW-data=888 ZI-data=16144  
+FromELF: creating hex file...
+"..\ObjFlash\STM32-FD-ucgui.axf" - 0 Error(s), 65 Warning(s).

@@ -1,0 +1,9 @@
+.\Obj\edit_createindirect.o: Source\uCGUI\Widget\EDIT_CreateIndirect.c
+.\Obj\edit_createindirect.o: Source\uCGUI\Widget\EDIT.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\WM\WM.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\edit_createindirect.o: .\Source\uCGUI\WM\WM_GUI.h
+.\Obj\edit_createindirect.o: Source\uCGUI\Widget\DIALOG_Intern.h

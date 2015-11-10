@@ -1,0 +1,11 @@
+.\obj\fsmc_sram.o: user\fsmc_sram.c
+.\obj\fsmc_sram.o: user\fsmc_sram.h
+.\obj\fsmc_sram.o: .\CM3\stm32f10x.h
+.\obj\fsmc_sram.o: .\CM3\core_cm3.h
+.\obj\fsmc_sram.o: D:\Keil\ARM\RV31\INC\stdint.h
+.\obj\fsmc_sram.o: .\CM3\system_stm32f10x.h
+.\obj\fsmc_sram.o: .\FWlib\inc\stm32f10x_conf.h
+.\obj\fsmc_sram.o: .\FWlib\inc\stm32f10x_gpio.h
+.\obj\fsmc_sram.o: .\CM3\stm32f10x.h
+.\obj\fsmc_sram.o: .\FWlib\inc\stm32f10x_rcc.h
+.\obj\fsmc_sram.o: .\FWlib\inc\stm32f10x_fsmc.h

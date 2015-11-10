@@ -1,0 +1,2 @@
+例程编译错误的解决方法
+由于例程的STM32F10x.H和MDK环境下的STM32F10X_lib.h的重复定义冲突， 因此将STM32F10X_lib.h中的include "stm32f10x_map.h" 的语句注释掉，即可解决例程的编译错误。  

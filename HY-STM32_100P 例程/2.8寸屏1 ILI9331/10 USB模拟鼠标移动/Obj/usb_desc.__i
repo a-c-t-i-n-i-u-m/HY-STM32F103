@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --asm --interleave -I.\usb_library\inc -I..\USB_test -I.\FWlib\inc -I.\user -I "d:\Keil\ARM\INC" -I "d:\Keil\ARM\INC\ST\STM32F10x" -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -o ".\Obj\usb_desc.o" --omf_browse ".\Obj\usb_desc.crf" --depend ".\Obj\usb_desc.d" "user\usb_desc.c"
